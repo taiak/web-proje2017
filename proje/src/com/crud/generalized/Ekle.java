@@ -1,7 +1,6 @@
 package com.crud.generalized;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.proje.query.Searchable;
 
-@WebServlet("/guncelle")
-public class Guncelle extends HttpServlet {
+@WebServlet("/Ekle")
+public class Ekle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Guncelle() {
+
+    public Ekle() {
         super();
     }
 
@@ -23,15 +22,14 @@ public class Guncelle extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//TODO: Çakışmaları engellemek için bütün tablolara trigger yazılacak
 		String table = request.getParameter("table");
-		String no    = request.getParameter("no");
 
 		try {
 			Searchable ss = new Searchable(table);
-			ss.guncelle(request, no);
+			ss.ekle(request);
 		} catch (Exception e) {
 			System.out.println(e);
-		}
+		}	
 	}
+
 }

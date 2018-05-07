@@ -39,10 +39,6 @@ public class Searchable {
 		return ss.sil(table, where(no));
 	}
 	
-	public boolean ekle(ArrayList<String> set) {
-		return ss.ekle(table, set);
-	}
-	
 	public boolean guncelle(String set, int no) {
 		return ss.guncelle(table, set, where(no));
 	}
@@ -51,6 +47,14 @@ public class Searchable {
 		return ss.guncelle(req,  this.columnNames, this.table, this.where(where));	
 	}
 	
+	public boolean ekle(HttpServletRequest req) throws Exception {
+		return ss.ekle(this.table, req,  this.columnNames);	
+	}
+
+	public boolean ekle(ArrayList<String> set) throws Exception {
+		return ss.ekle(this.table, set);
+	}
+
 	private String where(int no) {
 		return whereTableName + " = " + String.valueOf(no);
 	}

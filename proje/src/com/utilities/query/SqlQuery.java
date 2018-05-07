@@ -94,11 +94,11 @@ public class SqlQuery {
 	}
 
 	public boolean guncelle(HttpServletRequest request, ArrayList<String> columnNames, String table, String where) throws Exception {
-		String set = makeSet(request, table, columnNames);
+		String set = makeSet(request, columnNames);
 		return this.guncelle(table, set, where);
 	}
 	
-	private String makeSet(HttpServletRequest request, String table, ArrayList<String> columnNames) throws Exception {
+	private String makeSet(HttpServletRequest request, ArrayList<String> columnNames) throws Exception {
 		String sett = "";
 		String v = null;
 		int count = columnNames.size();
@@ -114,18 +114,43 @@ public class SqlQuery {
 		
 		return sett;
 	}
-	public boolean ekle(String table, ArrayList<String> set) {
+	
+	private String seperateRequest(HttpServletRequest request, ArrayList<String> columnNames) throws Exception {
+		String sett = "";
+		
+		int count = columnNames.size();
+		
+		for(int i = 0; i < count; i++) {
+			sett += request.getParameter(columnNames.get(i));
+			
+			if(count > i + 1)
+				sett += ", ";
+		}
+		return sett;
+	}
+	
+	private String makeSet(ArrayList<String> values) throws Exception {
+		String sett = "";
+		int count = values.size();
+		for(int i = 0; i < count; i++) {
+			sett += values.get(i);
+			if(count > i + 1)
+				sett += ", ";
+		}
+		return sett;
+	}	
+	
+	public boolean ekle(String table, String tableNames, String set) {
 		table = table.split(" ")[0];
+		
+		if(tableNames != null)
+			tableNames = "(" + tableNames + ")";
+		else
+			tableNames = "";
+		
 		boolean status = false;
 		try {
-			String query = "INSERT INTO " + table + " VALUES( ";
-			int size = set.size();
-			for(int i = 0; i < size; i++) {
-				query += set.get(i);
-				if (size > i + 1)
-					query +=  ",";
-			}
-			query += ") ;";
+			String query = "INSERT INTO " + table + tableNames + " VALUES( " + set + ") ;";
 			connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
@@ -138,6 +163,21 @@ public class SqlQuery {
 		
 		return status;
 	}
+	
+	public boolean ekle(String table, String set) {
+		return ekle(table, null, set);
+	}
+	
+	public boolean ekle(String table, ArrayList<String> set) throws Exception {
+		return ekle(table, null, this.makeSet(set));
+	}
+	
+	public boolean ekle(String table, HttpServletRequest request, ArrayList<String> columnNames) throws Exception {
+		String tableNames = seperateRequest(request, columnNames);
+		String set = this.makeSet(columnNames);
+		return this.ekle(table, tableNames, set);
+	}
+	
 	public boolean sil(String table, String where) {
 		boolean status = false;
 		table = table.split(" ")[0];
@@ -181,5 +221,4 @@ public class SqlQuery {
 		
 		return state;
 	}
-
 }
