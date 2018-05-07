@@ -50,6 +50,7 @@ public class SqlQuery {
 			}
 		} catch (Exception e) {
 			System.err.println("Sorgulama sırasında hatayla karşılaşıldı!");
+			System.err.println(e);
 		} finally {
 		    connectionClose();
 		}
@@ -74,7 +75,6 @@ public class SqlQuery {
 	public boolean guncelle(String table, String set, String where) {
 		boolean status = false;
 		table = table.split(" ")[0];
-		where = where.split(" ")[0];
 		String query = "UPDATE " + table + " SET " + set + " WHERE " + where + " ;";
 		
 		try {

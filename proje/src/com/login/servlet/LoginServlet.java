@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.login.security.SafeLogin;
+import com.login.servlet.SafeLogin;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
     private static String userSuccess = "/proje/userLogin.jsp";
     private static String userUnsuccess = "/proje/deneme.jsp";
     
-    private static String adminSuccess = "/proje/adminLogin.jsp";
+    private static String adminSuccess = "/proje/MainPanel";
     private static String adminUnsucces = "/proje/deneme.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

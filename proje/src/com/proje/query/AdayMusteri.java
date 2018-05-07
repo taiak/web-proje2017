@@ -1,10 +1,11 @@
 package com.proje.query;
 
 import com.proje.query.Searchable;
+import com.utilities.query.Selector;
 
 public class AdayMusteri extends Searchable {
 	public AdayMusteri() {
-		super("AdayMusteri", "no");
+		super(Selector.AdayMusteriTableName);
 	}
 	
 	public boolean onayla(int no) {

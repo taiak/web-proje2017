@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.query.Urun;
+import com.proje.query.Musteri;
 import com.utilities.query.Selector;
 
 
-@WebServlet("/urunlistele")
-public class UrunListele extends HttpServlet {
+@WebServlet("/musteriler")
+public class Musteriler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public UrunListele() {
+    public Musteriler() {
         super();
     }
 
@@ -32,7 +32,7 @@ public class UrunListele extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {
-			Urun m = new Urun();
+			Musteri m = new Musteri();
 			String updatePage = Selector.UpdatePage;
 			String deletePage = Selector.DeletePage;
 					
@@ -67,7 +67,7 @@ public class UrunListele extends HttpServlet {
     		}
             out.println("</body>");
             out.println("</html>");
-		} catch (Exception e) {
+        } catch (Exception e) {
         	System.out.println(e);
         }
 	}

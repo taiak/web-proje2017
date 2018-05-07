@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.query.Urun;
+import com.proje.query.Siparis;
 import com.utilities.query.Selector;
 
 
-@WebServlet("/urunlistele")
-public class UrunListele extends HttpServlet {
+@WebServlet("/siparisler")
+public class SiparisListele extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public UrunListele() {
+    public SiparisListele() {
         super();
     }
 
@@ -31,11 +31,12 @@ public class UrunListele extends HttpServlet {
 	}
 	
 	private void listele(HttpServletResponse response){
-		try {
-			Urun m = new Urun();
+		try {            
+			Siparis m = new Siparis();
 			String updatePage = Selector.UpdatePage;
 			String deletePage = Selector.DeletePage;
-					
+			String table = Selector.SiparisTableName;
+			
 	        PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>");
             out.println("<html><head>");
@@ -60,8 +61,8 @@ public class UrunListele extends HttpServlet {
             		out.printf("<input type=\"text\" name=\"" + m.columnNames.get(i) +"\"" +
             				   "value=\"" + e.get(i) + "\"/>");
             	}
-    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ updatePage + "', 'Musteri');\">guncelle</button>");
-    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ deletePage + "');\">sil</button>");
+    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ updatePage + "', '" + table + "');\">guncelle</button>");
+    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ deletePage + "', '" + table + "');\">sil</button>");
     			out.printf("</form>");
             	form_num++;
     		}
@@ -72,4 +73,3 @@ public class UrunListele extends HttpServlet {
         }
 	}
 }
-

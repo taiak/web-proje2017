@@ -1,6 +1,8 @@
 package com.proje.query;
 
 import java.util.ArrayList;
+
+import com.utilities.query.Selector;
 import com.utilities.query.SqlQuery;
 
 public class Searchable {
@@ -11,9 +13,9 @@ public class Searchable {
 	public ArrayList<ArrayList<String>> list;
 	public int columnNumber;
 	
-	public Searchable(String table, String whereTableName) {
-		this.table = table;
-		this.whereTableName = whereTableName;
+	public Searchable(String table) {
+		this.table = Selector.table_selector(table);
+		this.whereTableName = Selector.where_selector(table);
 		setColumnNames();
 	}
 	
