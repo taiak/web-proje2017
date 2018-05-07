@@ -33,14 +33,15 @@ public class Musteriler extends HttpServlet {
 	private void listele(HttpServletResponse response){
 		try {
 			Musteri m = new Musteri();
-			String updatePage = Selector.UpdatePage;
+			String table = Selector.MusteriTableName;
 			String deletePage = Selector.DeletePage;
-					
+			String updatePage = Selector.UpdatePage;
+			
 	        PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>");
             out.println("<html><head>");
             out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
-            out.println("<title>Urun Listele</title>"
+            out.println("<title>Musteri Listele</title>"
             		+ "<script>"
             		+ "function f(n, type, table){\n"
             		+ "    id = \"form\" + n ;\n"
@@ -60,8 +61,8 @@ public class Musteriler extends HttpServlet {
             		out.printf("<input type=\"text\" name=\"" + m.columnNames.get(i) +"\"" +
             				   "value=\"" + e.get(i) + "\"/>");
             	}
-    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ updatePage + "', 'Musteri');\">guncelle</button>");
-    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ deletePage + "');\">sil</button>");
+    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ updatePage + "', '" + table + "');\">guncelle</button>");
+    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ deletePage + "', '" + table + "');\">sil</button>");
     			out.printf("</form>");
             	form_num++;
     		}

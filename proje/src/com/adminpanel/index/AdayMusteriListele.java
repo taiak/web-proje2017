@@ -33,15 +33,15 @@ public class AdayMusteriListele extends HttpServlet {
 	private void listele(HttpServletResponse response){
 		try {
 			AdayMusteri m = new AdayMusteri();
-			String updatePage = Selector.UpdatePage;
-			String deletePage = Selector.DeletePage;
 			String table = Selector.AdayMusteriTableName;
+			String deletePage = Selector.DeletePage;
+			String updatePage = Selector.UpdatePage;
 			
 	        PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>");
             out.println("<html><head>");
             out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
-            out.println("<title>Urun Listele</title>"
+            out.println("<title>Aday Musteri Listele</title>"
             		+ "<script>"
             		+ "function f(n, type, table){\n"
             		+ "    id = \"form\" + n ;\n"

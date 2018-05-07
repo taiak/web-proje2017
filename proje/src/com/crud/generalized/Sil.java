@@ -21,10 +21,10 @@ public class Sil extends HttpServlet {
 		doPost(request, response);
 	}
 
-	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String no      = request.getParameter("no");
 		String table   = request.getParameter("table");
+		
 		table = Selector.table_selector(table);
 		try {
 			String where = Selector.where_selector(table) + " = '" + no + "'";

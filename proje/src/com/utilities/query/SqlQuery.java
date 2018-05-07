@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.utilities.query.DAO;
 
@@ -50,7 +53,6 @@ public class SqlQuery {
 			}
 		} catch (Exception e) {
 			System.err.println("Sorgulama sırasında hatayla karşılaşıldı!");
-			System.err.println(e);
 		} finally {
 		    connectionClose();
 		}
@@ -90,7 +92,28 @@ public class SqlQuery {
 		}
 		return status;
 	}
+
+	public boolean guncelle(HttpServletRequest request, ArrayList<String> columnNames, String table, String where) throws Exception {
+		String set = makeSet(request, table, columnNames);
+		return this.guncelle(table, set, where);
+	}
 	
+	private String makeSet(HttpServletRequest request, String table, ArrayList<String> columnNames) throws Exception {
+		String sett = "";
+		String v = null;
+		int count = columnNames.size();
+		
+		for(int i = 0; i < count; i++) 
+		{
+			v = request.getParameter(columnNames.get(i));
+			sett += columnNames.get(i) + "='" + v + "'";
+			
+			if(count > i + 1)
+				sett += ", ";
+		}
+		
+		return sett;
+	}
 	public boolean ekle(String table, ArrayList<String> set) {
 		table = table.split(" ")[0];
 		boolean status = false;

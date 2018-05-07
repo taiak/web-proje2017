@@ -33,9 +33,10 @@ public class UrunListele extends HttpServlet {
 	private void listele(HttpServletResponse response){
 		try {
 			Urun m = new Urun();
-			String updatePage = Selector.UpdatePage;
+			String table = Selector.UrunTableName;
 			String deletePage = Selector.DeletePage;
-					
+			String updatePage = Selector.UpdatePage;
+			
 	        PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>");
             out.println("<html><head>");
@@ -60,8 +61,8 @@ public class UrunListele extends HttpServlet {
             		out.printf("<input type=\"text\" name=\"" + m.columnNames.get(i) +"\"" +
             				   "value=\"" + e.get(i) + "\"/>");
             	}
-    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ updatePage + "', 'Musteri');\">guncelle</button>");
-    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ deletePage + "');\">sil</button>");
+    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ updatePage + "', '" + table + "');\">guncelle</button>");
+    			out.printf("<button onclick=\"return f(" + form_num + ", '"+ deletePage + "', '" + table + "');\">sil</button>");
     			out.printf("</form>");
             	form_num++;
     		}
