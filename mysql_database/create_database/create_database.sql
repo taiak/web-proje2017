@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS PROJE;
 CREATE DATABASE PROJE;
 
 USE PROJE;
@@ -33,7 +34,7 @@ CREATE TABLE OdemeYontemleri (
 );
 
 CREATE TABLE Siparis (
-  siparis_no     INT(64) NOT NULL AUTO_INCREMENT,
+  no     INT(64) NOT NULL AUTO_INCREMENT,
   musteri_no     INT(64) UNSIGNED NOT NULL,
   urun_no        INT(64) UNSIGNED NOT NULL,
   siparis_tarihi VARCHAR(20) NOT NULL,
@@ -41,7 +42,7 @@ CREATE TABLE Siparis (
   FOREIGN KEY (odeme_yontemi_no) REFERENCES OdemeYontemleri(no),
   FOREIGN KEY (musteri_no) REFERENCES Musteri(no),
   FOREIGN KEY (urun_no)    REFERENCES Urun(no),
-  PRIMARY KEY (siparis_no, musteri_no, urun_no, siparis_tarihi)
+  PRIMARY KEY (no, musteri_no, urun_no, siparis_tarihi)
 );
 
 CREATE TABLE AdayMusteri (

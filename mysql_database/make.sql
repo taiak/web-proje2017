@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS PROJE;
 source ./create_database/create_database.sql;
 source ./create_database/add_example.sql;
 
