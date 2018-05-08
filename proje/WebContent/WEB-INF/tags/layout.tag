@@ -1,7 +1,7 @@
 <%@ tag body-content="scriptless" %>
 <%@ attribute name="title" required="true" type="java.lang.String" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 	<title>${title}</title>
 	<jsp:include page="/WEB-INF/tags/_metadata.jsp"></jsp:include>
