@@ -3,11 +3,11 @@ package com.utilities.query;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.utilities.query.DAO;
 
 public class SqlQuery {

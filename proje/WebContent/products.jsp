@@ -11,19 +11,6 @@
 	<!-- Header -->
     <jsp:include page="_header.jsp"></jsp:include>
 
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Ürünler</title>
-	<jsp:include page="_metadata.jsp"></jsp:include>
-</head>
-<body class="animsition">
-
-	<!-- Header -->
-    <jsp:include page="_header.jsp"></jsp:include>
-
 	<!-- New Products -->
 	<section class="newproduct bgwhite p-t-45 p-b-105">
 		<div class="container">
