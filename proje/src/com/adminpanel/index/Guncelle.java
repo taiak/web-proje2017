@@ -20,9 +20,7 @@ public class Guncelle extends HttpServlet {
 		doPost(request, response);
 	}
 
-	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String no     = request.getParameter("no");
 		String adi    = request.getParameter("adi");
 		String soyadi = request.getParameter("soyadi");
