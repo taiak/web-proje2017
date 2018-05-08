@@ -2,7 +2,7 @@
 <nav class="navbar navbar-dark navbar-expand-sm sticky-top bg-dark">
     <div class="navbar-header">
       <!-- Marka -->
-      <a href="/admin" class="navbar-brand">
+      <a href="./" class="navbar-brand">
         <font size="4"><strong>Nispet E-Ticaret Yönetim Paneli</strong></font> 
         <!-- TODO: logo boyutunu admin panelden ayarlanabilir yap -->
       </a>
@@ -20,7 +20,7 @@
     <ul class="nav navbar ml-auto">
       <li><a href="../" target="_blank", class="btn btn-success">Siteyi Görüntüle</a></li>
       <li>-</li>
-      <li><a href="/" class="btn btn-danger">Çıkış Yap</a></li>
+      <li><a href="#" class="btn btn-danger">Çıkış Yap</a></li>
     </ul>
   </div>
 </nav>
