@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.query.Siparis;
+import com.proje.query.Searchable;
 import com.utilities.query.Selector;
 
 
@@ -32,7 +32,7 @@ public class SiparisListele extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {            
-			Siparis m = new Siparis();
+			Searchable m = new Searchable(Selector.SiparisTableName);
 			String updatePage = Selector.UpdatePage;
 			String deletePage = Selector.DeletePage;
 			String table = Selector.SiparisTableName;

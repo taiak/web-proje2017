@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.query.Urun;
+import com.proje.query.Searchable;
 import com.utilities.query.Selector;
 
 
@@ -32,7 +32,7 @@ public class UrunListele extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {
-			Urun m = new Urun();
+			Searchable m = new Searchable(Selector.UrunTableName);
 			String table = Selector.UrunTableName;
 			String deletePage = Selector.DeletePage;
 			String updatePage = Selector.UpdatePage;

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.query.AdayMusteri;
+import com.proje.query.Searchable;
 import com.utilities.query.Selector;
 
 
@@ -32,7 +32,7 @@ public class AdayMusteriListele extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {
-			AdayMusteri m = new AdayMusteri();
+			Searchable m = new Searchable(Selector.AdayMusteriTableName);
 			String table = Selector.AdayMusteriTableName;
 			String deletePage = Selector.DeletePage;
 			String updatePage = Selector.UpdatePage;

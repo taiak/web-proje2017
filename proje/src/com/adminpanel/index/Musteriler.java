@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.query.Musteri;
+import com.proje.query.Searchable;
 import com.utilities.query.Selector;
 
 
@@ -32,7 +32,7 @@ public class Musteriler extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {
-			Musteri m = new Musteri();
+			Searchable m = new Searchable(Selector.MusteriTableName);
 			String table = Selector.MusteriTableName;
 			String deletePage = Selector.DeletePage;
 			String updatePage = Selector.UpdatePage;
