@@ -1,15 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Anasayfa</title>
-	<jsp:include page="_metadata.jsp"></jsp:include>
-</head>
-<body class="animsition">
-
-	<!-- Header -->
-    <jsp:include page="_header.jsp"></jsp:include>
+<%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<z:layout title="Anasayfa">
 
 	<!-- Slide1 -->
 	<section class="slide1">
@@ -509,9 +500,4 @@
 			</div>
 		</div>
 	</section>
-
-
-	<!-- Footer -->
-    <jsp:include page="_footer.jsp"></jsp:include>
-</body>
-</html>
+</z:layout>

@@ -1,16 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Hakkımızda</title>
-	<jsp:include page="_metadata.jsp"></jsp:include>
-
-</head>
-<body class="animsition">
-
-	<!-- Header -->
-  <jsp:include page="_header.jsp"></jsp:include>
+<%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<z:layout title="Ürünler">
 
 	<!-- Title Page -->
 	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/about-us-banner.jpg);">
@@ -81,9 +71,4 @@
 			</div>
 		</div>
 	</section>
-
-
-	<!-- Footer -->
-  <jsp:include page="_footer.jsp"></jsp:include>
-</body>
-</html>
+</z:layout>
