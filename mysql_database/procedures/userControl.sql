@@ -5,15 +5,15 @@ DELIMITER //
 CREATE PROCEDURE userControl(email VARCHAR(50), password VARCHAR(64))
 BEGIN
   SET @return = FALSE;
-  IF(EXISTS(SELECT Musteri.email 
-            FROM Kullanici INNER JOIN Musteri 
-                           ON Kullanici.musteri_no = Musteri.no
-            WHERE Kullanici.password = password AND Musteri.email = email)) 
+  IF(EXISTS(SELECT Customer.email 
+            FROM CustomerShadow INNER JOIN Customer 
+                           ON CustomerShadow.customer_no = Customer.no
+            WHERE CustomerShadow.password = password AND Customer.email = email)) 
   THEN
     SET @return = TRUE;
   END IF;
 
-  SELECT @return as 'sonuc';
+  SELECT @return as 'value';
 END //
 
 DELIMITER ;

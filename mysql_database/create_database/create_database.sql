@@ -3,51 +3,50 @@ CREATE DATABASE PROJE;
 
 USE PROJE;
 
-CREATE TABLE Musteri (
-  no     INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  adi    VARCHAR(32) NOT NULL,
-  soyadi VARCHAR(32) NOT NULL,
-  email  VARCHAR(50) NOT NULL unique
+CREATE TABLE `Customer` (
+  no      INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name    VARCHAR(32) NOT NULL,
+  surname VARCHAR(32) NOT NULL,
+  email   VARCHAR(50) NOT NULL unique
 );
 
-CREATE TABLE Urun (
-  no           INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  adi          VARCHAR(32) NOT NULL,
-  stok_miktari INT(32) NOT NULL
+CREATE TABLE `Product` (
+  no    INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name  VARCHAR(32) NOT NULL,
+  stock INT(32) NOT NULL
 );
 
-CREATE TABLE Kullanici (
-  musteri_no  INT(64) UNSIGNED PRIMARY KEY,
+CREATE TABLE `CustomerShadow` (
+  customer_no  INT(64) UNSIGNED PRIMARY KEY,
+  password     VARCHAR(64) NOT NULL,
+  FOREIGN KEY  (customer_no) REFERENCES Customer (no)
+);
+
+CREATE TABLE `Admin` (
+  no   INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(64) NOT NULL unique
+);
+
+CREATE TABLE `AdminShadow` (
+  admin_no    INT(64) UNSIGNED PRIMARY KEY,
   password    VARCHAR(64) NOT NULL,
-  FOREIGN KEY (musteri_no) REFERENCES Musteri (no)
+  FOREIGN KEY (admin_no) REFERENCES Admin (no)
 );
 
-CREATE TABLE Yonetici (
-  user_name VARCHAR(64) NOT NULL PRIMARY KEY,
-  password  VARCHAR(64) NOT NULL  
-);
-
-CREATE TABLE OdemeYontemleri (
+CREATE TABLE `Payment` (
   no       INT(5) UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  adi      VARCHAR(15) NOT NULL,
-  aciklama VARCHAR(150) NOT NULL
+  name     VARCHAR(15) NOT NULL,
+  comment  VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE Siparis (
-  no     INT(64) NOT NULL AUTO_INCREMENT,
-  musteri_no     INT(64) UNSIGNED NOT NULL,
-  urun_no        INT(64) UNSIGNED NOT NULL,
-  siparis_tarihi VARCHAR(20) NOT NULL,
-  odeme_yontemi_no  INT(5) UNSIGNED NOT NULL,
-  FOREIGN KEY (odeme_yontemi_no) REFERENCES OdemeYontemleri(no),
-  FOREIGN KEY (musteri_no) REFERENCES Musteri(no),
-  FOREIGN KEY (urun_no)    REFERENCES Urun(no),
-  PRIMARY KEY (no, musteri_no, urun_no, siparis_tarihi)
-);
-
-CREATE TABLE AdayMusteri (
-  no     INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  adi    VARCHAR(32) NOT NULL,
-  soyadi VARCHAR(32) NOT NULL,
-  email  VARCHAR(50) NOT NULL
+CREATE TABLE `Orders` (
+  order_no    INT(64) NOT NULL AUTO_INCREMENT,
+  customer_no INT(64) UNSIGNED NOT NULL,
+  product_no  INT(64) UNSIGNED NOT NULL,
+  order_date  VARCHAR(20)      NOT NULL,
+  payment_no  INT(5) UNSIGNED  NOT NULL,
+  FOREIGN KEY (payment_no)  REFERENCES Payment(no),
+  FOREIGN KEY (customer_no) REFERENCES Customer(no),
+  FOREIGN KEY (product_no)  REFERENCES Product(no),
+  PRIMARY KEY (order_no, customer_no, product_no, order_date)
 );
