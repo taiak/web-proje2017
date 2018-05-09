@@ -51,6 +51,33 @@ public class ProductDao {
 		return l;
 	};
 	
+	public static Product find(String no){
+		Product p = new Product();
+		PreparedStatement ps = null;
+		Connection con = null;
+		ResultSet rs = null;
+		String where = "no = '" + no + "'";
+		String query = "SELECT * FROM " + TableName + " WHERE " + where + " ;";
+
+		try {
+			con = connectionOpen();	
+			ps = (PreparedStatement	) con.prepareStatement(query);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				p.setNo(rs.getString("no"));
+				p.setName(rs.getString("name"));
+				p.setStock(rs.getString("stock"));
+			}
+		} catch (Exception e){
+			System.out.println(e);
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		
+		return p;
+	};
+	
 	public static boolean delete(Product p) {
 		boolean statu = false;
 		PreparedStatement ps = null;
@@ -71,12 +98,12 @@ public class ProductDao {
 		return statu;
 	};
 	
-	public static boolean update(Product p, String no) {
+	public static boolean update(Product p) {
 		boolean statu = false;
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		String where = "no = '" + no + "' ";
+		String where = "no = '" + p.getNo() + "' ";
 		String set = "name = '" + p.getName() + "', stock = '" + p.getStock() + "' ";
 		String query = "UPDATE " + TableName + " SET " + set + " WHERE "+ where + " ;";
 		try {

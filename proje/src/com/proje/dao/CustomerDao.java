@@ -54,6 +54,39 @@ public class CustomerDao {
 		return l;
 	};
 	
+	public static Customer find(String no){
+		Customer c = new Customer();
+		PreparedStatement ps = null;
+		Connection con = null;
+		ResultSet rs = null;
+		String where = "no = '" + no + "'";
+		String query = "SELECT * FROM " + TableName + " WHERE " + where + " ;";
+
+		try {
+			con = connectionOpen();	
+			ps = (PreparedStatement	) con.prepareStatement(query);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				c.setNo(rs.getString("no"));
+				c.setName(rs.getString("name"));
+				c.setSurname(rs.getString("surname"));
+				c.setEmail(rs.getString("email"));
+			}
+		} catch (Exception e){
+			System.out.println(e);
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		
+		return c;
+	};
+	
+	public static String name(String no){
+		
+		return find(no).getName();
+	};
+	
 	public static boolean delete(Customer c) {
 		boolean statu = false;
 		PreparedStatement ps = null;
@@ -74,12 +107,12 @@ public class CustomerDao {
 		return statu;
 	};
 	
-	public static boolean update(Customer c, String no) {
+	public static boolean update(Customer c) {
 		boolean statu = false;
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		String where = "no = '" + no + "' ";
+		String where = "no = '" + c.getNo() + "' ";
 		String set = "name = '" + c.getName() + "', surname = '" 
 					 + c.getSurname() + "' email = '" + c.getEmail() + "'";
 		String query = "UPDATE " + TableName + " SET " + set + " WHERE "+ where + " ;";

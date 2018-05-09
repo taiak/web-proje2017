@@ -3,55 +3,98 @@ package com.proje.beans;
 import java.io.Serializable;
 
 public class Order implements Serializable {
+	private String orderNo         = "Nan";
+	private String customerNo      = "Nan";
+	private String customerName    = "Nan";
+	private String customerSurname = "Nan";
+	private String customerEmail   = "Nan";
+	private String productNo       = "Nan";
+	private String productName     = "Nan";
+	private String orderDate       = "Nan";
+	private String paymentNo       = "Nan";
+	private String paymentName     = "Nan";
+	
+	public String getPaymentName() {
+		return paymentName;
+	}
 
-	  private String orderNo = "Nan";
-	  private String customerNo = "Nan";
-	  private String productNo = "Nan";
-	  private String orderDate = "Nan";
-	  private String paymentNo = "Nan";
+	public void setPaymentName(String paymentName) {
+		this.paymentName = paymentName;
+	}
 
-	  public Order() {
+	public Order() {
+	}
 
-	  }
+	public String getCustomerName() {
+		return customerName;
+	}
 
-	  public String getOrderNo(){
-	    return orderNo;
-	  }
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
-	  public void setOrderNo(String  OrderNo){
-	    this.orderNo = OrderNo;
-	  }
+	public String getProductName() {
+		return productName;
+	}
 
-	  public String getCustomerNo(){
-	    return customerNo;
-	  }
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 
-	  public void setCustomerNo(String  CustomerNo){
-	    this.customerNo = CustomerNo;
-	  }
+	public String getOrderNo() {
+		return orderNo;
+	}
 
-	  public String getProductNo(){
-	    return productNo;
-	  }
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
 
-	  public void setProductNo(String  ProductNo){
-	    this.productNo = ProductNo;
-	  }
+	public String getCustomerNo() {
+		return customerNo;
+	}
 
-	  public String getOrderDate(){
-	    return orderDate;
-	  }
+	public void setCustomerNo(String customerNo) {
+		this.customerNo = customerNo;
+	}
 
-	  public void setOrderDate(String  OrderDate){
-	    this.orderDate = OrderDate;
-	  }
+	public String getProductNo() {
+		return productNo;
+	}
 
-	  public String getPaymentNo(){
-	    return paymentNo;
-	  }
+	public void setProductNo(String productNo) {
+		this.productNo = productNo;
+	}
 
-	  public void setPaymentNo(String  PaymentNo){
-	    this.paymentNo = PaymentNo;
-	  }
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getPaymentNo() {
+		return paymentNo;
+	}
+
+	public void setPaymentNo(String paymentNo) {
+		this.paymentNo = paymentNo;
+	}
+
+	public String getCustomerSurname() {
+		return customerSurname;
+	}
+
+	public void setCustomerSurname(String customerSurname) {
+		this.customerSurname = customerSurname;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
 }
 
