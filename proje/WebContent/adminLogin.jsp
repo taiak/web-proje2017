@@ -7,11 +7,10 @@
 <title>Admin Login</title>
 </head>
 <body>
-    <form action="LoginServlet" method="post">
+    <form action="AdminLoginServlet" method="post">
         Name:<input type="text" name="userName"/><br/>
         Password:<input type="password" name="password"/><br/>
         <input type="submit" name="login" value="Login"/>
-        <input type="hidden" name="type" value="admin"/>
     </form>
 </body>
 </html>

@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.proje.beans.Login;
-import com.proje.beans.User;
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/LoginServlet" })
-public class LoginServlet extends HttpServlet {
+@WebServlet("/AdminLoginServlet")
+public class AdminLoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 633170033630746350L;
 	
-	public LoginServlet() {
+	public AdminLoginServlet() {
 	    super();
 	}
 	
@@ -30,23 +29,19 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		 
-		final String success_page   = "adminLogin.jsp";
-		final String unsuccess_page = "userLogin.jsp";
-		String page = null;
 		
+		final String success_page   = "about.jsp";
+		final String unsuccess_page = "about.jsp";
+		String page = null;
 		try {
 	        HttpSession session = request.getSession();
 	        synchronized(session) {
 	        	Login l = new Login();
-	        	User user = new User();
+
 	        	l.setName((String)request.getParameter("userName"));
 	        	l.setPassword((String)request.getParameter("password"));
 	        	
-	        	user = SafeLogin.userControl(l);
-	        	System.out.println("name:" + user.getName());
-	        	System.out.println("pass:" + user.getPass());
-                page = (user.getPass()) ? success_page: unsuccess_page;
+                page = (SafeLogin.adminControl(l)) ? success_page: unsuccess_page;
                 
                 RequestDispatcher dispatcher = request.getRequestDispatcher(page);
                 
@@ -57,4 +52,5 @@ public class LoginServlet extends HttpServlet {
         	System.out.println(e);
         }
 	}
+
 }

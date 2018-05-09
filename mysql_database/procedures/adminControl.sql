@@ -4,10 +4,12 @@ DELIMITER //
 
 CREATE PROCEDURE adminControl(name VARCHAR(64), passwd VARCHAR(64))
 BEGIN
-  SET @return = FALSE;
-  IF(EXISTS(SELECT name FROM  Admin WHERE  name = name AND password = passwd)) 
+  SET @return = 'NaN';
+  IF(EXISTS(SELECT name FROM  Admin INNER JOIN AdminShadow 
+  	                                ON Admin.no = AdminShadow.admin_no
+  			WHERE  Admin.name = name AND AdminShadow.password = passwd)) 
   THEN
-    SET @return = TRUE;
+    SET @return = name;
   END IF;
 
   SELECT @return as 'sonuc';
