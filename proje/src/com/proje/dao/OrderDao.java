@@ -48,6 +48,7 @@ public class OrderDao {
 				o.setProductNo(rs.getString("product_no"));
 				o.setOrderDate(rs.getString("order_date"));
 				o.setPaymentNo(rs.getString("payment_no"));
+				o.setPaymentName(PaymentDao.find(o.getPaymentNo()).getName());
 				o.setProductName(ProductDao.find(o.getProductNo()).getName());
 				c = CustomerDao.find(o.getCustomerNo());
 				o.setCustomerName(c.getName());
@@ -57,11 +58,11 @@ public class OrderDao {
 				l.add(o);
 			}	
 		} catch (Exception e){
-			System.out.println(e);
+			System.out.println("db: listing error!");
+			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
-		
 		return l;
 	};
 	
@@ -72,14 +73,13 @@ public class OrderDao {
 		ResultSet rs = null;
 		String where = "no = " + o.getOrderNo();
 		String query = "DELETE FROM " + TableName + " WHERE " + where + " ;";
-		System.out.println("query: " + query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println(e);
+			System.out.println("db: remove error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -91,21 +91,20 @@ public class OrderDao {
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		try {
-			String where = "order_no = '" + o.getOrderNo() + "' ";
-			String set = " customer_no = '" + o.getCustomerNo() +
-				     "', product_no = '" + o.getProductNo() +
-				     "', order_date = '" + o.getOrderDate() +
-				     "', payment_no = '" + o.getPaymentNo() + "'" ;
+		String where = "order_no = '" + o.getOrderNo() + "' ";
+		String set = " customer_no = '" + o.getCustomerNo() +
+		     "', product_no = '" + o.getProductNo() +
+		     "', order_date = '" + o.getOrderDate() +
+		     "', payment_no = '" + o.getPaymentNo() + "'" ;
 		
-			String query = "UPDATE " + TableName + " SET " + set + " WHERE " + where + " ;";
-			System.out.println("query: " + query);
+		String query = "UPDATE " + TableName + " SET " + set + " WHERE " + where + " ;";
+		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("Guncelleme basarisiz!");
+			System.out.println("db: Update error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -120,18 +119,16 @@ public class OrderDao {
 		String values = "(0,'" + o.getCustomerNo() + "', '" + o.getProductNo() +
 				"', '" + o.getOrderDate() + "', '" + o.getPaymentNo() +"');";
 		String query = "INSERT INTO " + TableName + " VALUES " + values;
-		System.out.println("query: " + query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e) {
-			System.out.println("Ekleme basarisiz!");
+			System.out.println("db: Add error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
 		return statu;
 	};
-
 }

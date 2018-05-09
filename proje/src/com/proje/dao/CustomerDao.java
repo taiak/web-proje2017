@@ -46,7 +46,7 @@ public class CustomerDao {
 				l.add(c);
 			}
 		} catch (Exception e){
-			System.out.println(e);
+			System.out.println("db: listing error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -74,7 +74,7 @@ public class CustomerDao {
 				c.setEmail(rs.getString("email"));
 			}
 		} catch (Exception e){
-			System.out.println(e);
+			System.out.println("db: finding error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -100,7 +100,7 @@ public class CustomerDao {
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println(e);
+			System.out.println("db: Deleting error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -122,7 +122,7 @@ public class CustomerDao {
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("Guncelleme basarisiz!");			
+			System.out.println("db: Updating error!");			
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -136,14 +136,13 @@ public class CustomerDao {
 		ResultSet rs = null;
 		String values = "(0, '" + c.getName() + "', '" + c.getSurname() + "', '" + c.getEmail() + "') ";
 		String query = "INSERT INTO " + TableName + " VALUES " + values + " ;";
-		System.out.println("query: " + query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e) {
-			System.out.println("Ekleme basarisiz!");			
+			System.out.println("db: Inserting error!");			
 		} finally {
 			connectionClose(rs, ps, con);
 		}

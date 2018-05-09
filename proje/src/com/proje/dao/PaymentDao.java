@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.proje.beans.Payment;
+import com.proje.beans.Payment;
 import com.utilities.query.DatabaseOpener;
 
 public class PaymentDao {
@@ -41,11 +42,38 @@ public class PaymentDao {
 				l.add(p);
 			}
 		} catch (Exception e){
-			System.out.println(e);
+			System.out.println("db: Listing error!");
 		} finally {
 			connectionClose(rs, ps, con);
 		}
 		
 		return l;
+	};
+	
+	public static Payment find(String no){
+		Payment p = new Payment();
+		PreparedStatement ps = null;
+		Connection con = null;
+		ResultSet rs = null;
+		String where = "no = '" + no + "'";
+		String query = "SELECT * FROM " + TableName + " WHERE " + where + " ;";
+
+		try {
+			con = connectionOpen();	
+			ps = (PreparedStatement	) con.prepareStatement(query);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				p.setNo(rs.getString("no"));
+				p.setName(rs.getString("name"));
+				p.setComment(rs.getString("comment"));
+			}
+		} catch (Exception e){
+			System.out.println("db: finding error!");
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		
+		return p;
 	};
 }

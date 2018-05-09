@@ -49,9 +49,7 @@ public class AdminLoginServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher(page);
                 
                 dispatcher.forward(request, response);
-
              }
-        
         } catch (Exception e) {
         	System.out.println(e);
         }
