@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		 
-		final String success_page   = "adminLogin.jsp";
+		final String success_page   = "home";
 		final String unsuccess_page = "userLogin.jsp";
 		String page = null;
 		
