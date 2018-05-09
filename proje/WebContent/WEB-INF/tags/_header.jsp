@@ -20,7 +20,7 @@
         <nav class="menu">
           <ul class="main_menu">
             <li>
-              <a href="index.jsp">Anasayfa</a>
+              <a href="home">Anasayfa</a>
             </li>
 
             <li>
@@ -40,6 +40,7 @@
 
       <!-- Header Icon -->
       <div class="header-icons">
+      <jsp:useBean id="user" class="com.proje.beans.User" ></jsp:useBean>
         <a href="userLogin.jsp" class="header-wrapicon1 dis-block">
           <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
         </a>
