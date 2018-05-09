@@ -1,6 +1,7 @@
 package com.login.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.proje.beans.Login;
+import com.proje.beans.*;
+import com.proje.dao.*;
 
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
@@ -46,11 +49,12 @@ public class AdminLoginServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher(page);
                 
                 dispatcher.forward(request, response);
+
              }
         
         } catch (Exception e) {
         	System.out.println(e);
         }
 	}
-
 }
+

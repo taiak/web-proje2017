@@ -32,6 +32,7 @@ public class Musteriler extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {
+			/*
 			Searchable m = new Searchable(Selector.MusteriTableName);
 			String table = Selector.MusteriTableName;
 			String deletePage = Selector.DeletePage;
@@ -68,6 +69,7 @@ public class Musteriler extends HttpServlet {
     		}
             out.println("</body>");
             out.println("</html>");
+            */
         } catch (Exception e) {
         	System.out.println(e);
         }

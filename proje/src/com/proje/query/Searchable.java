@@ -16,8 +16,8 @@ public class Searchable {
 	public int columnNumber = 0;
 	
 	public Searchable(String table) {
-		this.table = Selector.table_selector(table);
-		this.whereTableName = Selector.where_selector(table);
+		this.table = table;//Selector.table_selector(table);
+		this.whereTableName = "no";//Selector.where_selector(table);
 		setColumnNames();
 	}
 	

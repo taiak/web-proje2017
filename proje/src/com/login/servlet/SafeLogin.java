@@ -4,10 +4,9 @@ import java.security.MessageDigest;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-
 import com.proje.beans.Login;
 import com.proje.beans.User;
-import com.utilities.query.DAO;
+import com.utilities.query.DatabaseOpener;
 	
 		
 public class SafeLogin {
@@ -31,7 +30,7 @@ public class SafeLogin {
 	
 	public static boolean adminControl(Login user) {
 		boolean state = false;
-		Connection con = DAO.open();
+		Connection con = DatabaseOpener.open();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
@@ -56,7 +55,7 @@ public class SafeLogin {
 	
 	public static User userControl(Login user) {
 		User u = new User();
-		Connection con = DAO.open();;
+		Connection con = DatabaseOpener.open();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		System.out.println("User Control from database!");

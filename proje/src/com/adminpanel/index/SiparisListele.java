@@ -32,6 +32,7 @@ public class SiparisListele extends HttpServlet {
 	
 	private void listele(HttpServletResponse response){
 		try {            
+			/*
 			Searchable m = new Searchable(Selector.SiparisTableName);
 			String updatePage = Selector.UpdatePage;
 			String deletePage = Selector.DeletePage;
@@ -68,6 +69,7 @@ public class SiparisListele extends HttpServlet {
     		}
             out.println("</body>");
             out.println("</html>");
+            */
 		} catch (Exception e) {
         	System.out.println(e);
         }

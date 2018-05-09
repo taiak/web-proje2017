@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.utilities.query.DAO;
+import com.utilities.query.DatabaseOpener;
 
 public class SqlQuery {
 	private Connection con;
@@ -21,7 +21,7 @@ public class SqlQuery {
 	}
 	
 	private void connectionOpen() {
-		con = DAO.open();
+		con = DatabaseOpener.open();
 	}
 
 	private void connectionClose() {

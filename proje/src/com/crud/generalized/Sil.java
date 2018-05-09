@@ -25,9 +25,8 @@ public class Sil extends HttpServlet {
 		String no      = request.getParameter("no");
 		String table   = request.getParameter("table");
 		
-		table = Selector.table_selector(table);
 		try {
-			String where = Selector.where_selector(table) + " = '" + no + "'";
+			String where = "no = '" + no + "'";
 			SqlQuery ss  = new SqlQuery();
 			ss.sil(table, where);
 		} catch (Exception e) {

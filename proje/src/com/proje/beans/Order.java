@@ -2,7 +2,7 @@ package com.proje.beans;
 
 import java.io.Serializable;
 
-public class Orders implements Serializable {
+public class Order implements Serializable {
 
 	  private String orderNo = "Nan";
 	  private String customerNo = "Nan";
@@ -10,7 +10,7 @@ public class Orders implements Serializable {
 	  private String orderDate = "Nan";
 	  private String paymentNo = "Nan";
 
-	  public Orders() {
+	  public Order() {
 
 	  }
 

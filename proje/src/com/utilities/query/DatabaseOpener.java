@@ -3,7 +3,7 @@ package com.utilities.query;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DAO {
+public class DatabaseOpener {
 	private static String dbUsername = "projeci";
 	private static String dbPassword = "nahsanabaklava.0";
 	private static String dbName = "PROJE";

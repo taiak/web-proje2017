@@ -45,8 +45,5 @@ CREATE TABLE `Orders` (
   product_no  INT(64) UNSIGNED NOT NULL,
   order_date  VARCHAR(20)      NOT NULL,
   payment_no  INT(5) UNSIGNED  NOT NULL,
-  FOREIGN KEY (payment_no)  REFERENCES Payment(no),
-  FOREIGN KEY (customer_no) REFERENCES Customer(no),
-  FOREIGN KEY (product_no)  REFERENCES Product(no),
   PRIMARY KEY (order_no, customer_no, product_no, order_date)
 );

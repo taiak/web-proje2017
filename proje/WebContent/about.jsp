@@ -52,7 +52,7 @@
 						</p>
 
 						<span class="s-text7">
-							- Taha Yasir KIROĞLU
+							- Taha Yasir KIROĞLU (At Hırsızı)
 						</span>
 					</div>
 
