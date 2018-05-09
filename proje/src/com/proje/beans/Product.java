@@ -7,9 +7,9 @@ public class Product implements Serializable {
 
 	private static final long serialVersionUID = 7385311327272592031L;
 	
-	  private String no = "Nan";
-	  private String name = "Nan";
-	  private String stock = "Nan";
+	  private String no = "NaN";
+	  private String name = "NaN";
+	  private String stock = "NaN";
 
 	  public Product() {
 	  }
