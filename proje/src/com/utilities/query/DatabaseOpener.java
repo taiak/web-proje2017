@@ -2,13 +2,14 @@ package com.utilities.query;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import com.mysql.jdbc.Driver;
 
 public class DatabaseOpener {
 	private static String dbUsername = "projeci";
 	private static String dbPassword = "nahsanabaklava.0";
 	private static String dbName = "PROJE";
 	private static String dbUrl = "jdbc:mysql://localhost:3306/";
-	private static String driver = "com.mysql.cj.jdbc.Driver";
+	private static String driver = "com.mysql.jdbc.Driver";
 	
 	public static Connection open() {
 		return open(dbUsername, dbPassword, dbName, dbUrl);
@@ -27,11 +28,11 @@ public class DatabaseOpener {
 		try {
 			Class.forName(driver).newInstance();
 			con = DriverManager.getConnection(dbUrl + dbName , dbUsername, dbPassword);            
-			System.out.println("Connection established for SQL");
+			// System.out.println("Connection established for SQL");
 		} catch(Exception e) {
 			// bu yorum olarak kalacak!
 			// System.out.println("Database connection exception=" + e);
-			System.out.println("Data base Connection Error!\n" + dbUrl + dbName);
+			System.out.println("Data base Connection Error!\n" + dbUrl + dbName + "\n" + e);
 		}        
 		return con;
 	}
