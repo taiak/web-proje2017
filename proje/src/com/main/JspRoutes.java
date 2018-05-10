@@ -66,6 +66,9 @@ public class JspRoutes extends HttpServlet {
 		case "/admin/login":
 			adminLogin.doPost(request, response);
 			break;
+		case "/admin/logout":
+			adminLogin.logout();
+			break;
 		case "/admin/product":
 			admin.doPost(request, response);
 			break;

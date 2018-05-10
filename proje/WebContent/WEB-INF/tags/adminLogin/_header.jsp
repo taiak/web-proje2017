@@ -6,13 +6,13 @@
     <div class="topbar">
 
       <span class="topbar-child1">
-          <a href="https://play.google.com/store/apps/details?id=com.nispeteng.kafeinmetre" target="_blank">Günlük Kafein Tüketim Miktarınızı Takip Etmek İçin Android Uygulamamızı İndirebilirsiniz: Kafeinmetre</a>
+          <a href="../https://play.google.com/store/apps/details?id=com.nispeteng.kafeinmetre" target="_blank">Günlük Kafein Tüketim Miktarınızı Takip Etmek İçin Android Uygulamamızı İndirebilirsiniz: Kafeinmetre</a>
       </span>
     </div>
 
     <div class="wrap_header">
       <!-- Logo -->
-      <a href="index.jsp" class="logo">
+      <a href="../index.jsp" class="logo">
         <img src="../images/icons/logo.png" alt="IMG-LOGO">
       </a>
 
@@ -21,19 +21,19 @@
         <nav class="menu">
           <ul class="main_menu">
             <li>
-              <a href="home">Anasayfa</a>
+              <a href="../home">Anasayfa</a>
             </li>
 
             <li>
-              <a href="products">Ürünler</a>
+              <a href="../products">Ürünler</a>
             </li>
 
             <li>
-              <a href="about">Hakkımızda</a>
+              <a href="../about">Hakkımızda</a>
             </li>
 
             <li>
-              <a href="contact">İletişim</a>
+              <a href="../contact">İletişim</a>
             </li>
           </ul>
         </nav>
@@ -45,7 +45,7 @@
 		
 		<c:if test="${sessionScope.user != null}">
 	        <div class="header-wrapicon2">
-		        <a href="orders">
+		        <a href="../orders">
 		          <img src="../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 		          <span class="header-icons-noti">
 		          		${sessionScope.orderCount}
@@ -54,17 +54,17 @@
 	        </div>
 	      	<span class="linedivide1"></span>
 	
-	        <a href="profile" class="header-wrapicon1 dis-block">
+	        <a href="../profile" class="header-wrapicon1 dis-block">
 	        	<img src="../images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
 	        </a>&nbsp;&nbsp;
-	        <a href="logout" class="btn btn-danger">
+	        <a href="../logout" class="btn btn-danger">
 	        	Çıkış Yap
 	        </a>
 		</c:if>
 		
 		
 		<c:if test="${sessionScope.user == null }">
-        <a href="login" class="header-wrapicon1 dis-block">
+        <a href="../login" class="header-wrapicon1 dis-block">
           <img src="../images/icons/icon-header-01.png" class="header-icon1" alt="YOK">GİRİŞ YAPILMADI.
         </a>
 		</c:if>

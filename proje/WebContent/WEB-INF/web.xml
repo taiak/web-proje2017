@@ -25,5 +25,6 @@
     <url-pattern>/admin/login</url-pattern>
     <url-pattern>/admin/product</url-pattern>
     <url-pattern>/admin/AdminLoginServlet</url-pattern>
+    <url-pattern>/admin/logout</url-pattern>
   </servlet-mapping>
 </web-app>

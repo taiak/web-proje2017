@@ -26,13 +26,9 @@ public class UserLoginServlet extends HttpServlet {
 	}
 	
 	public void logout() throws ServletException, IOException {
-		if (com.login.servlet.LoginServlet.session != null ){
-			com.login.servlet.LoginServlet.session.removeAttribute("user");
-			com.login.servlet.LoginServlet.session.removeAttribute("user_id");
-			com.login.servlet.LoginServlet.session.removeAttribute("orderCount");
+		if (com.login.servlet.LoginServlet.session != null )
+			com.login.servlet.LoginServlet.session.invalidate();
 
-			com.login.servlet.LoginServlet.session = null;
-		}
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("home");
         dispatcher.forward(request, response);

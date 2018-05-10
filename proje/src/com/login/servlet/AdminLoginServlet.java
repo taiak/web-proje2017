@@ -18,12 +18,15 @@ import com.proje.dao.*;
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
 	public static HttpSession session;
+	public HttpServletRequest request;
+    public HttpServletResponse response;
 
 	private static final long serialVersionUID = 633170033630746350L;
 	
 	public AdminLoginServlet(HttpServletRequest request, HttpServletResponse response) {
-	    super();
-	}
+	    this.request = request;
+	    this.response = response;
+    }
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,6 +62,14 @@ public class AdminLoginServlet extends HttpServlet {
         } catch (Exception e) {
         	System.out.println(e);
         }
+	}
+
+	public void logout() throws ServletException, IOException {
+		if (session != null )
+			session.invalidate();
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+        dispatcher.forward(request, response);
 	}
 }
 

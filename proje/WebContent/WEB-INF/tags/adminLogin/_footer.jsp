@@ -9,7 +9,7 @@
 
       <div>
         <p class="s-text7 w-size27">
-          Merak ettiğiniz veya sormak istediğiniz bir şey mi var? Bizimle <a href="mailto:nispeteng@gmail.com"/>nispeteng@gmail.com</a> adresinden iletişime geçebilirsiniz."
+          Merak ettiğiniz veya sormak istediğiniz bir şey mi var? Bizimle <a href="../mailto:nispeteng@gmail.com"/>nispeteng@gmail.com</a> adresinden iletişime geçebilirsiniz."
         </p>
       </div>
     </div>
@@ -21,19 +21,19 @@
 
       <ul>
         <li class="p-b-9">
-          <a href="home" class="s-text7">
+          <a href="../home" class="s-text7">
             Anasayfa
           </a>
         </li>
 
         <li class="p-b-9">
-          <a href="login" class="s-text7">
+          <a href="../login" class="s-text7">
             Üye Girişi
           </a>
         </li>
         
        	<li class="p-b-9">
-          <a href="orders" class="s-text7">
+          <a href="../orders" class="s-text7">
             Siparişlerim
           </a>
         </li>

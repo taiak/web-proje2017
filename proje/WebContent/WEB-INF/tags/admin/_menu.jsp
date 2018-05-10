@@ -20,7 +20,7 @@
     <ul class="nav navbar ml-auto">
       <li><a href="../" target="_blank", class="btn btn-success">Siteyi Görüntüle</a></li>
       <li>-</li>
-      <li><a href="#" class="btn btn-danger">Çıkış Yap</a></li>
+      <li><a href="logout" class="btn btn-danger">Çıkış Yap</a></li>
     </ul>
   </div>
 </nav>

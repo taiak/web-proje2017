@@ -39,14 +39,14 @@ public class OrderDao {
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
-			ps.executeQuery();
-			sql_response = ((ResultSet) ps).getInt(1);
+			rs = ps.executeQuery();
+			rs.next();
+			sql_response = rs.getInt(1);
 		} catch (Exception e){
 			System.out.println("db: order count error!\n" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
-		System.out.println("OrerDao.count: " + sql_response);
 		return sql_response;
 		
 	}
