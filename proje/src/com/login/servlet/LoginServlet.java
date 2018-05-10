@@ -32,12 +32,13 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		 
 		final String success_page   = "home";
 		final String unsuccess_page = "userLogin.jsp";
 		String page = null;
 		
 		try {
+			// timer
+			// request.getSession().setMaxInactiveInterval(1);
 			session = request.getSession();
 	        synchronized(session) {
 	        	Login l = new Login();

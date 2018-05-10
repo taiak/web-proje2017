@@ -2,7 +2,6 @@ package com.utilities.query;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import com.mysql.jdbc.Driver;
 
 public class DatabaseOpener {
 	private static String dbUsername = "projeci";
