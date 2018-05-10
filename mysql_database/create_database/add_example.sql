@@ -1,18 +1,18 @@
 use PROJE;
 # müşteri tablosuna ekleme örneği
 
-INSERT INTO Customer VALUES(0, 'name_1', 'surname_1', 'email_1');
-INSERT INTO Customer VALUES(0, 'name_2', 'surname_2', 'email_2');
-INSERT INTO Customer VALUES(0, 'name_3', 'surname_3', 'email_3');
-INSERT INTO Customer VALUES(0, 'name_4', 'surname_4', 'email_4');
-INSERT INTO Customer VALUES(0, 'name_5', 'surname_5', 'email_5');
-INSERT INTO Customer VALUES(0, 'name_6', 'surname_6', 'email_6');
-INSERT INTO Customer VALUES(0, 'name_7', 'surname_7', 'email_7');
-INSERT INTO Customer VALUES(0, 'name_8', 'surname_8', 'email_8');
-INSERT INTO Customer VALUES(0, 'name_9', 'surname_9', 'email_9');
+INSERT INTO Customer VALUES(0, 'hidir',   'surname_1',  'email_1');
+INSERT INTO Customer VALUES(0, 'hidir2',  'surname_2',  'email_2');
+INSERT INTO Customer VALUES(0, 'name_3',  'surname_3',  'email_3');
+INSERT INTO Customer VALUES(0, 'name_4',  'surname_4',  'email_4');
+INSERT INTO Customer VALUES(0, 'name_5',  'surname_5',  'email_5');
+INSERT INTO Customer VALUES(0, 'name_6',  'surname_6',  'email_6');
+INSERT INTO Customer VALUES(0, 'name_7',  'surname_7',  'email_7');
+INSERT INTO Customer VALUES(0, 'name_8',  'surname_8',  'email_8');
+INSERT INTO Customer VALUES(0, 'sci',     'surname_9',  'email_9');
 INSERT INTO Customer VALUES(0, 'name_10', 'surname_10', 'email_10');
 INSERT INTO Customer VALUES(0, 'name_11', 'surname_11', 'email_11');
-INSERT INTO Customer VALUES(0, 'name_12', 'surname_12', 'email_12');
+INSERT INTO Customer VALUES(0, 'tayak',   'surname_12', 'email_12');
 INSERT INTO Customer VALUES(0, 'name_13', 'surname_13', 'email_13');
 INSERT INTO Customer VALUES(0, 'name_14', 'surname_14', 'email_14');
 INSERT INTO Customer VALUES(0, 'name_15', 'surname_15', 'email_15');
@@ -41,27 +41,27 @@ INSERT INTO CustomerShadow VALUES(14, 'e78b85ec36b1a26f0a08b2aa84814c1a23f2102ef
 INSERT INTO CustomerShadow VALUES(15, 'c9cd11537b30c2927618c2e6fdee76b907a033759a8907a40dc30e1f4b55c289' );
 
 # product ekle
-INSERT INTO Product VALUES(0, 'product_1', 18  , 12.5, '/yol/yol2' ,"bu aciklama ' product_1 için" );
-INSERT INTO Product VALUES(0, 'product_2', 103 , 12.5, '/yol/yol2' ,"bu aciklama ' product_2 için" );
-INSERT INTO Product VALUES(0, 'product_3', 464 , 12.5, '/yol/yol2' ,"bu aciklama ' product_3 için" );
-INSERT INTO Product VALUES(0, 'product_4', 413 , 12.5, '/yol/yol2' ,"bu aciklama ' product_4 için" );
-INSERT INTO Product VALUES(0, 'product_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama ' product_5 için" );
-INSERT INTO Product VALUES(0, 'product_6', 329 , 12.5, '/yol/yol2' ,"bu aciklama ' product_6 için" );
-INSERT INTO Product VALUES(0, 'product_7', 367 , 12.5, '/yol/yol2' ,"bu aciklama ' product_7 için" );
-INSERT INTO Product VALUES(0, 'product_8', 283 , 12.5, '/yol/yol2' ,"bu aciklama ' product_8 için" );
-INSERT INTO Product VALUES(0, 'product_9', 204 , 12.5, '/yol/yol2' ,"bu aciklama ' product_9 için" );
-INSERT INTO Product VALUES(0, 'product_10', 359, 12.5, '/yol/yol2' ,"bu aciklama ' product_10 için");
-INSERT INTO Product VALUES(0, 'product_11', 161, 12.5, '/yol/yol2' ,"bu aciklama ' product_11 için");
-INSERT INTO Product VALUES(0, 'product_12', 6  , 12.5, '/yol/yol2' ,"bu aciklama ' product_12 için");
-INSERT INTO Product VALUES(0, 'product_13', 263, 12.5, '/yol/yol2' ,"bu aciklama ' product_13 için");
-INSERT INTO Product VALUES(0, 'product_14', 442, 12.5, '/yol/yol2' ,"bu aciklama ' product_14 için");
-INSERT INTO Product VALUES(0, 'product_15', 115, 12.5, '/yol/yol2' ,"bu aciklama ' product_15 için");
-INSERT INTO Product VALUES(0, 'product_16', 254, 12.5, '/yol/yol2' ,"bu aciklama ' product_16 için");
-INSERT INTO Product VALUES(0, 'product_17', 95 , 12.5, '/yol/yol2' ,"bu aciklama ' product_17 için");
-INSERT INTO Product VALUES(0, 'product_18', 433, 12.5, '/yol/yol2' ,"bu aciklama ' product_18 için");
-INSERT INTO Product VALUES(0, 'product_19', 23 , 12.5, '/yol/yol2' ,"bu aciklama ' product_19 için");
-INSERT INTO Product VALUES(0, 'product_20', 490, 12.5, '/yol/yol2' ,"bu aciklama ' product_20 için");
-INSERT INTO Product VALUES(0, 'product_21', 205, 12.5, '/yol/yol2' ,"bu aciklama product_21 için");
+INSERT INTO Product VALUES(0, 'urun_1', 18  , 12.5, '/yol/yol2' ,"bu aciklama  product_1 için" );
+INSERT INTO Product VALUES(0, 'urun_2', 103 , 12.5, '/yol/yol2' ,"bu aciklama  product_2 için" );
+INSERT INTO Product VALUES(0, 'urun_3', 464 , 12.5, '/yol/yol2' ,"bu aciklama  product_3 için" );
+INSERT INTO Product VALUES(0, 'urun_4', 413 , 12.5, '/yol/yol2' ,"bu aciklama  product_4 için" );
+INSERT INTO Product VALUES(0, 'urun_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama  product_5 için" );
+INSERT INTO Product VALUES(0, 'urun_6', 329 , 12.5, '/yol/yol2' ,"bu aciklama  product_6 için" );
+INSERT INTO Product VALUES(0, 'urun_7', 367 , 12.5, '/yol/yol2' ,"bu aciklama  product_7 için" );
+INSERT INTO Product VALUES(0, 'urun_8', 283 , 12.5, '/yol/yol2' ,"bu aciklama  product_8 için" );
+INSERT INTO Product VALUES(0, 'urun_9', 204 , 12.5, '/yol/yol2' ,"bu aciklama  product_9 için" );
+INSERT INTO Product VALUES(0, 'urun_10', 359, 12.5, '/yol/yol2' ,"bu aciklama  product_10 için");
+INSERT INTO Product VALUES(0, 'urun_11', 161, 12.5, '/yol/yol2' ,"bu aciklama  product_11 için");
+INSERT INTO Product VALUES(0, 'urun_12', 6  , 12.5, '/yol/yol2' ,"bu aciklama  product_12 için");
+INSERT INTO Product VALUES(0, 'urun_13', 263, 12.5, '/yol/yol2' ,"bu aciklama  product_13 için");
+INSERT INTO Product VALUES(0, 'urun_14', 442, 12.5, '/yol/yol2' ,"bu aciklama  product_14 için");
+INSERT INTO Product VALUES(0, 'urun_15', 115, 12.5, '/yol/yol2' ,"bu aciklama  product_15 için");
+INSERT INTO Product VALUES(0, 'urun_16', 254, 12.5, '/yol/yol2' ,"bu aciklama  product_16 için");
+INSERT INTO Product VALUES(0, 'urun_17', 95 , 12.5, '/yol/yol2' ,"bu aciklama  product_17 için");
+INSERT INTO Product VALUES(0, 'urun_18', 433, 12.5, '/yol/yol2' ,"bu aciklama  product_18 için");
+INSERT INTO Product VALUES(0, 'urun_19', 23 , 12.5, '/yol/yol2' ,"bu aciklama  product_19 için");
+INSERT INTO Product VALUES(0, 'urun_20', 490, 12.5, '/yol/yol2' ,"bu aciklama  product_20 için");
+INSERT INTO Product VALUES(0, 'urun_21', 205, 12.5, '/yol/yol2' ,"bu aciklama product_21 için");
 
 # admin tablosuna ekleme örneği
 # require 'digest'
@@ -90,31 +90,31 @@ INSERT INTO AdminShadow VALUES(4, 'ec7039c2afc2c8e480c789a8dbde31834d567b5c7f721
 INSERT INTO AdminShadow VALUES(5, 'e2d227b76949b9f9baf167d5a4b45a3319273de60691b408870a758842506876');
 
 # ödeme yöntemleri
-INSERT INTO Payment VALUES(0, 'name_1', 'comment_1');
-INSERT INTO Payment VALUES(0, 'name_2', 'comment_2');
-INSERT INTO Payment VALUES(0, 'name_3', 'comment_3');
-INSERT INTO Payment VALUES(0, 'name_4', 'comment_4');
-INSERT INTO Payment VALUES(0, 'name_5', 'comment_5');
+INSERT INTO Payment VALUES(0, 'nakit',       'comment_1');
+INSERT INTO Payment VALUES(0, 'kredikarti',  'comment_2');
+INSERT INTO Payment VALUES(0, 'banka karti', 'comment_3');
+INSERT INTO Payment VALUES(0, 'bobrek',      'comment_4');
+INSERT INTO Payment VALUES(0, 'das',         'comment_5');
 
 # 20.times{ puts "INSERT INTO Order VALUES (0, #{rand(1..15)}, #{rand(1..15)}, '#{Time.now.strftime("%d-%m-%Y")}', #{rand(1..5)});" }
 # siparis ekleme
-INSERT INTO Orders VALUES (0, 13, 3, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 7, 14, '08-05-2018', 2);
-INSERT INTO Orders VALUES (0, 10, 3, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 6, 12, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 14, 5, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 15, 8, '08-05-2018', 2);
-INSERT INTO Orders VALUES (0, 11, 6, '08-05-2018', 4);
+INSERT INTO Orders VALUES (0, 13,  3, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0,  7, 14, '08-05-2018', 2);
+INSERT INTO Orders VALUES (0, 10,  3, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0,  6, 12, '08-05-2018', 4);
+INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 2);
+INSERT INTO Orders VALUES (0, 11,  6, '08-05-2018', 4);
 INSERT INTO Orders VALUES (0, 10, 13, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 10, 4, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 4, 10, '08-05-2018', 5);
+INSERT INTO Orders VALUES (0, 10,  4, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0,  4, 10, '08-05-2018', 5);
 INSERT INTO Orders VALUES (0, 13, 15, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 9, 9, '08-05-2018', 4);
+INSERT INTO Orders VALUES (0,  9,  9, '08-05-2018', 4);
 INSERT INTO Orders VALUES (0, 11, 13, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 14, 5, '08-05-2018', 3);
+INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 3);
 INSERT INTO Orders VALUES (0, 15, 13, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 8, 3, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 15, 8, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 11, 7, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 1, 5, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 14, 8, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0,  8,  3, '08-05-2018', 4);
+INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 3);
+INSERT INTO Orders VALUES (0, 11,  7, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0,  1,  5, '08-05-2018', 4);
+INSERT INTO Orders VALUES (0, 14,  8, '08-05-2018', 1);

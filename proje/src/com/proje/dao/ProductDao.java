@@ -24,9 +24,13 @@ public class ProductDao {
 	    try { con.close(); } catch (Exception e) { /* ignored */ }
 	}	
 	
-	public static ArrayList <Product> list() {
+	public static ArrayList <Product> list(String Where) {
 		ArrayList <Product> l = new ArrayList <Product>();
-		String query = "SELECT * FROM " + TableName + ";";
+		String where = "";
+		if( Where != null && ! Where.isEmpty())
+			where = Where ;
+		
+		String query = "SELECT * FROM " + TableName + where + ";";
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -41,6 +45,8 @@ public class ProductDao {
 				p.setNo(rs.getString("no"));
 				p.setName(rs.getString("name"));
 				p.setStock(rs.getString("stock"));
+				p.setPhoto(rs.getString("photo"));
+				p.setComment(rs.getString("comment"));
 				l.add(p);
 			}	
 		} catch (Exception e){
@@ -50,59 +56,20 @@ public class ProductDao {
 		}
 		return l;
 	};
+	
+	public static ArrayList <Product> list() {
+		return list(null);
+	}
 	
 	public static ArrayList <Product> last(int n) {
-		ArrayList <Product> l = new ArrayList <Product>();
-		String query = "SELECT * FROM " + TableName + " ORDER BY no DESC LIMIT " + Integer.toString(n) + " ;";
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
-
-		try {
-			con = connectionOpen();	
-			ps = (PreparedStatement	) con.prepareStatement(query);
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				Product p = new Product();
-				p.setNo(rs.getString("no"));
-				p.setName(rs.getString("name"));
-				p.setStock(rs.getString("stock"));
-				l.add(p);
-			}	
-		} catch (Exception e){
-			System.out.println(e);
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		return l;
+		String where = " ORDER BY no DESC LIMIT " + Integer.toString(n);
+		return list(where);
 	};
+
 	
 	public static Product find(String no){
-		Product p = new Product();
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
-		String where = "no = '" + no + "'";
-		String query = "SELECT * FROM " + TableName + " WHERE " + where + " ;";
-
-		try {
-			con = connectionOpen();	
-			ps = (PreparedStatement	) con.prepareStatement(query);
-			rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				p.setNo(rs.getString("no"));
-				p.setName(rs.getString("name"));
-				p.setStock(rs.getString("stock"));
-			}
-		} catch (Exception e){
-			System.out.println(e);
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		
-		return p;
+		String where = " WHERE no = '" + no + "'";
+		return list(where).get(0);
 	};
 	
 	public static boolean delete(Product p) {

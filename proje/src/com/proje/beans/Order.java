@@ -3,6 +3,8 @@ package com.proje.beans;
 import java.io.Serializable;
 
 public class Order implements Serializable {
+
+	private static final long serialVersionUID = 8052562189629118846L;
 	private String orderNo         = "Nan";
 	private String customerNo      = "Nan";
 	private String customerName    = "Nan";
@@ -10,9 +12,14 @@ public class Order implements Serializable {
 	private String customerEmail   = "Nan";
 	private String productNo       = "Nan";
 	private String productName     = "Nan";
+	private String productPrice    = "Nan";
+	private String productPhoto    = "Nan";
 	private String orderDate       = "Nan";
 	private String paymentNo       = "Nan";
 	private String paymentName     = "Nan";
+	
+	public Order() {
+	}
 	
 	public String getPaymentName() {
 		return paymentName;
@@ -22,8 +29,6 @@ public class Order implements Serializable {
 		this.paymentName = paymentName;
 	}
 
-	public Order() {
-	}
 
 	public String getCustomerName() {
 		return customerName;
@@ -95,6 +100,22 @@ public class Order implements Serializable {
 
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
+	}
+
+	public String getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(String productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public String getProductPhoto() {
+		return productPhoto;
+	}
+
+	public void setProductPhoto(String productPhoto) {
+		this.productPhoto = productPhoto;
 	}
 }
 

@@ -16,7 +16,7 @@ CREATE TABLE `Product` (
   stock   INT(32)          NOT NULL DEFAULT '0',
   price   DECIMAL(12, 2)   NOT NULL DEFAULT '0.0',
   photo   VARCHAR(200)     NOT NULL,
-  comment TEXT 
+  comment VARCHAR(150)
 );
 
 CREATE TABLE `CustomerShadow` (
