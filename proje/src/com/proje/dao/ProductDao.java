@@ -99,8 +99,10 @@ public class ProductDao {
 		Connection con = null;
 		ResultSet rs = null;
 		String where = "no = '" + p.getNo() + "' ";
-		String set = "name = '" + p.getName() + "', stock = '" + p.getStock() + "' ";
-		String query = "UPDATE " + TableName + " SET " + set + " WHERE "+ where + " ;";
+		String set = "name = '" + p.getName() + "', stock = '" + 
+					p.getStock() + "', price = '" + p.getPrice() + "', photo = '" +
+					p.getPhoto() + "', comment = '" + p.getComment() + "'";
+		String query = "UPDATE " + TableName + " SET " + set + " WHERE " + where + ";";
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
@@ -119,7 +121,9 @@ public class ProductDao {
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		String values = "(0, '" + p.getName() + "', '" + p.getStock() + "');";
+		String values = "(0, '" + p.getName() + "', '" + p.getStock() + "', '" +
+					p.getPrice() + "', '" + p.getPhoto() + "', '" +
+					p.getComment() + "');";
 		String query = "INSERT INTO " + TableName + " VALUES " + values;
 		try {
 			con = connectionOpen();

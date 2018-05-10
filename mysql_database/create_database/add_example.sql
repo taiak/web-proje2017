@@ -1,5 +1,5 @@
 use PROJE;
-# müşteri tablosuna ekleme örneği
+# musteri tablosuna ekleme ornegi
 
 INSERT INTO Customer VALUES(0, 'hidir',   'surname_1',  'email_1');
 INSERT INTO Customer VALUES(0, 'hidir2',  'surname_2',  'email_2');
@@ -17,12 +17,12 @@ INSERT INTO Customer VALUES(0, 'name_13', 'surname_13', 'email_13');
 INSERT INTO Customer VALUES(0, 'name_14', 'surname_14', 'email_14');
 INSERT INTO Customer VALUES(0, 'name_15', 'surname_15', 'email_15');
 
-# kullanıcı tablosuna ekleme örneği
+# kullanici tablosuna ekleme ornegi
 # require 'digest'
 # def sha256(password)
 #   Digest::SHA256.hexdigest(password)
 # end
-# # 'email_1' için parola 'password_1'
+# # 'email_1' icin parola 'password_1'
 
 INSERT INTO CustomerShadow VALUES(1, '38c5ae2bcd1f12aa269e45ae8c8762f030630a5137dd6d1c799c019626f33096' );
 INSERT INTO CustomerShadow VALUES(2, 'ea76b1e251a0c876b3d96d2c81f12736df3bed36ecb293f79c493c089924cbdc' );
@@ -41,46 +41,46 @@ INSERT INTO CustomerShadow VALUES(14, 'e78b85ec36b1a26f0a08b2aa84814c1a23f2102ef
 INSERT INTO CustomerShadow VALUES(15, 'c9cd11537b30c2927618c2e6fdee76b907a033759a8907a40dc30e1f4b55c289' );
 
 # product ekle
-INSERT INTO Product VALUES(0, 'kulaklık', 18  , 12.5, '/yol/yol2' ,"kul hakkı saklamaya yarayan aparat" );
-INSERT INTO Product VALUES(0, 'at kafası', 103 , 30.5, '/yol/yol2' ,"bu aciklama  product_2 için" );
-INSERT INTO Product VALUES(0, 'urun_3', 464 , 12.5, '/yol/yol2' ,"bu aciklama  product_3 için" );
-INSERT INTO Product VALUES(0, 'urun_4', 413 , 12.5, '/yol/yol2' ,"bu aciklama  product_4 için" );
-INSERT INTO Product VALUES(0, 'urun_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama  product_5 için" );
-INSERT INTO Product VALUES(0, 'urun_6', 329 , 12.5, '/yol/yol2' ,"bu aciklama  product_6 için" );
-INSERT INTO Product VALUES(0, 'urun_7', 367 , 12.5, '/yol/yol2' ,"bu aciklama  product_7 için" );
-INSERT INTO Product VALUES(0, 'urun_8', 283 , 12.5, '/yol/yol2' ,"bu aciklama  product_8 için" );
-INSERT INTO Product VALUES(0, 'urun_9', 204 , 12.5, '/yol/yol2' ,"bu aciklama  product_9 için" );
-INSERT INTO Product VALUES(0, 'urun_10', 359, 12.5, '/yol/yol2' ,"bu aciklama  product_10 için");
-INSERT INTO Product VALUES(0, 'urun_11', 161, 12.5, '/yol/yol2' ,"bu aciklama  product_11 için");
-INSERT INTO Product VALUES(0, 'urun_12', 6  , 12.5, '/yol/yol2' ,"bu aciklama  product_12 için");
-INSERT INTO Product VALUES(0, 'urun_13', 263, 12.5, '/yol/yol2' ,"bu aciklama  product_13 için");
-INSERT INTO Product VALUES(0, 'urun_14', 442, 12.5, '/yol/yol2' ,"bu aciklama  product_14 için");
-INSERT INTO Product VALUES(0, 'urun_15', 115, 12.5, '/yol/yol2' ,"bu aciklama  product_15 için");
-INSERT INTO Product VALUES(0, 'urun_16', 254, 12.5, '/yol/yol2' ,"bu aciklama  product_16 için");
-INSERT INTO Product VALUES(0, 'urun_17', 95 , 12.5, '/yol/yol2' ,"bu aciklama  product_17 için");
-INSERT INTO Product VALUES(0, 'urun_18', 433, 12.5, '/yol/yol2' ,"bu aciklama  product_18 için");
-INSERT INTO Product VALUES(0, 'urun_19', 23 , 12.5, '/yol/yol2' ,"bu aciklama  product_19 için");
-INSERT INTO Product VALUES(0, 'urun_20', 490, 12.5, '/yol/yol2' ,"bu aciklama  product_20 için");
-INSERT INTO Product VALUES(0, 'urun_21', 205, 12.5, '/yol/yol2' ,"bu aciklama product_21 için");
+INSERT INTO Product VALUES(0, 'kulaklik', 18  , 12.5, '/yol/yol2' ,"kul hakki saklamaya yarayan aparat" );
+INSERT INTO Product VALUES(0, 'at kafasi', 103 , 30.5, '/yol/yol2' ,"bu aciklama  product_2 icin" );
+INSERT INTO Product VALUES(0, 'urun_3', 464 , 50.5, '/yol/yol2' ,"bu aciklama  product_3 icin" );
+INSERT INTO Product VALUES(0, 'urun_4', 413 , 85.5, '/yol/yol2' ,"bu aciklama  product_4 icin" );
+INSERT INTO Product VALUES(0, 'urun_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama  product_5 icin" );
+INSERT INTO Product VALUES(0, 'urun_6', 329 , 12.5, '/yol/yol2' ,"bu aciklama  product_6 icin" );
+INSERT INTO Product VALUES(0, 'urun_7', 367 , 12.5, '/yol/yol2' ,"bu aciklama  product_7 icin" );
+INSERT INTO Product VALUES(0, 'urun_8', 283 , 12.5, '/yol/yol2' ,"bu aciklama  product_8 icin" );
+INSERT INTO Product VALUES(0, 'urun_9', 204 , 78.5, '/yol/yol2' ,"bu aciklama  product_9 icin" );
+INSERT INTO Product VALUES(0, 'urun_10', 359, 12.5, '/yol/yol2' ,"bu aciklama  product_10 icin");
+INSERT INTO Product VALUES(0, 'urun_11', 161, 12.5, '/yol/yol2' ,"bu aciklama  product_11 icin");
+INSERT INTO Product VALUES(0, 'urun_12', 6  , 12.5, '/yol/yol2' ,"bu aciklama  product_12 icin");
+INSERT INTO Product VALUES(0, 'urun_13', 263, 12.5, '/yol/yol2' ,"bu aciklama  product_13 icin");
+INSERT INTO Product VALUES(0, 'urun_14', 442, 12.5, '/yol/yol2' ,"bu aciklama  product_14 icin");
+INSERT INTO Product VALUES(0, 'urun_15', 115, 12.5, '/yol/yol2' ,"bu aciklama  product_15 icin");
+INSERT INTO Product VALUES(0, 'urun_16', 254, 12.5, '/yol/yol2' ,"bu aciklama  product_16 icin");
+INSERT INTO Product VALUES(0, 'urun_17', 95 , 12.5, '/yol/yol2' ,"bu aciklama  product_17 icin");
+INSERT INTO Product VALUES(0, 'urun_18', 433, 12.5, '/yol/yol2' ,"bu aciklama  product_18 icin");
+INSERT INTO Product VALUES(0, 'urun_19', 23 , 12.5, '/yol/yol2' ,"bu aciklama  product_19 icin");
+INSERT INTO Product VALUES(0, 'urun_20', 490, 12.5, '/yol/yol2' ,"bu aciklama  product_20 icin");
+INSERT INTO Product VALUES(0, 'urun_21', 205, 12.5, '/yol/yol2' ,"bu aciklama product_21 icin");
 
-# admin tablosuna ekleme örneği
+# admin tablosuna ekleme ornegi
 # require 'digest'
 # def sha256(password)
 #   Digest::SHA256.hexdigest(password)
 # end
 # 
-# 'admin_1' kullanıcısının parolası 'parola_1'
+# 'admin_1' kullanicisinin parolasi 'parola_1'
 # puts "INSERT INTO Admin VALUES('#{sha256 'admin_1'}', '#{ sha256 'parola_1' }' );"
 #
 
-# yönetici ekleme
+# yonetici ekleme
 INSERT INTO Admin VALUES(0, 'admin_1');
 INSERT INTO Admin VALUES(0, 'admin_2');
 INSERT INTO Admin VALUES(0, 'admin_3');
 INSERT INTO Admin VALUES(0, 'admin_4');
 INSERT INTO Admin VALUES(0, 'admin_5');
 
-# yönetici parolaları
+# yonetici parolalari
 
 # 1.upto(5) { |i | puts "INSERT INTO AdminShadow VALUES(#{i}, '#{sha256("parola_#{i}")}');"}
 INSERT INTO AdminShadow VALUES(1, '3a37e4dec638e8d9114701cc6aafe19837b13455f075376e3a900904ed0a5e13');
@@ -89,32 +89,32 @@ INSERT INTO AdminShadow VALUES(3, '4d3437de27a35a8d3137a7e301eb76aa7139d54eec9c6
 INSERT INTO AdminShadow VALUES(4, 'ec7039c2afc2c8e480c789a8dbde31834d567b5c7f721553af8d233dc628adc5');
 INSERT INTO AdminShadow VALUES(5, 'e2d227b76949b9f9baf167d5a4b45a3319273de60691b408870a758842506876');
 
-# ödeme yöntemleri
+# odeme yontemleri
 INSERT INTO Payment VALUES(0, 'nakit',       'comment_1');
 INSERT INTO Payment VALUES(0, 'kredikarti',  'comment_2');
 INSERT INTO Payment VALUES(0, 'banka karti', 'comment_3');
-INSERT INTO Payment VALUES(0, 'bobrek',      'comment_4');
-INSERT INTO Payment VALUES(0, 'das',         'comment_5');
+INSERT INTO Payment VALUES(0, 'bobrek',      'para yetmediyse demekki');
+INSERT INTO Payment VALUES(0, 'das',         'lidyalilardan once yasayanlar icin');
 
 # 20.times{ puts "INSERT INTO Order VALUES (0, #{rand(1..15)}, #{rand(1..15)}, '#{Time.now.strftime("%d-%m-%Y")}', #{rand(1..5)});" }
 # siparis ekleme
-INSERT INTO Orders VALUES (0, 13,  3, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  7, 14, '08-05-2018', 2);
-INSERT INTO Orders VALUES (0, 10,  3, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  6, 12, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 2);
-INSERT INTO Orders VALUES (0, 11,  6, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 10, 13, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 10,  4, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  4, 10, '08-05-2018', 5);
-INSERT INTO Orders VALUES (0, 13, 15, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  9,  9, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 11, 13, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 15, 13, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  8,  3, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 11,  7, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  1,  5, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 14,  8, '08-05-2018', 1);
+INSERT INTO Orders VALUES (0, 13,  3, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0,  7, 14, '08-05-2018', 2, TRUE);
+INSERT INTO Orders VALUES (0, 10,  3, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0,  6, 12, '08-05-2018', 4, TRUE);
+INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 2, TRUE);
+INSERT INTO Orders VALUES (0, 11,  6, '08-05-2018', 4, TRUE);
+INSERT INTO Orders VALUES (0, 10, 13, '08-05-2018', 4, TRUE);
+INSERT INTO Orders VALUES (0, 10,  4, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0,  4, 10, '08-05-2018', 5, TRUE);
+INSERT INTO Orders VALUES (0, 13, 15, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0,  9,  9, '08-05-2018', 4, TRUE);
+INSERT INTO Orders VALUES (0, 11, 13, '08-05-2018', 3, TRUE);
+INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 3, TRUE);
+INSERT INTO Orders VALUES (0, 15, 13, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0,  8,  3, '08-05-2018', 4, TRUE);
+INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 3, TRUE);
+INSERT INTO Orders VALUES (0, 11,  7, '08-05-2018', 1, TRUE);
+INSERT INTO Orders VALUES (0,  1,  5, '08-05-2018', 4, TRUE);
+INSERT INTO Orders VALUES (0, 14,  8, '08-05-2018', 1, TRUE);

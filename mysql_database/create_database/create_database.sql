@@ -48,5 +48,6 @@ CREATE TABLE `Orders` (
   product_no  INT(64) UNSIGNED NOT NULL,
   order_date  VARCHAR(20)      NOT NULL,
   payment_no  INT(5) UNSIGNED  NOT NULL,
+  paid        BOOLEAN          NOT NULL DEFAULT FALSE,
   PRIMARY KEY (order_no, customer_no, product_no, order_date)
 );
