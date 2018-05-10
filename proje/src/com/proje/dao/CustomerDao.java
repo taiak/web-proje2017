@@ -49,7 +49,7 @@ public class CustomerDao {
 				l.add(c);
 			}
 		} catch (Exception e){
-			System.out.println("db: listing error!");
+			System.out.println("db: listing error!" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -75,7 +75,7 @@ public class CustomerDao {
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		String where = "email = '" + c.getEmail() + "';";
+		String where = "no = '" + c.getNo() + "';";
 		String query = "DELETE FROM " + TableName + " WHERE " + where;
 		try {
 			con = connectionOpen();
@@ -83,7 +83,7 @@ public class CustomerDao {
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("db: Deleting error!");
+			System.out.println("db: Deleting error!" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -97,15 +97,16 @@ public class CustomerDao {
 		ResultSet rs = null;
 		String where = "no = '" + c.getNo() + "' ";
 		String set = "name = '" + c.getName() + "', surname = '" 
-					 + c.getSurname() + "' email = '" + c.getEmail() + "'";
+					 + c.getSurname() + "', email = '" + c.getEmail() + "'";
 		String query = "UPDATE " + TableName + " SET " + set + " WHERE "+ where + " ;";
+		System.out.println(query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("db: Updating error!");			
+			System.out.println("db: Updating error!" + e);			
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -125,7 +126,7 @@ public class CustomerDao {
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e) {
-			System.out.println("db: Inserting error!");			
+			System.out.println("db: Inserting error!" + e);			
 		} finally {
 			connectionClose(rs, ps, con);
 		}

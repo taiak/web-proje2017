@@ -8,17 +8,23 @@
           <span class="d-none d-md-inline">Genel Bakış</span>
       </a>
  
-      <a href="product"  class="list-group-item collapsed"  >
-      <i class="fa fa-lg fa-th-large "></i>
+	  <a href="product"  class="list-group-item collapsed"  >
+		<i class="fa fa-lg fa-th-large "></i>
         <span class="d-none d-md-inline">Ürünler</span>
       </a>
       
-      <a href="#"  class="list-group-item collapsed"  >
-      <i class="fa fa-lg fa-user "></i>
-        <span class="d-none d-md-inline">Kullanıcılar</span>
+      <a href="customer"  class="list-group-item collapsed"  >
+      	<i class="fa fa-lg fa-user "></i>
+        <span class="d-none d-md-inline">Müşteriler</span>
       </a>
+      
+      <a href="order" class="list-group-item collapsed"  >
+      	<i class="fa fa-lg fa-ship "></i>
+        <span class="d-none d-md-inline">Siparişler</span>
+      </a>
+      
       <a href="../home"  class="list-group-item collapsed", target="_blank"  >
-      <i class="fa fa-lg fa-tv "></i>
+      	<i class="fa fa-lg fa-tv "></i>
         <span class="d-none d-md-inline">Siteyi Görüntüle</span>
       </a>
   </div>

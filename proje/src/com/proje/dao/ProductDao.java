@@ -31,6 +31,7 @@ public class ProductDao {
 			where = Where ;
 		
 		String query = "SELECT * FROM " + TableName + where + ";";
+		System.out.println(query);
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -99,17 +100,19 @@ public class ProductDao {
 		Connection con = null;
 		ResultSet rs = null;
 		String where = "no = '" + p.getNo() + "' ";
+		System.out.println(where);
 		String set = "name = '" + p.getName() + "', stock = '" + 
 					p.getStock() + "', price = '" + p.getPrice() + "', photo = '" +
 					p.getPhoto() + "', comment = '" + p.getComment() + "'";
 		String query = "UPDATE " + TableName + " SET " + set + " WHERE " + where + ";";
+		System.out.println(query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("DB: Update error!");			
+			System.out.println("DB: Update error!" + e);			
 		} finally {
 			connectionClose(rs, ps, con);
 		}

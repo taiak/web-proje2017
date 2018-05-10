@@ -26,5 +26,10 @@
     <url-pattern>/admin/product</url-pattern>
     <url-pattern>/admin/AdminLoginServlet</url-pattern>
     <url-pattern>/admin/logout</url-pattern>
+    <url-pattern>/admin/editProduct</url-pattern>
+    <url-pattern>/admin/editCustomer</url-pattern>
+    <url-pattern>/admin/customer</url-pattern>
+    <url-pattern>/admin/order</url-pattern>
+    <url-pattern>/admin/orderDelete</url-pattern>
   </servlet-mapping>
 </web-app>

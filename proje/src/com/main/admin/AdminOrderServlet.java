@@ -1,0 +1,64 @@
+package com.main.admin;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.proje.beans.Order;
+import com.proje.dao.OrderDao;
+
+/**
+ * Servlet implementation class AdminOrderServlet
+ */
+@WebServlet("/AdminOrderServlet")
+public class AdminOrderServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public ArrayList <Order> orders;
+	public HttpServletRequest request;
+    public HttpServletResponse response;
+    
+	public AdminOrderServlet(HttpServletRequest request, HttpServletResponse response) {
+	    this.request = request;
+	    this.response = response;
+    }
+
+	public void index() throws ServletException, IOException {
+		if (com.login.servlet.AdminLoginServlet.session != null && com.login.servlet.AdminLoginServlet.session.getAttribute("admin") != null) {
+			orders = OrderDao.list();
+			request.setAttribute("orders", orders);
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("order.jsp");
+	        dispatcher.forward(request, response);
+		}else {
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+		    dispatcher.forward(request, response);
+		}
+	}
+	
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Order:doPost");
+		response.setContentType("text/html");
+		if (com.login.servlet.AdminLoginServlet.session != null && (Boolean)com.login.servlet.AdminLoginServlet.session.getAttribute("admin") == true) {
+			System.out.println("Order:sessionOK");
+			String toDo = request.getParameter("toDo");
+			if(toDo.equals("delete")) {
+				Order order = new Order();
+				order.setOrderNo((String.valueOf(request.getParameter("no"))));
+				OrderDao.delete(order);
+				
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("order");
+			    dispatcher.forward(request, response);
+			}
+		}else {
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+		    dispatcher.forward(request, response);
+		}
+	}
+
+}

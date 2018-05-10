@@ -42,34 +42,61 @@ public class AdminProductServlet extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Product:doPost");
 		response.setContentType("text/html");
 		if (com.login.servlet.AdminLoginServlet.session != null && (Boolean)com.login.servlet.AdminLoginServlet.session.getAttribute("admin") == true) {
+			System.out.println("Product:sessionOK");
 			String toDo = request.getParameter("toDo");
 			if(toDo.equals("delete")) {
 				Product product = new Product();
-				product.setNo(String.valueOf(request.getParameter("product_no")));
+				product.setNo(String.valueOf(request.getParameter("no")));
 				ProductDao.delete(product);
 				
-			    RequestDispatcher dispatcher = request.getRequestDispatcher("home");
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
+			    dispatcher.forward(request, response);
+			}else if(toDo.equals("new")) {
+				System.out.println("Product:new");
+				Product product = new Product();
+				request.setAttribute("product", product);
+				request.setAttribute("toDo", "create");
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("productEdit.jsp");
+			    dispatcher.forward(request, response);
+			}else if(toDo.equals("create")) {
+				System.out.println("Product:create");
+				Product product = new Product();
+				product = getAttributes(request, product);
+				ProductDao.add(product);
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
 			}else if(toDo.equals("edit")) {
-				Product product = ProductDao.find(String.valueOf(request.getParameter("product_no")));
+				System.out.println("Product:edit");
+				Product product = ProductDao.find(String.valueOf(request.getParameter("no")));
 				request.setAttribute("product", product);
+				request.setAttribute("toDo", "update");
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("productEdit.jsp");
 			    dispatcher.forward(request, response);
 			}else if(toDo.equals("update")) {
-				Product product = ProductDao.find(String.valueOf(request.getParameter("product_no")));
-				
-				
+				System.out.println("Product:update");
+				Product product = ProductDao.find(String.valueOf(request.getParameter("no")));
+				product = getAttributes(request, product);
 				ProductDao.update(product);
-			    RequestDispatcher dispatcher = request.getRequestDispatcher("home");
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
 			}
 		}else {
-			com.login.servlet.AdminLoginServlet.session = null;
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
 		    dispatcher.forward(request, response);
 		}
+	}
+
+	public Product getAttributes(HttpServletRequest request, Product item) {
+		item.setNo(request.getParameter("no"));
+		item.setName(request.getParameter("name"));
+		item.setPrice(request.getParameter("price"));
+		item.setStock(request.getParameter("stock"));
+		item.setPhoto(request.getParameter("photo"));
+		item.setComment(request.getParameter("comment"));
+		return item;
 	}
 	
 }
