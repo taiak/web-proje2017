@@ -55,7 +55,7 @@ public class OrderDao {
 		ArrayList <Order> l = new ArrayList <Order>();
 		String where = "";
 		if( Where != null && ! Where.isEmpty())
-			where = " WHERE " + Where ;
+			where = Where;
 		
 		String query = "SELECT * FROM " + TableName + where + ";";
 		PreparedStatement ps = null;
@@ -71,21 +71,28 @@ public class OrderDao {
 			while(rs.next()) {
 				Order o = new Order();
 				o.setOrderNo(rs.getString("order_no"));
-				o.setCustomerNo(rs.getString("customer_no"));
-				o.setProductNo(rs.getString("product_no"));
 				o.setOrderDate(rs.getString("order_date"));
 				o.setPaymentNo(rs.getString("payment_no"));
+				System.out.println("bambotzil!");
 				o.setPaymentName(PaymentDao.find(o.getPaymentNo()).getName());
+				
+				
+				o.setProductNo(rs.getString("product_no"));
 				p = ProductDao.find(o.getProductNo());
 				o.setProductName(p.getName());
 				o.setProductPrice(p.getPrice());
 				o.setProductPhoto(p.getPhoto());
-				o.setProductName(ProductDao.find(o.getProductNo()).getName());
+				System.out.println("bambotzi2l!");
+				
+				o.setCustomerNo(rs.getString("customer_no"));
 				c = CustomerDao.find(o.getCustomerNo());
 				o.setCustomerName(c.getName());
+
+				System.out.println("bambotzil3!");
+
 				o.setCustomerSurname(c.getSurname());
 				o.setCustomerEmail(c.getEmail());
-				
+				System.out.println("bambotzil4!");
 				l.add(o);
 			}	
 		} catch (Exception e){
@@ -100,6 +107,11 @@ public class OrderDao {
 	public static ArrayList <Order> list(){
 		return list(null);
 	};
+
+	public static ArrayList<Order> getOrderByUserId(int userId) {
+		String where = " WHERE customer_no = '" + Integer.toString(userId) + "'";
+		return list(where);
+	}
 	
 	public static boolean delete(Order o) {
 		boolean statu = false;
@@ -166,11 +178,6 @@ public class OrderDao {
 			connectionClose(rs, ps, con);
 		}
 		return statu;
-	}
-
-	public static ArrayList<Order> getOrderByUserId(int userId) {
-		String where = " customer_no = '" + Integer.toString(userId) + "'";
-		return list(where);
 	}
 
 
