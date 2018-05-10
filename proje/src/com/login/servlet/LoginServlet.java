@@ -12,10 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import com.proje.beans.Login;
 import com.proje.beans.User;
+import com.proje.dao.OrderDao;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
-
+	public static HttpSession session;
 	private static final long serialVersionUID = 633170033630746350L;
 	
 	public LoginServlet() {
@@ -36,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 		String page = null;
 		
 		try {
-	        HttpSession session = request.getSession();
+			session = request.getSession();
 	        synchronized(session) {
 	        	Login l = new Login();
 	        	User user = new User();
@@ -45,6 +46,8 @@ public class LoginServlet extends HttpServlet {
 	        	
 	        	user = SafeLogin.userControl(l);
 	        	session.setAttribute("user", user);
+	        	session.setAttribute("user_id", user.getId());
+	        	session.setAttribute("orderCount", String.valueOf(OrderDao.count(Integer.parseInt(user.getId()))));
 	        	System.out.println("name:" + user.getName());
 	        	System.out.println("pass:" + user.getPass());
                 page = (user.getPass()) ? success_page: unsuccess_page;
