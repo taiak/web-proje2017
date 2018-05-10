@@ -13,7 +13,7 @@
     <div class="wrap_header">
       <!-- Logo -->
       <a href="index.jsp" class="logo">
-        <img src"../images/icons/logo.png" alt="IMG-LOGO">
+        <img src="../images/icons/logo.png" alt="IMG-LOGO">
       </a>
 
       <!-- Menu -->
@@ -46,7 +46,7 @@
 		<c:if test="${sessionScope.user != null}">
 	        <div class="header-wrapicon2">
 		        <a href="orders">
-		          <img src"../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+		          <img src="../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 		          <span class="header-icons-noti">
 		          		${sessionScope.orderCount}
 		          </span>
@@ -55,7 +55,7 @@
 	      	<span class="linedivide1"></span>
 	
 	        <a href="profile" class="header-wrapicon1 dis-block">
-	        	<img src"../images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
+	        	<img src="../images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
 	        </a>&nbsp;&nbsp;
 	        <a href="logout" class="btn btn-danger">
 	        	Çıkış Yap
@@ -65,7 +65,7 @@
 		
 		<c:if test="${sessionScope.user == null }">
         <a href="login" class="header-wrapicon1 dis-block">
-          <img src"../images/icons/icon-header-01.png" class="header-icon1" alt="YOK">GİRİŞ YAPILMADI.
+          <img src="../images/icons/icon-header-01.png" class="header-icon1" alt="YOK">GİRİŞ YAPILMADI.
         </a>
 		</c:if>
 		

@@ -30,10 +30,10 @@ public class AdminHomeServlet extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.login.servlet.LoginServlet.session != null && (Boolean)com.login.servlet.LoginServlet.session.getAttribute("admin") == true) {
-			products = ProductDao.last(8);
+		if (com.login.servlet.AdminLoginServlet.session != null && com.login.servlet.AdminLoginServlet.session.getAttribute("admin") != null) {
+			products = ProductDao.list();
 			request.setAttribute("products", products);
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("home");
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 	        dispatcher.forward(request, response);
 		}else {
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
@@ -44,7 +44,7 @@ public class AdminHomeServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		if (com.login.servlet.LoginServlet.session != null && (Boolean)com.login.servlet.LoginServlet.session.getAttribute("admin") == true) {
+		if (com.login.servlet.AdminLoginServlet.session != null && (Boolean)com.login.servlet.AdminLoginServlet.session.getAttribute("admin") == true) {
 			String toDo = request.getParameter("toDo");
 			if(toDo.equals("delete")) {
 				Product product = new Product();
@@ -67,6 +67,7 @@ public class AdminHomeServlet extends HttpServlet {
 			    dispatcher.forward(request, response);
 			}
 		}else {
+			com.login.servlet.AdminLoginServlet.session = null;
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
 		    dispatcher.forward(request, response);
 		}

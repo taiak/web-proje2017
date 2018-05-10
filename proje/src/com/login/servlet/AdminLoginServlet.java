@@ -17,6 +17,7 @@ import com.proje.dao.*;
 
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
+	public static HttpSession session;
 
 	private static final long serialVersionUID = 633170033630746350L;
 	
@@ -37,7 +38,7 @@ public class AdminLoginServlet extends HttpServlet {
 		final String unsuccess_page = "adminLogin.jsp";
 		String page = null;
 		try {
-	        HttpSession session = request.getSession();
+	        session = request.getSession();
 	        synchronized(session) {
 	        	Login l = new Login();
 

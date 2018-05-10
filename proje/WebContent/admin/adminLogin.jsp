@@ -3,7 +3,7 @@
 <z:layout title="Kullanıcı Girişi">
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/login.jpg);">
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(../images/login.jpg);">
 		<h2 class="l-text2 t-center">
 			YÖNETİCİ GİRİŞİ ( Gözüm Üzerinde )
 		</h2>
@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="images/login-user-icon.png" alt="Giriş Yap">
+						<img src="../images/login-user-icon.png" alt="Giriş Yap">
 					</div>
 				</div>
 
