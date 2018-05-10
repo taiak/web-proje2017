@@ -100,7 +100,6 @@ public class CustomerDao {
 		String set = "name = '" + c.getName() + "', surname = '" 
 					 + c.getSurname() + "', email = '" + c.getEmail() + "'";
 		String query = "UPDATE " + TableName + " SET " + set + " WHERE "+ where + " ;";
-		System.out.println(query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
@@ -114,7 +113,6 @@ public class CustomerDao {
 		
 		// Update Password
 		query = "UPDATE CustomerShadow SET password = '" + c.getHashedPassword() + "' WHERE customer_no = '" + c.getNo() + "' ;" ;
-		System.out.println(query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
@@ -149,8 +147,10 @@ public class CustomerDao {
 		}
 		
 		// Insert Password
-		query = "INSERT INTO CustomerShadow SET password = '" + c.getHashedPassword() + "' customer_no = '" + c.getNo() + "' ;" ;
-		System.out.println(query);
+		String where = " WHERE email = '" + c.getEmail() + "'";
+		Customer tmp = list(where).get(0);
+		
+		query = "INSERT INTO CustomerShadow SET password = '" + c.getHashedPassword() + "', customer_no = '" + tmp.getNo() + "' ;" ;
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);

@@ -31,5 +31,7 @@
     <url-pattern>/admin/customer</url-pattern>
     <url-pattern>/admin/order</url-pattern>
     <url-pattern>/admin/orderDelete</url-pattern>
+    <url-pattern>/register</url-pattern>
+    <url-pattern>/registerCustomer</url-pattern>
   </servlet-mapping>
 </web-app>

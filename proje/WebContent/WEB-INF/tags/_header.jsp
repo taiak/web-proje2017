@@ -65,7 +65,11 @@
 		
 		<c:if test="${sessionScope.user == null }">
         <a href="login" class="header-wrapicon1 dis-block">
-          <img src="images/icons/icon-header-01.png" class="header-icon1" alt="YOK">GİRİŞ YAPILMADI.
+          GİRİŞ YAP
+        </a> 
+        &nbsp;| &nbsp;
+        <a href="register" class="header-wrapicon1 dis-block">
+          ÜYE OL
         </a>
 		</c:if>
 		

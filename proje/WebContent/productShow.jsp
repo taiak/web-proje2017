@@ -18,7 +18,7 @@
     <c:if test="${product != null && !String.valueOf(product.name).equals(\"NaN\")}">
 	    <div class="row">
 	      <div class="col-md-6">
-	        <img src="images/product/iphone7.png" alt="Apple Iphone 7" width="300" height="300" />
+	        <img src="${product.photo}" alt="${product.name}" width="300" height="300" />
 	      </div>
 	      <div class="col-md-6">
 		        <h2>${product.name}</h2>

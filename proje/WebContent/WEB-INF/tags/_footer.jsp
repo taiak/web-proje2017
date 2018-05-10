@@ -31,6 +31,12 @@
             Üye Girişi
           </a>
         </li>
+       
+        <li class="p-b-9">
+          <a href="register" class="s-text7">
+            Kayıt Ol
+          </a>
+        </li>
         
        	<li class="p-b-9">
           <a href="orders" class="s-text7">

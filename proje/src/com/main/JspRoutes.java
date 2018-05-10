@@ -31,7 +31,7 @@ public class JspRoutes extends HttpServlet {
         AdminProductServlet   adminProduct = new AdminProductServlet (request, response);
         AdminCustomerServlet  adminCustomer= new AdminCustomerServlet(request, response);
         AdminOrderServlet     adminOrder   = new AdminOrderServlet   (request, response);
-
+        CustomerServlet       customer     = new CustomerServlet     (request, response);
 		System.out.println(action);
         switch (action) {
 		case "/home":
@@ -96,6 +96,12 @@ public class JspRoutes extends HttpServlet {
 			break;
 		case "/admin/AdminLoginServlet":
 			adminLogin.doPost(request, response);
+			break;
+		case "/register":
+			customer.index();
+			break;
+		case "/registerCustomer":
+			customer.doPost(request, response);
 			break;
 		default:
 			home.index();

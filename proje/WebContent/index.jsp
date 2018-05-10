@@ -20,7 +20,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="productShow.jsp" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product?id=20" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Paranı İsraf Et
 							</a>
 						</div>
@@ -39,7 +39,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
 							<!-- Button -->
-							<a href="productShow.jsp" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product?id=21" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								O Da Neymiş :O
 							</a>
 						</div>
@@ -55,7 +55,7 @@
 		 	<c:forEach var="product" items="${products}">
 		 		<div class="col-md-3">
 					<div class="card">
-					  <img class="card-img-top" src="https://www.2checkout.com/upload/images/graphic_product_tangible.png" alt="${product.name }">
+					  <img class="card-img-top" src="${product.photo}" alt="${product.name}" width="250" height="300">
 					  <div class="card-body">
 					    <h5 class="card-title">${product.name}</h5>
 					    <p class="card-text">${product.stock} adet</p>
