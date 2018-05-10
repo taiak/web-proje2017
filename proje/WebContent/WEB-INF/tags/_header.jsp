@@ -25,7 +25,7 @@
             </li>
 
             <li>
-              <a href="products.jsp">Ürünler</a>
+              <a href="products">Ürünler</a>
             </li>
 
             <li>
@@ -42,24 +42,30 @@
       <!-- Header Icon -->
       <div class="header-icons">
 		<c:if test="${sessionScope.user != null }">
-        <a href="userLogin.jsp" class="header-wrapicon1 dis-block">
+        <a href="profile" class="header-wrapicon1 dis-block">
           <img src="images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
         </a>
 		</c:if>
 		
 		
 		<c:if test="${sessionScope.user == null }">
-        <a href="userLogin.jsp" class="header-wrapicon1 dis-block">
+        <a href="login" class="header-wrapicon1 dis-block">
           <img src="images/icons/icon-header-01.png" class="header-icon1" alt="YOK">GİRİŞ YAPILMADI.
         </a>
 		</c:if>
 		
         <span class="linedivide1"></span>
-
-        <div class="header-wrapicon2">
-          <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-          <span class="header-icons-noti">0</span>
-        </div>
+		
+		<c:if test="${sessionScope.user != null}">
+	        <div class="header-wrapicon2">
+	        <a href="orders">
+	          <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+	          <span class="header-icons-noti">
+	          		${sessionScope.orderCount}
+	          </span>
+	         </a>
+	        </div>
+        </c:if>
       </div>
     </div>
   </div>
