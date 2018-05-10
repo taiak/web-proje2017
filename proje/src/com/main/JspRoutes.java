@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.login.servlet.AdminLoginServlet;
 import com.login.servlet.LoginServlet;
+import com.main.admin.AdminHomeServlet;
 
 @WebServlet("/JspRoutes")
 public class JspRoutes extends HttpServlet {
@@ -16,13 +18,14 @@ public class JspRoutes extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getServletPath();
         request.setCharacterEncoding("UTF-8");
-        HomeServlet           home     = new HomeServlet        (request, response);
-        UserLoginServlet      login    = new UserLoginServlet   (request, response);
-        ProductsServlet       products = new ProductsServlet    (request, response);
-        OrdersServlet         order    = new OrdersServlet      (request, response);
-        ProfileServlet        profile  = new ProfileServlet     (request, response);
-        ProductShowServlet    product  = new ProductShowServlet (request, response);
-        
+        HomeServlet           home       = new HomeServlet        (request, response);
+        UserLoginServlet      login      = new UserLoginServlet   (request, response);
+        ProductsServlet       products   = new ProductsServlet    (request, response);
+        OrdersServlet         order      = new OrdersServlet      (request, response);
+        ProfileServlet        profile    = new ProfileServlet     (request, response);
+        ProductShowServlet    product    = new ProductShowServlet (request, response);
+        AdminHomeServlet      admin      = new AdminHomeServlet   (request, response);
+        AdminLoginServlet     adminLogin = new AdminLoginServlet  (request, response);
         switch (action) {
 		case "/home":
 			home.index();
@@ -56,6 +59,18 @@ public class JspRoutes extends HttpServlet {
 			break;
 		case "/contact":
 			home.contact();
+			break;
+		case "/admin/home":
+			admin.index();
+			break;
+		case "/admin/login":
+			adminLogin.doPost(request, response);
+			break;
+		case "/admin/product":
+			admin.doPost(request, response);
+			break;
+		case "/admin/AdminLoginServlet":
+			adminLogin.doPost(request, response);
 			break;
 		default:
 			home.index();

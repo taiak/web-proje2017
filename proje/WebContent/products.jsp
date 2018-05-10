@@ -23,7 +23,7 @@
 						  <div class="card-body">
 						    <h5 class="card-title">${product.name}</h5>
 						    <p class="card-text">${product.stock} adet</p>
-						    <a href="productShow.jsp?id=<c:out value='${product.no}' />" class="btn btn-primary">İncele</a>
+						    <a href="product?id=<c:out value='${product.no}' />" class="btn btn-primary">İncele</a>
 						  </div>
 						</div>
 					</div>

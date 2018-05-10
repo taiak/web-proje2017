@@ -76,6 +76,5 @@ public class OrdersServlet extends HttpServlet {
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
 		    dispatcher.forward(request, response);
 		}
-
 	}
 }

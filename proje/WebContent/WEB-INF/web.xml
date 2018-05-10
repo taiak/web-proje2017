@@ -21,5 +21,9 @@
     <url-pattern>/contact</url-pattern>
     <url-pattern>/orderAdd</url-pattern>
     <url-pattern>/orderDelete</url-pattern>
+    <url-pattern>/admin/home</url-pattern>
+    <url-pattern>/admin/login</url-pattern>
+    <url-pattern>/admin/product</url-pattern>
+    <url-pattern>/admin/AdminLoginServlet</url-pattern>
   </servlet-mapping>
 </web-app>
