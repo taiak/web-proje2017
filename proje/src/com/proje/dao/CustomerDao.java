@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.proje.beans.Customer;
-import com.proje.beans.Order;
 import com.utilities.query.DatabaseOpener;
 
 public class CustomerDao {	
@@ -29,7 +28,7 @@ public class CustomerDao {
 	public static ArrayList <Customer> list(String Where){
 		String where = "";
 		if( Where != null && ! Where.isEmpty())
-			where = " WHERE " + Where;
+			where = Where;
 		
 		String query = "SELECT * FROM " + TableName + where + ";";
 		ArrayList <Customer> l = new ArrayList <Customer>();
@@ -41,7 +40,6 @@ public class CustomerDao {
 			con = connectionOpen();	
 			ps = (PreparedStatement	) con.prepareStatement(query);
 			rs = ps.executeQuery();
-			
 			while(rs.next()) {
 				Customer c = new Customer();
 				c.setNo(rs.getString("no"));

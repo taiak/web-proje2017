@@ -73,26 +73,19 @@ public class OrderDao {
 				o.setOrderNo(rs.getString("order_no"));
 				o.setOrderDate(rs.getString("order_date"));
 				o.setPaymentNo(rs.getString("payment_no"));
-				System.out.println("bambotzil!");
 				o.setPaymentName(PaymentDao.find(o.getPaymentNo()).getName());
-				
-				
 				o.setProductNo(rs.getString("product_no"));
+
 				p = ProductDao.find(o.getProductNo());
 				o.setProductName(p.getName());
 				o.setProductPrice(p.getPrice());
 				o.setProductPhoto(p.getPhoto());
-				System.out.println("bambotzi2l!");
-				
+
 				o.setCustomerNo(rs.getString("customer_no"));
 				c = CustomerDao.find(o.getCustomerNo());
 				o.setCustomerName(c.getName());
-
-				System.out.println("bambotzil3!");
-
 				o.setCustomerSurname(c.getSurname());
 				o.setCustomerEmail(c.getEmail());
-				System.out.println("bambotzil4!");
 				l.add(o);
 			}	
 		} catch (Exception e){
@@ -118,8 +111,8 @@ public class OrderDao {
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		String where = "order_no = " + o.getOrderNo();
-		String query = "DELETE FROM " + TableName + " WHERE " + where + " ;";
+		String where = " WHERE order_no = '" + o.getOrderNo() + "'";
+		String query = "DELETE FROM " + TableName + where + " ;";
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
@@ -140,7 +133,7 @@ public class OrderDao {
 		ResultSet rs = null;
 		String where = "order_no = '" + o.getOrderNo() + "' ";
 		String set = " customer_no = '" + o.getCustomerNo() +
-		     "', product_no = '" + o.getProductNo() +
+			"', product_no = '" + o.getProductNo() +
 		     "', order_date = '" + o.getOrderDate() +
 		     "', payment_no = '" + o.getPaymentNo() + "'" ;
 		
@@ -179,6 +172,5 @@ public class OrderDao {
 		}
 		return statu;
 	}
-
-
+	
 }
