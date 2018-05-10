@@ -20,7 +20,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 633170033630746350L;
 	
-	public AdminLoginServlet() {
+	public AdminLoginServlet(HttpServletRequest request, HttpServletResponse response) {
 	    super();
 	}
 	
@@ -30,11 +30,11 @@ public class AdminLoginServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
-		final String success_page   = "about.jsp";
-		final String unsuccess_page = "about.jsp";
+		final String success_page   = "home";
+		final String unsuccess_page = "adminLogin.jsp";
 		String page = null;
 		try {
 	        HttpSession session = request.getSession();
@@ -44,7 +44,12 @@ public class AdminLoginServlet extends HttpServlet {
 	        	l.setName((String)request.getParameter("userName"));
 	        	l.setPassword((String)request.getParameter("password"));
 	        	
-                page = (SafeLogin.adminControl(l)) ? success_page: unsuccess_page;
+	        	if (SafeLogin.adminControl(l)) {
+    	        	session.setAttribute("admin", true);             	
+                	page = success_page;
+                }else {
+                	page = unsuccess_page;
+                }
                 
                 RequestDispatcher dispatcher = request.getRequestDispatcher(page);
                 

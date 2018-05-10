@@ -50,21 +50,29 @@
 	</section>
 
 
-
-	<div class="row">
-	 	<c:forEach var="product" items="${products}">
-	 		<div class="col-md-3">
-				<div class="card">
-				  <img class="card-img-top" src="https://vignette.wikia.nocookie.net/roblox-phantom-forces/images/7/7c/Noimage.png/revision/latest?cb=20171115203949" alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title">${product.name}</h5>
-				    <p class="card-text">${product.stock} adet</p>
-				    <a href="productShow.jsp?id=<c:out value='${product.no}' />" class="btn btn-primary">İncele</a>
-				  </div>
+	<div class="container">
+		<div class="row">
+		 	<c:forEach var="product" items="${products}">
+		 		<div class="col-md-3">
+					<div class="card">
+					  <img class="card-img-top" src="https://www.2checkout.com/upload/images/graphic_product_tangible.png" alt="${product.name }">
+					  <div class="card-body">
+					    <h5 class="card-title">${product.name}</h5>
+					    <p class="card-text">${product.stock} adet</p>
+					    <center>
+				    		<a href="product?id=<c:out value='${product.no}' />" class="btn btn-danger">İncele</a>
+				    		<form action="orderAdd" method="post">
+					        	<input name="toDo" type="hidden" value="add">
+						        <input name="product_no" type="hidden" value="<c:out value='${product.no}' />">
+						        <input name="payment_no" type="hidden" value="2">
+						        <input type="submit" name="login" class="btn btn-warning" value="Sepete Ekle">
+		    				</form>
+					    </center>
+					  </div>
+					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</div>
 	</div>
-
 
 </z:layout>
