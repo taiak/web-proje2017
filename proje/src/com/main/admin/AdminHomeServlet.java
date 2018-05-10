@@ -1,20 +1,14 @@
 package com.main.admin;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.proje.beans.Order;
 import com.proje.beans.Product;
-import com.proje.dao.OrderDao;
 import com.proje.dao.ProductDao;
 
 @WebServlet("/AdminHomeServlet")
