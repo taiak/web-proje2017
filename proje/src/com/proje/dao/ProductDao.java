@@ -45,6 +45,7 @@ public class ProductDao {
 				p.setNo(rs.getString("no"));
 				p.setName(rs.getString("name"));
 				p.setStock(rs.getString("stock"));
+				p.setPrice(rs.getString("price"));
 				p.setPhoto(rs.getString("photo"));
 				p.setComment(rs.getString("comment"));
 				l.add(p);

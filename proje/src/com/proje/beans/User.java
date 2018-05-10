@@ -3,8 +3,9 @@ package com.proje.beans;
 import java.io.Serializable;
 
 public class User implements Serializable {
-	
-	private String id = "NaN";
+
+	  private static final long serialVersionUID = 981359077056633823L;
+	  private String id = "NaN";
 	  private String name = "NaN";
 	  private String surname = "NaN";
 	  private String email = "NaN";

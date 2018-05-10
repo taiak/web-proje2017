@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public class Login implements Serializable {
 
-	  private String name = "Nan";
+	private static final long serialVersionUID = 4364171940870459728L;
+	private String name = "Nan";
 	  private String password = "Nan";
 
 	  public Login() {

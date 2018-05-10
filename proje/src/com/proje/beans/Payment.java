@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 public class Payment implements Serializable {
 
-	  private String no = "Nan";
+	private static final long serialVersionUID = -186971185286674149L;
+	private String no = "Nan";
 	  private String name = "Nan";
-	  private String comment = "Nan";
+	  private String comment = "No comment";
 
 	  public Payment() {
 	  }

@@ -3,8 +3,8 @@ use PROJE;
 
 INSERT INTO Customer VALUES(0, 'hidir',   'surname_1',  'email_1');
 INSERT INTO Customer VALUES(0, 'hidir2',  'surname_2',  'email_2');
-INSERT INTO Customer VALUES(0, 'name_3',  'surname_3',  'email_3');
-INSERT INTO Customer VALUES(0, 'name_4',  'surname_4',  'email_4');
+INSERT INTO Customer VALUES(0, 'mehmet',  'surname_3',  'email_3');
+INSERT INTO Customer VALUES(0, 'semra',  'surname_4',  'email_4');
 INSERT INTO Customer VALUES(0, 'name_5',  'surname_5',  'email_5');
 INSERT INTO Customer VALUES(0, 'name_6',  'surname_6',  'email_6');
 INSERT INTO Customer VALUES(0, 'name_7',  'surname_7',  'email_7');
@@ -41,8 +41,8 @@ INSERT INTO CustomerShadow VALUES(14, 'e78b85ec36b1a26f0a08b2aa84814c1a23f2102ef
 INSERT INTO CustomerShadow VALUES(15, 'c9cd11537b30c2927618c2e6fdee76b907a033759a8907a40dc30e1f4b55c289' );
 
 # product ekle
-INSERT INTO Product VALUES(0, 'urun_1', 18  , 12.5, '/yol/yol2' ,"bu aciklama  product_1 için" );
-INSERT INTO Product VALUES(0, 'urun_2', 103 , 12.5, '/yol/yol2' ,"bu aciklama  product_2 için" );
+INSERT INTO Product VALUES(0, 'kulaklık', 18  , 12.5, '/yol/yol2' ,"kul hakkı saklamaya yarayan aparat" );
+INSERT INTO Product VALUES(0, 'at kafası', 103 , 30.5, '/yol/yol2' ,"bu aciklama  product_2 için" );
 INSERT INTO Product VALUES(0, 'urun_3', 464 , 12.5, '/yol/yol2' ,"bu aciklama  product_3 için" );
 INSERT INTO Product VALUES(0, 'urun_4', 413 , 12.5, '/yol/yol2' ,"bu aciklama  product_4 için" );
 INSERT INTO Product VALUES(0, 'urun_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama  product_5 için" );

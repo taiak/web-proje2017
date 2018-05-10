@@ -9,10 +9,10 @@ public class Product implements Serializable {
 	
 	  private String no      = "NaN";
 	  private String name    = "NaN";
-	  private String stock   = "NaN";
-	  private String price   = "NaN";
-	  private String photo   = "NaN";
-	  private String comment = "NaN";
+	  private String stock   = "0";
+	  private String price   = "0";
+	  private String photo   = "No photo";
+	  private String comment = "No Comment";
 
 	  public Product() {
 	  }

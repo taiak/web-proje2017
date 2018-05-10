@@ -15,7 +15,7 @@ CREATE TABLE `Product` (
   name    VARCHAR(32)      NOT NULL,
   stock   INT(32)          NOT NULL DEFAULT '0',
   price   DECIMAL(12, 2)   NOT NULL DEFAULT '0.0',
-  photo   VARCHAR(200)     NOT NULL,
+  photo   VARCHAR(200)     NOT NULL DEFAULT "No photo link",
   comment VARCHAR(150)
 );
 

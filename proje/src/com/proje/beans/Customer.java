@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Customer implements Serializable {
 
+	  private static final long serialVersionUID = 5801053122965558808L;
 	  private String no = "Nan";
 	  private String name = "Nan";
 	  private String surname = "Nan";

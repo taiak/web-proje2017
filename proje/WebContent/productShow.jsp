@@ -25,9 +25,9 @@
 		        Ürün Numarası: ${product.no}</br>
 		        <strong>Detaylar:</strong></br>
 		        <div class="product-detail" style="max-height: 300px;  overflow-y: auto;">
-		          <p>Ürün açıklaması eklenebilir
+		          <p>${product.comment}
 		        </div>
-		          <h1>₺ 0 (Fiyat eklensin)</h1></br>
+		          <h1>₺ ${product.price}</h1></br>
 		        Stok Durumu: <strong>${product.stock}</strong></br>
 		        <!-- Button -->
 		        

@@ -11,7 +11,7 @@
 			<div class="sec-title p-b-60">
 				<h3 class="m-text5 t-center">
 					BATAN GEMİNİN MALLARI BUNLAR
-					<p> TRUMP DA BURADAN ALIYOR!</p>
+					<p> TRUMP DAYI BURADAN ALIYOR!</p>
 				</h3>
 			</div>
 			
