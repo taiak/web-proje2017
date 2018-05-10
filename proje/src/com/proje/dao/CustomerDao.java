@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.proje.beans.Customer;
+import com.proje.beans.Order;
 import com.utilities.query.DatabaseOpener;
 
 public class CustomerDao {	
@@ -58,32 +59,13 @@ public class CustomerDao {
 		return l;
 	};
 	
+	public static ArrayList <Customer> list(){
+		return list(null);
+	};
+	
 	public static Customer find(String no){
-		Customer c = new Customer();
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
-		String where = "no = '" + no + "'";
-		String query = "SELECT * FROM " + TableName + " WHERE " + where + " ;";
-
-		try {
-			con = connectionOpen();	
-			ps = (PreparedStatement	) con.prepareStatement(query);
-			rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				c.setNo(rs.getString("no"));
-				c.setName(rs.getString("name"));
-				c.setSurname(rs.getString("surname"));
-				c.setEmail(rs.getString("email"));
-			}
-		} catch (Exception e){
-			System.out.println("db: finding error!");
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		
-		return c;
+		String where = " WHERE no = '" + no + "'";
+		return list(where).get(0);
 	};
 	
 	public static String name(String no){
