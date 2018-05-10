@@ -20,5 +20,6 @@
     <url-pattern>/about</url-pattern>
     <url-pattern>/contact</url-pattern>
     <url-pattern>/orderAdd</url-pattern>
+    <url-pattern>/orderDelete</url-pattern>
   </servlet-mapping>
 </web-app>

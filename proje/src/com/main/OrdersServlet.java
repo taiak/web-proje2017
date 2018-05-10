@@ -48,19 +48,30 @@ public class OrdersServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		if (com.login.servlet.LoginServlet.session != null && com.login.servlet.LoginServlet.session.getAttribute("user") != null) {
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			LocalDate localDate = LocalDate.now();
-			
-			Order order = new Order();
-			order.setCustomerNo(String.valueOf(com.login.servlet.LoginServlet.session.getAttribute("user_id")));
-			order.setOrderDate(String.valueOf(dtf.format(localDate)));
-			
-			order.setProductNo(String.valueOf(request.getParameter("product_no")));
-			order.setPaymentNo(String.valueOf("2")); // TODO: PaymentNo neyse ona göre düzenlenecek
-			OrderDao.add(order);
-			
-		    RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
-		    dispatcher.forward(request, response);
+			String toDo = request.getParameter("toDo");
+			if(toDo.equals("add")) {
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				LocalDate localDate = LocalDate.now();
+				
+				Order order = new Order();
+				order.setCustomerNo(String.valueOf(com.login.servlet.LoginServlet.session.getAttribute("user_id")));
+				order.setOrderDate(String.valueOf(dtf.format(localDate)));
+				
+				order.setProductNo(String.valueOf(request.getParameter("product_no")));
+				order.setPaymentNo(String.valueOf("2")); // TODO: PaymentNo neyse ona göre düzenlenecek
+				OrderDao.add(order);
+				
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
+			    dispatcher.forward(request, response);
+	
+			}else if(toDo.equals("delete")) {
+				Order order = new Order();
+				order.setOrderNo(String.valueOf(request.getParameter("order_no")));
+				OrderDao.delete(order);
+				
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
+			    dispatcher.forward(request, response);
+			}
 		}else {
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
 		    dispatcher.forward(request, response);

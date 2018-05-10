@@ -42,6 +42,9 @@ public class JspRoutes extends HttpServlet {
 		case "/orderAdd":
 			order.doPost(request, response);
 			break;
+		case "/orderDelete":
+			order.doPost(request, response);
+			break;
 		case "/profile":
 			profile.index();
 			break;

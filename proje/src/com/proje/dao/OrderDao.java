@@ -93,7 +93,7 @@ public class OrderDao {
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
-		String where = "no = " + o.getOrderNo();
+		String where = "order_no = " + o.getOrderNo();
 		String query = "DELETE FROM " + TableName + " WHERE " + where + " ;";
 		try {
 			con = connectionOpen();
@@ -101,7 +101,7 @@ public class OrderDao {
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("db: remove error!");
+			System.out.println("db: remove error!\n" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}

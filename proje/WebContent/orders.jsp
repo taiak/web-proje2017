@@ -11,6 +11,7 @@
 					<th>Ürün Adı</th>
 					<th>Ödeme Türü</th>
 					<th>Sipariş Numarası</th>
+					<th>İşlemler</th>
 				</tr>
 		    </thead>
 		    <tbody>
@@ -19,6 +20,13 @@
 			        <td>${order.productName}</td>
 			        <td>${order.paymentName}</td>
 			        <td>${order.orderNo}</td>
+			        <td>
+			        <form action="orderDelete" method="post">
+			        	<input name="toDo" type="hidden" value="delete">
+				        <input name="order_no" type="hidden" value="${order.orderNo}">
+				        <input type="submit" name="login" value="Sil">
+			    	</form>
+			    	</td>
 			      </tr>
 		      	</c:forEach>
 		      

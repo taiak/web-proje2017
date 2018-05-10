@@ -32,6 +32,7 @@
 		        <!-- Button -->
 		        
 		        <form action="orderAdd" method="post">
+		        	<input name="toDo" type="hidden" value="add">
 			        <input name="product_no" type="hidden" value="${product.no}">
 			        <input name="payment_no" type="hidden" value="${product.no}">
 			        <input type="submit" name="login" value="Sepete Ekle">
