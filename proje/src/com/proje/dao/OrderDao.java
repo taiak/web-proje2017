@@ -29,6 +29,28 @@ public class OrderDao {
 	    try { con.close(); } catch (Exception e) { /* ignored */ }
 	}	
 	
+	
+	public static int count(int userId) {
+		int sql_response = 0;
+		PreparedStatement ps = null;
+		Connection con = null;
+		ResultSet rs = null;
+		String query = "SELECT COUNT(*) FROM " + TableName + " WHERE customer_no = " + Integer.toString(userId) + " ;";
+		try {
+			con = connectionOpen();
+			ps = (PreparedStatement) con.prepareStatement(query);
+			ps.executeQuery();
+			sql_response = ((ResultSet) ps).getInt(1);
+		} catch (Exception e){
+			System.out.println("db: order count error!");
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		System.out.println("OrerDao.count: " + sql_response);
+		return sql_response;
+		
+	}
+	
 	public static ArrayList <Order> list(){
 		ArrayList <Order> l = new ArrayList <Order>();
 		String query = "SELECT * FROM " + TableName + ";";
@@ -130,5 +152,44 @@ public class OrderDao {
 			connectionClose(rs, ps, con);
 		}
 		return statu;
-	};
+	}
+
+	public static ArrayList<Order> getOrderByUserId(int userId) {
+		ArrayList <Order> l = new ArrayList <Order>();
+		String query = "SELECT * FROM " + TableName + " where customer_no = " + Integer.toString(userId) + " ;";
+		PreparedStatement ps = null;
+		Connection con = null;
+		ResultSet rs = null;
+
+		try {
+			con = connectionOpen();	
+			ps = (PreparedStatement	) con.prepareStatement(query);
+			rs = ps.executeQuery();
+			Customer c = null;
+			while(rs.next()) {
+				Order o = new Order();
+				o.setOrderNo(rs.getString("order_no"));
+				o.setCustomerNo(rs.getString("customer_no"));
+				o.setProductNo(rs.getString("product_no"));
+				o.setOrderDate(rs.getString("order_date"));
+				o.setPaymentNo(rs.getString("payment_no"));
+				o.setPaymentName(PaymentDao.find(o.getPaymentNo()).getName());
+				o.setProductName(ProductDao.find(o.getProductNo()).getName());
+				c = CustomerDao.find(o.getCustomerNo());
+				o.setCustomerName(c.getName());
+				o.setCustomerSurname(c.getSurname());
+				o.setCustomerEmail(c.getEmail());
+				
+				l.add(o);
+			}	
+		} catch (Exception e){
+			System.out.println("db: listing error!");
+			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...");
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		return l;
+	}
+
+
 }
