@@ -98,9 +98,19 @@ public class OrderDao {
 	};
 
 	public static ArrayList <Order> list(){
-		return list(null);
+		return list((String)null);
+	};
+	
+	public static ArrayList <Order> paid(Customer c){
+		String where = " WHERE no = '" + c.getNo() + "' AND paid = 1";
+		return list(where);
 	};
 
+	public static ArrayList <Order> unpaid(Customer c){
+		String where = " WHERE no = '" + c.getNo() + "' AND paid = 0";
+		return list(where);
+	};
+	
 	public static ArrayList<Order> getOrderByUserId(int userId) {
 		String where = " WHERE customer_no = '" + Integer.toString(userId) + "'";
 		return list(where);
