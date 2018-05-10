@@ -27,11 +27,10 @@ public class HomeServlet extends HttpServlet {
 	    this.response = response;
     }
 
-
 	public void index() throws ServletException, IOException {
-		products = ProductDao.list();
+		products = ProductDao.last(8);
 		request.setAttribute("products", products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);        
+        dispatcher.forward(request, response);
 	}
 }
