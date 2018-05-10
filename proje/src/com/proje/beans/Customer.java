@@ -2,13 +2,16 @@ package com.proje.beans;
 
 import java.io.Serializable;
 
+import com.login.servlet.SafeLogin;
+
 public class Customer implements Serializable {
 
 	  private static final long serialVersionUID = 5801053122965558808L;
-	  private String no      = "Nan";
-	  private String name    = "Nan";
-	  private String surname = "Nan";
-	  private String email   = "Nan";
+	  private String no             = "Nan";
+	  private String name           = "Nan";
+	  private String surname        = "Nan";
+	  private String email          = "Nan";
+	  private String hashedPassword = "Nan";
 
 	  public Customer() {
 		  
@@ -44,5 +47,13 @@ public class Customer implements Serializable {
 
 	  public void setEmail(String  Email){
 	    this.email = Email;
+	  }
+
+	  public String getHashedPassword() {
+		return hashedPassword;
+	  }
+	  
+	  public void setHashedPassword(String plainTextPassword) {
+		this.hashedPassword = SafeLogin.getSha256(plainTextPassword);
 	  }
 }

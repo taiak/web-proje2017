@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.login.servlet.SafeLogin;
 import com.proje.beans.Customer;
 import com.utilities.query.DatabaseOpener;
 
@@ -110,6 +111,22 @@ public class CustomerDao {
 		} finally {
 			connectionClose(rs, ps, con);
 		}
+		
+		// Update Password
+		query = "UPDATE CustomerShadow SET password = '" + c.getHashedPassword() + "' WHERE customer_no = '" + c.getNo() + "' ;" ;
+		System.out.println(query);
+		try {
+			con = connectionOpen();
+			ps = (PreparedStatement) con.prepareStatement(query);
+			ps.executeUpdate();
+			statu = true;
+		} catch (Exception e){
+			System.out.println("db: Password Updating error!" + e);			
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		
+		
 		return statu;
 	};
 	
@@ -130,6 +147,22 @@ public class CustomerDao {
 		} finally {
 			connectionClose(rs, ps, con);
 		}
+		
+		// Insert Password
+		query = "INSERT INTO CustomerShadow SET password = '" + c.getHashedPassword() + "' customer_no = '" + c.getNo() + "' ;" ;
+		System.out.println(query);
+		try {
+			con = connectionOpen();
+			ps = (PreparedStatement) con.prepareStatement(query);
+			ps.executeUpdate();
+			statu = true;
+		} catch (Exception e){
+			System.out.println("db: Password Insert error!" + e);			
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		
+		
 		return statu;
 	};
 }

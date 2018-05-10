@@ -95,6 +95,7 @@ public class AdminCustomerServlet extends HttpServlet {
 		item.setName(request.getParameter("name"));
 		item.setSurname(request.getParameter("surname"));
 		item.setEmail(request.getParameter("email"));
+		item.setHashedPassword(request.getParameter("password_plain"));
 		return item;
 	}
 	

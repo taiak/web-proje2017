@@ -10,7 +10,7 @@ import com.utilities.query.DatabaseOpener;
 	
 		
 public class SafeLogin {
-	protected static String getSha256(String value) {
+	public static String getSha256(String value) {
 	    try{
 	        MessageDigest md = MessageDigest.getInstance("SHA-256");
 	        md.update(value.getBytes());
