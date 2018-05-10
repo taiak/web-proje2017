@@ -11,5 +11,10 @@
   <servlet-mapping>
     <servlet-name>JspRoutes</servlet-name>
     <url-pattern>/home</url-pattern>
+    <url-pattern>/login</url-pattern>
+    <url-pattern>/products</url-pattern>
+    <url-pattern>/orders</url-pattern>
+    <url-pattern>/profile</url-pattern>
+    <url-pattern>/product</url-pattern>
   </servlet-mapping>
 </web-app>
