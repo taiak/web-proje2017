@@ -1,6 +1,8 @@
 package com.main;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.login.servlet.SafeLogin;
+import com.proje.beans.Login;
 import com.proje.beans.Order;
+import com.proje.beans.User;
 import com.proje.dao.OrderDao;
 
 /**
@@ -37,5 +42,29 @@ public class OrdersServlet extends HttpServlet {
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("login");
 	        dispatcher.forward(request, response);
 		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		if (com.login.servlet.LoginServlet.session != null && com.login.servlet.LoginServlet.session.getAttribute("user") != null) {
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate localDate = LocalDate.now();
+			
+			Order order = new Order();
+			order.setCustomerNo(String.valueOf(com.login.servlet.LoginServlet.session.getAttribute("user_id")));
+			order.setOrderDate(String.valueOf(dtf.format(localDate)));
+			
+			order.setProductNo(String.valueOf(request.getParameter("product_no")));
+			order.setPaymentNo(String.valueOf("2")); // TODO: PaymentNo neyse ona göre düzenlenecek
+			OrderDao.add(order);
+			
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
+		    dispatcher.forward(request, response);
+		}else {
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+		    dispatcher.forward(request, response);
+		}
+
 	}
 }

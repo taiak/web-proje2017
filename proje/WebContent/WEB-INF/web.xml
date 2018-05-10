@@ -16,5 +16,9 @@
     <url-pattern>/orders</url-pattern>
     <url-pattern>/profile</url-pattern>
     <url-pattern>/product</url-pattern>
+    <url-pattern>/logout</url-pattern>
+    <url-pattern>/about</url-pattern>
+    <url-pattern>/contact</url-pattern>
+    <url-pattern>/orderAdd</url-pattern>
   </servlet-mapping>
 </web-app>

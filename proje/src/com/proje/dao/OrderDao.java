@@ -42,7 +42,7 @@ public class OrderDao {
 			ps.executeQuery();
 			sql_response = ((ResultSet) ps).getInt(1);
 		} catch (Exception e){
-			System.out.println("db: order count error!");
+			System.out.println("db: order count error!\n" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -81,7 +81,7 @@ public class OrderDao {
 			}	
 		} catch (Exception e){
 			System.out.println("db: listing error!");
-			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...");
+			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...\n"  +e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -126,7 +126,7 @@ public class OrderDao {
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e){
-			System.out.println("db: Update error!");
+			System.out.println("db: Update error!\n" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -141,13 +141,14 @@ public class OrderDao {
 		String values = "(0,'" + o.getCustomerNo() + "', '" + o.getProductNo() +
 				"', '" + o.getOrderDate() + "', '" + o.getPaymentNo() +"');";
 		String query = "INSERT INTO " + TableName + " VALUES " + values;
+		System.out.println(query);
 		try {
 			con = connectionOpen();
 			ps = (PreparedStatement) con.prepareStatement(query);
 			ps.executeUpdate();
 			statu = true;
 		} catch (Exception e) {
-			System.out.println("db: Add error!");
+			System.out.println("db: Add error!\n" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}
@@ -184,7 +185,7 @@ public class OrderDao {
 			}	
 		} catch (Exception e){
 			System.out.println("db: listing error!");
-			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...");
+			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...\n" + e);
 		} finally {
 			connectionClose(rs, ps, con);
 		}

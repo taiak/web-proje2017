@@ -29,11 +29,11 @@
             </li>
 
             <li>
-              <a href="about.jsp">Hakkımızda</a>
+              <a href="about">Hakkımızda</a>
             </li>
 
             <li>
-              <a href="contact.jsp">İletişim</a>
+              <a href="contact">İletişim</a>
             </li>
           </ul>
         </nav>
@@ -41,10 +41,25 @@
 
       <!-- Header Icon -->
       <div class="header-icons">
-		<c:if test="${sessionScope.user != null }">
-        <a href="profile" class="header-wrapicon1 dis-block">
-          <img src="images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
-        </a>
+      
+		
+		<c:if test="${sessionScope.user != null}">
+	        <div class="header-wrapicon2">
+		        <a href="orders">
+		          <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+		          <span class="header-icons-noti">
+		          		${sessionScope.orderCount}
+		          </span>
+		         </a>
+	        </div>
+	      	<span class="linedivide1"></span>
+	
+	        <a href="profile" class="header-wrapicon1 dis-block">
+	        	<img src="images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
+	        </a>&nbsp;&nbsp;
+	        <a href="logout" class="btn btn-danger">
+	        	Çıkış Yap
+	        </a>
 		</c:if>
 		
 		
@@ -54,18 +69,6 @@
         </a>
 		</c:if>
 		
-        <span class="linedivide1"></span>
-		
-		<c:if test="${sessionScope.user != null}">
-	        <div class="header-wrapicon2">
-	        <a href="orders">
-	          <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-	          <span class="header-icons-noti">
-	          		${sessionScope.orderCount}
-	          </span>
-	         </a>
-	        </div>
-        </c:if>
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <z:layout title="Ürün">
 
@@ -6,39 +8,39 @@
       <div class="container-full-width">
       
       <div class="container container-white" style="margin-top:20px">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="images/product/iphone7.png" alt="Apple Iphone 7" width="300" height="300" />
-      </div>
-      <div class="col-md-6">
-        <h2>Apple Iphone 7</h2>
-        Apple</br>
-        <strong>Detaylar:</strong></br>
-        <div class="product-detail" style="max-height: 300px;  overflow-y: auto;">
-          <p>Ekranı var
-          <br />Kulaklık girişi yok
-          <br />İşlemcisi var
-          <br />Ram i var
-          <br />Grafik İşlem Birimi Var
-          <br />Sesi çıkıyor
-          <br />Parmak izi okuma var
-          <br />Siri var
-          <br />iOS güncelleştirmelerini alıyor
-          <br />Çeşitli renkleri var
-          <br />Basit kullanım
-          <br />Kolay bozulmaz
-          <br />Kapalı kaynak</p>
-        </div>
-          <h1>₺ 5000.0</h1></br>
-        Stok Durumu: <strong>Mevcut</strong></br>
-        Bu ürün 85 defa görüntülendi.
-        <!-- Button -->
-        <a href="productShow.jsp" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-          Sepete Ekle
-        </a>
-      </div>
-    </div>
+      
+      	
+	<c:if test="${(product.name == null) || String.valueOf(product.name).equals(\"NaN\")}">
+		<h1>Ürün Bulunamadı!</h1>
+	</c:if>
+      
+      
+    <c:if test="${product != null && !String.valueOf(product.name).equals(\"NaN\")}">
+	    <div class="row">
+	      <div class="col-md-6">
+	        <img src="images/product/iphone7.png" alt="Apple Iphone 7" width="300" height="300" />
+	      </div>
+	      <div class="col-md-6">
+		        <h2>${product.name}</h2>
+		        Ürün Numarası: ${product.no}</br>
+		        <strong>Detaylar:</strong></br>
+		        <div class="product-detail" style="max-height: 300px;  overflow-y: auto;">
+		          <p>Ürün açıklaması eklenebilir
+		        </div>
+		          <h1>₺ 0 (Fiyat eklensin)</h1></br>
+		        Stok Durumu: <strong>${product.stock}</strong></br>
+		        <!-- Button -->
+		        
+		        <form action="orderAdd" method="post">
+			        <input name="product_no" type="hidden" value="${product.no}">
+			        <input name="payment_no" type="hidden" value="${product.no}">
+			        <input type="submit" name="login" value="Sepete Ekle">
+			    </form>
+		    </div>
+	    </div>
+	</c:if>
 
-
+	</div>
+	</div>
     </main>
 </z:layout>

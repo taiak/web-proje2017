@@ -30,17 +30,29 @@ public class JspRoutes extends HttpServlet {
 		case "/login":
 			login.index();
 			break;
+		case "/logout":
+			login.logout();
+			break;
 		case "/products":
 			products.index();
 			break;
 		case "/orders":
 			order.index();
 			break;
+		case "/orderAdd":
+			order.doPost(request, response);
+			break;
 		case "/profile":
 			profile.index();
 			break;
 		case "/product":
 			product.show();
+			break;
+		case "/about":
+			home.about();
+			break;
+		case "/contact":
+			home.contact();
 			break;
 		default:
 			home.index();

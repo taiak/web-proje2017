@@ -33,4 +33,14 @@ public class HomeServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
 	}
+	
+	public void about() throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("about.jsp");
+        dispatcher.forward(request, response);
+	}
+	
+	public void contact() throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("contact.jsp");
+        dispatcher.forward(request, response);
+	}
 }

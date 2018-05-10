@@ -22,12 +22,14 @@ public class ProductShowServlet extends HttpServlet {
 	    this.request = request;
 	    this.response = response;
     }
-
+	
 	public void show() throws ServletException, IOException {
-		String no = request.getParameter("no");
-		Product product = ProductDao.find(no);
-		request.setAttribute("product", product);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
+		String no = request.getParameter("id");
+		if(no != null) {
+			Product product = ProductDao.find(no);
+			request.setAttribute("product", product);
+		}
+        RequestDispatcher dispatcher = request.getRequestDispatcher("productShow.jsp");
         dispatcher.forward(request, response);
 	}
 }

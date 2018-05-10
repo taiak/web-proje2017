@@ -21,14 +21,20 @@
 
       <ul>
         <li class="p-b-9">
-          <a href="#" class="s-text7">
+          <a href="home" class="s-text7">
             Anasayfa
           </a>
         </li>
 
         <li class="p-b-9">
-          <a href="#" class="s-text7">
+          <a href="login" class="s-text7">
             Üye Girişi
+          </a>
+        </li>
+        
+       	<li class="p-b-9">
+          <a href="orders" class="s-text7">
+            Siparişlerim
           </a>
         </li>
       </ul>

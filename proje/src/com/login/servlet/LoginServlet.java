@@ -45,12 +45,17 @@ public class LoginServlet extends HttpServlet {
 	        	l.setPassword((String)request.getParameter("password"));
 	        	
 	        	user = SafeLogin.userControl(l);
-	        	session.setAttribute("user", user);
-	        	session.setAttribute("user_id", user.getId());
-	        	session.setAttribute("orderCount", String.valueOf(OrderDao.count(Integer.parseInt(user.getId()))));
+
 	        	System.out.println("name:" + user.getName());
 	        	System.out.println("pass:" + user.getPass());
-                page = (user.getPass()) ? success_page: unsuccess_page;
+                if (user.getPass()) {
+    	        	session.setAttribute("user", user);
+    	        	session.setAttribute("user_id", user.getId());
+    	        	session.setAttribute("orderCount", String.valueOf(OrderDao.count(Integer.parseInt(user.getId()))));                	
+                	page = success_page;
+                }else {
+                	page = unsuccess_page;
+                }
                 
                 RequestDispatcher dispatcher = request.getRequestDispatcher(page);
                 
