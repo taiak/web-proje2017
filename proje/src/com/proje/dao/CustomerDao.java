@@ -23,11 +23,15 @@ public class CustomerDao {
 	    try { rs.close();  } catch (Exception e) { /* ignored */ }
 	    try { ps.close();  } catch (Exception e) { /* ignored */ }
 	    try { con.close(); } catch (Exception e) { /* ignored */ }
-	}	
+	}
 	
-	public static ArrayList <Customer> list(){
+	public static ArrayList <Customer> list(String Where){
+		String where = "";
+		if( Where != null && ! Where.isEmpty())
+			where = " WHERE " + Where;
+		
+		String query = "SELECT * FROM " + TableName + where + ";";
 		ArrayList <Customer> l = new ArrayList <Customer>();
-		String query = "SELECT * FROM " + TableName + ";";
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -83,7 +87,6 @@ public class CustomerDao {
 	};
 	
 	public static String name(String no){
-		
 		return find(no).getName();
 	};
 	

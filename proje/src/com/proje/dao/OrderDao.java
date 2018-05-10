@@ -46,14 +46,18 @@ public class OrderDao {
 		} finally {
 			connectionClose(rs, ps, con);
 		}
-		System.out.println("OrerDao.count: " + sql_response);
+		System.out.println("OrderDao.count: " + sql_response);
 		return sql_response;
 		
 	}
 	
-	public static ArrayList <Order> list(){
+	public static ArrayList <Order> list(String Where){
 		ArrayList <Order> l = new ArrayList <Order>();
-		String query = "SELECT * FROM " + TableName + ";";
+		String where = "";
+		if( Where != null && ! Where.isEmpty())
+			where = " WHERE " + Where ;
+		
+		String query = "SELECT * FROM " + TableName + where + ";";
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -63,6 +67,7 @@ public class OrderDao {
 			ps = (PreparedStatement	) con.prepareStatement(query);
 			rs = ps.executeQuery();
 			Customer c = null;
+			Product p = null;
 			while(rs.next()) {
 				Order o = new Order();
 				o.setOrderNo(rs.getString("order_no"));
@@ -71,6 +76,10 @@ public class OrderDao {
 				o.setOrderDate(rs.getString("order_date"));
 				o.setPaymentNo(rs.getString("payment_no"));
 				o.setPaymentName(PaymentDao.find(o.getPaymentNo()).getName());
+				p = ProductDao.find(o.getProductNo());
+				o.setProductName(p.getName());
+				o.setProductPrice(p.getPrice());
+				o.setProductPhoto(p.getPhoto());
 				o.setProductName(ProductDao.find(o.getProductNo()).getName());
 				c = CustomerDao.find(o.getCustomerNo());
 				o.setCustomerName(c.getName());
@@ -86,6 +95,10 @@ public class OrderDao {
 			connectionClose(rs, ps, con);
 		}
 		return l;
+	};
+
+	public static ArrayList <Order> list(){
+		return list(null);
 	};
 	
 	public static boolean delete(Order o) {
@@ -156,40 +169,8 @@ public class OrderDao {
 	}
 
 	public static ArrayList<Order> getOrderByUserId(int userId) {
-		ArrayList <Order> l = new ArrayList <Order>();
-		String query = "SELECT * FROM " + TableName + " where customer_no = " + Integer.toString(userId) + " ;";
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
-
-		try {
-			con = connectionOpen();	
-			ps = (PreparedStatement	) con.prepareStatement(query);
-			rs = ps.executeQuery();
-			Customer c = null;
-			while(rs.next()) {
-				Order o = new Order();
-				o.setOrderNo(rs.getString("order_no"));
-				o.setCustomerNo(rs.getString("customer_no"));
-				o.setProductNo(rs.getString("product_no"));
-				o.setOrderDate(rs.getString("order_date"));
-				o.setPaymentNo(rs.getString("payment_no"));
-				o.setPaymentName(PaymentDao.find(o.getPaymentNo()).getName());
-				o.setProductName(ProductDao.find(o.getProductNo()).getName());
-				c = CustomerDao.find(o.getCustomerNo());
-				o.setCustomerName(c.getName());
-				o.setCustomerSurname(c.getSurname());
-				o.setCustomerEmail(c.getEmail());
-				
-				l.add(o);
-			}	
-		} catch (Exception e){
-			System.out.println("db: listing error!");
-			System.out.println("db: herhangi bişe olmuş olabilir. buraya ben bakmıyorum...\n" + e);
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		return l;
+		String where = " customer_no = '" + Integer.toString(userId) + "'";
+		return list(where);
 	}
 
 

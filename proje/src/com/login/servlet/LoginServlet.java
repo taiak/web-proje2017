@@ -46,8 +46,6 @@ public class LoginServlet extends HttpServlet {
 	        	
 	        	user = SafeLogin.userControl(l);
 
-	        	System.out.println("name:" + user.getName());
-	        	System.out.println("pass:" + user.getPass());
                 if (user.getPass()) {
     	        	session.setAttribute("user", user);
     	        	session.setAttribute("user_id", user.getId());

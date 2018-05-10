@@ -7,9 +7,12 @@ public class Product implements Serializable {
 
 	private static final long serialVersionUID = 7385311327272592031L;
 	
-	  private String no = "NaN";
-	  private String name = "NaN";
-	  private String stock = "NaN";
+	  private String no      = "NaN";
+	  private String name    = "NaN";
+	  private String stock   = "NaN";
+	  private String price   = "NaN";
+	  private String photo   = "NaN";
+	  private String comment = "NaN";
 
 	  public Product() {
 	  }
@@ -37,4 +40,28 @@ public class Product implements Serializable {
 	  public void setStock(String  Stock){
 	    this.stock = Stock;
 	  }
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 }
