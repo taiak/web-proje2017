@@ -11,14 +11,17 @@ CREATE TABLE `Customer` (
 );
 
 CREATE TABLE `Product` (
-  no    INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name  VARCHAR(32) NOT NULL,
-  stock INT(32) NOT NULL
+  no      INT(64) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name    VARCHAR(32)      NOT NULL,
+  stock   INT(32)          NOT NULL DEFAULT '0',
+  price   DECIMAL(12, 2)   NOT NULL DEFAULT '0.0',
+  photo   VARCHAR(200)     NOT NULL,
+  comment TEXT 
 );
 
 CREATE TABLE `CustomerShadow` (
   customer_no  INT(64) UNSIGNED PRIMARY KEY,
-  password     VARCHAR(64) NOT NULL,
+  password     VARCHAR(64) NOT NULL DEFAULT 'password_NaN',
   FOREIGN KEY  (customer_no) REFERENCES Customer (no)
 );
 
@@ -35,8 +38,8 @@ CREATE TABLE `AdminShadow` (
 
 CREATE TABLE `Payment` (
   no       INT(5) UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  name     VARCHAR(15) NOT NULL,
-  comment  VARCHAR(150) NOT NULL
+  name     VARCHAR(15)  NOT NULL,
+  comment  VARCHAR(150)
 );
 
 CREATE TABLE `Orders` (

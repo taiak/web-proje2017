@@ -41,27 +41,27 @@ INSERT INTO CustomerShadow VALUES(14, 'e78b85ec36b1a26f0a08b2aa84814c1a23f2102ef
 INSERT INTO CustomerShadow VALUES(15, 'c9cd11537b30c2927618c2e6fdee76b907a033759a8907a40dc30e1f4b55c289' );
 
 # product ekle
-INSERT INTO Product VALUES(0, 'product_1', 18);
-INSERT INTO Product VALUES(0, 'product_2', 103);
-INSERT INTO Product VALUES(0, 'product_3', 464);
-INSERT INTO Product VALUES(0, 'product_4', 413);
-INSERT INTO Product VALUES(0, 'product_5', 308);
-INSERT INTO Product VALUES(0, 'product_6', 329);
-INSERT INTO Product VALUES(0, 'product_7', 367);
-INSERT INTO Product VALUES(0, 'product_8', 283);
-INSERT INTO Product VALUES(0, 'product_9', 204);
-INSERT INTO Product VALUES(0, 'product_10', 359);
-INSERT INTO Product VALUES(0, 'product_11', 161);
-INSERT INTO Product VALUES(0, 'product_12', 6);
-INSERT INTO Product VALUES(0, 'product_13', 263);
-INSERT INTO Product VALUES(0, 'product_14', 442);
-INSERT INTO Product VALUES(0, 'product_15', 115);
-INSERT INTO Product VALUES(0, 'product_16', 254);
-INSERT INTO Product VALUES(0, 'product_17', 95);
-INSERT INTO Product VALUES(0, 'product_18', 433);
-INSERT INTO Product VALUES(0, 'product_19', 23);
-INSERT INTO Product VALUES(0, 'product_20', 490);
-INSERT INTO Product VALUES(0, 'product_21', 205);
+INSERT INTO Product VALUES(0, 'product_1', 18  , 12.5, '/yol/yol2' ,"bu aciklama ' product_1 için" );
+INSERT INTO Product VALUES(0, 'product_2', 103 , 12.5, '/yol/yol2' ,"bu aciklama ' product_2 için" );
+INSERT INTO Product VALUES(0, 'product_3', 464 , 12.5, '/yol/yol2' ,"bu aciklama ' product_3 için" );
+INSERT INTO Product VALUES(0, 'product_4', 413 , 12.5, '/yol/yol2' ,"bu aciklama ' product_4 için" );
+INSERT INTO Product VALUES(0, 'product_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama ' product_5 için" );
+INSERT INTO Product VALUES(0, 'product_6', 329 , 12.5, '/yol/yol2' ,"bu aciklama ' product_6 için" );
+INSERT INTO Product VALUES(0, 'product_7', 367 , 12.5, '/yol/yol2' ,"bu aciklama ' product_7 için" );
+INSERT INTO Product VALUES(0, 'product_8', 283 , 12.5, '/yol/yol2' ,"bu aciklama ' product_8 için" );
+INSERT INTO Product VALUES(0, 'product_9', 204 , 12.5, '/yol/yol2' ,"bu aciklama ' product_9 için" );
+INSERT INTO Product VALUES(0, 'product_10', 359, 12.5, '/yol/yol2' ,"bu aciklama ' product_10 için");
+INSERT INTO Product VALUES(0, 'product_11', 161, 12.5, '/yol/yol2' ,"bu aciklama ' product_11 için");
+INSERT INTO Product VALUES(0, 'product_12', 6  , 12.5, '/yol/yol2' ,"bu aciklama ' product_12 için");
+INSERT INTO Product VALUES(0, 'product_13', 263, 12.5, '/yol/yol2' ,"bu aciklama ' product_13 için");
+INSERT INTO Product VALUES(0, 'product_14', 442, 12.5, '/yol/yol2' ,"bu aciklama ' product_14 için");
+INSERT INTO Product VALUES(0, 'product_15', 115, 12.5, '/yol/yol2' ,"bu aciklama ' product_15 için");
+INSERT INTO Product VALUES(0, 'product_16', 254, 12.5, '/yol/yol2' ,"bu aciklama ' product_16 için");
+INSERT INTO Product VALUES(0, 'product_17', 95 , 12.5, '/yol/yol2' ,"bu aciklama ' product_17 için");
+INSERT INTO Product VALUES(0, 'product_18', 433, 12.5, '/yol/yol2' ,"bu aciklama ' product_18 için");
+INSERT INTO Product VALUES(0, 'product_19', 23 , 12.5, '/yol/yol2' ,"bu aciklama ' product_19 için");
+INSERT INTO Product VALUES(0, 'product_20', 490, 12.5, '/yol/yol2' ,"bu aciklama ' product_20 için");
+INSERT INTO Product VALUES(0, 'product_21', 205, 12.5, '/yol/yol2' ,"bu aciklama product_21 için");
 
 # admin tablosuna ekleme örneği
 # require 'digest'
