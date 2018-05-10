@@ -51,6 +51,33 @@ public class ProductDao {
 		return l;
 	};
 	
+	public static ArrayList <Product> last(int n) {
+		ArrayList <Product> l = new ArrayList <Product>();
+		String query = "SELECT * FROM " + TableName + " ORDER BY no DESC LIMIT " + Integer.toString(n) + " ;";
+		PreparedStatement ps = null;
+		Connection con = null;
+		ResultSet rs = null;
+
+		try {
+			con = connectionOpen();	
+			ps = (PreparedStatement	) con.prepareStatement(query);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Product p = new Product();
+				p.setNo(rs.getString("no"));
+				p.setName(rs.getString("name"));
+				p.setStock(rs.getString("stock"));
+				l.add(p);
+			}	
+		} catch (Exception e){
+			System.out.println(e);
+		} finally {
+			connectionClose(rs, ps, con);
+		}
+		return l;
+	};
+	
 	public static Product find(String no){
 		Product p = new Product();
 		PreparedStatement ps = null;
