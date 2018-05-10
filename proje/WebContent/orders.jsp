@@ -24,7 +24,7 @@
 			        <form action="orderDelete" method="post">
 			        	<input name="toDo" type="hidden" value="delete">
 				        <input name="order_no" type="hidden" value="${order.orderNo}">
-				        <input type="submit" name="login" value="Sil">
+				        <input type="submit" class="btn btn-danger" name="login" value="Sil">
 			    	</form>
 			    	</td>
 			      </tr>

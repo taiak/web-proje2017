@@ -60,10 +60,13 @@
 					    <h5 class="card-title">${product.name}</h5>
 					    <p class="card-text">${product.stock} adet</p>
 					    <center>
-					    	<div class="btn-group">
-					    		<a href="product?id=<c:out value='${product.no}' />" class="btn btn-danger">İncele</a>
-					    		<a href="product?id=<c:out value='${product.no}' />" class="btn btn-success">Sepete Ekle</a>
-					    		
+				    		<a href="product?id=<c:out value='${product.no}' />" class="btn btn-danger">İncele</a>
+				    		<form action="orderAdd" method="post">
+					        	<input name="toDo" type="hidden" value="add">
+						        <input name="product_no" type="hidden" value="<c:out value='${product.no}' />">
+						        <input name="payment_no" type="hidden" value="2">
+						        <input type="submit" name="login" class="btn btn-warning" value="Sepete Ekle">
+		    				</form>
 					    </center>
 					  </div>
 					</div>
