@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.proje.beans.Payment;
-import com.proje.beans.Payment;
 import com.utilities.query.DatabaseOpener;
 
 public class PaymentDao {
