@@ -37,8 +37,6 @@ public class LoginServlet extends HttpServlet {
 		String page = null;
 		
 		try {
-			// timer
-			// request.getSession().setMaxInactiveInterval(1);
 			session = request.getSession();
 	        synchronized(session) {
 	        	Login l = new Login();
