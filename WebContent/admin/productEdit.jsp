@@ -3,14 +3,36 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <z:layout title="Ürün Yönet">
+	<h1>Ürün Ekle / Düzenle</h1>
 	<form action="editProduct" method="post">
-                 <input name="toDo"    type="hidden" value="${toDo}"                        >
-                 <input name="no"      type="hidden" value="${product.no.equals("NaN") ? "" : product.no                  }">
-		Adı:     <input name="name"    type="text"   value="${product.no.equals("NaN") ? "" : product.name                }"></br>
-		Fiyatı:  <input name="price"   type="text"   value="${product.no.equals("NaN") ? "" : product.price               }"></br>
-		Stok:    <input name="stock"   type="text"   value="${product.no.equals("NaN") ? "" : product.stock               }"></br>
-		Fotoğraf:<input name="photo"   type="text"   value="${product.no.equals("NaN") ? "" : product.photo               }"></br>
-		Detay:   <input name="comment" type="text"   value="${product.no.equals("NaN") ? "" : product.comment             }"></br>
-		         <input name="send"    type="submit" class="btn btn-danger" value="Kaydet"  >
-	</form>
+	    <input name="toDo"    type="hidden" value="${toDo}"                        >
+	    <input name="no"      type="hidden" value="${product.no.equals("NaN") ? "" : product.no                  }">
+		<table class="table table-striped">
+		    <tbody>
+		      <tr>
+		        <td>Adı</td>
+		        <td><input name="name"    type="text"     value="${product.no.equals("NaN") ? "" : product.name                }"></td>
+		      </tr>
+		      <tr>
+		        <td>Fiyatı</td>
+		        <td><input name="price"   type="text"     value="${product.no.equals("NaN") ? "" : product.price               }"></td>
+		      </tr>
+		      <tr>
+		        <td>Stok</td>
+		        <td><input name="stock"   type="text"     value="${product.no.equals("NaN") ? "" : product.stock               }"></td>
+		      </tr>
+		      <tr>
+		        <td>Fotoğraf</td>
+		        <td><input name="photo"   type="text"     value="${product.no.equals("NaN") ? "" : product.photo               }"></td>
+		      </tr>
+		      <tr>
+		        <td>Detay</td>
+		        <td><textarea name="comment"              value="${product.no.equals("NaN") ? "" : product.comment             }"></textarea></td>
+		      </tr>
+		      <tr>
+		      	<td colspan="2"><input name="send"    type="submit" class="btn btn-lg btn-block btn-danger" value="Kaydet"  ></td>
+		      </tr>
+		    </tbody>
+		 </table>
+  	</form>
 </z:layout>
