@@ -3,41 +3,40 @@ package com.proje.model;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-
-
-	private static final long serialVersionUID = 7385311327272592031L;
 	
-	  private String no      = "NaN";
-	  private String name    = "NaN";
-	  private String stock   = "0";
-	  private String price   = "0";
-	  private String photo   = "No photo";
-	  private String comment = "No Comment";
+	private static final long serialVersionUID = 7385311327272592031L;
+	private String no      = "NaN";
+	private String name    = "NaN";
+	private String stock   = "0";
+	private String price   = "0";
+	private String photo   = "No photo";
+	private String comment = "No Comment";
 
-	  public Product() {
-	  }
-
-	  public String getNo(){
+	public Product() {		
+		
+	}
+	
+	public String getNo(){
 	    return no;
 	  }
 
-	  public void setNo(String  No){
+	public void setNo(String  No){
 	    this.no = No;
 	  }
 
-	  public String getName(){
+	public String getName(){
 	    return name;
 	  }
 
-	  public void setName(String  Name){
+	public void setName(String  Name){
 	    this.name = Name;
 	  }
 
-	  public String getStock(){
+	public String getStock(){
 	    return stock;
 	  }
 
-	  public void setStock(String  Stock){
+	public void setStock(String  Stock){
 	    this.stock = Stock;
 	  }
 

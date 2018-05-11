@@ -20,7 +20,8 @@ public class AdminHomeController extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.proje.controller.login.AdminLoginController.session != null && com.proje.controller.login.AdminLoginController.session.getAttribute("admin") != null) {
+		if (com.proje.controller.login.AdminLoginController.session != null &&
+				com.proje.controller.login.AdminLoginController.session.getAttribute("admin") != null) {
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 	        dispatcher.forward(request, response);
 		}else {

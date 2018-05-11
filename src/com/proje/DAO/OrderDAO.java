@@ -29,7 +29,6 @@ public class OrderDAO {
 	    try { con.close(); } catch (Exception e) { /* ignored */ }
 	}	
 	
-	
 	public static int count(int userId) {
 		int sql_response = 0;
 		PreparedStatement ps = null;

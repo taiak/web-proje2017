@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import com.proje.model.Product;
 import com.proje.utilities.DatabaseOpener;
 
-public class ProductDAO {	
+public class ProductDAO {
+	
 	private static final String TableName = "Product";
 	
 	public ProductDAO() {
@@ -66,7 +67,6 @@ public class ProductDAO {
 		String where = " ORDER BY no DESC LIMIT " + Integer.toString(n);
 		return list(where);
 	};
-
 	
 	public static Product find(String no){
 		String where = " WHERE no = '" + no + "'";

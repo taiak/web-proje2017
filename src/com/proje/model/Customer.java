@@ -12,8 +12,7 @@ public class Customer implements Serializable {
 	  private String surname        = "Nan";
 	  private String email          = "Nan";
 	  private String hashedPassword = "Nan";
-	  public Customer() {
-		  
+	  public Customer() {	  
 	  }
 
 	  public String getNo(){

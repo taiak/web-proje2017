@@ -29,7 +29,6 @@ public class Order implements Serializable {
 		this.paymentName = paymentName;
 	}
 
-
 	public String getCustomerName() {
 		return customerName;
 	}

@@ -19,13 +19,13 @@ public class SafeLogin {
 	        throw new RuntimeException(ex);
 	    }
 	 }
-	
-	 protected static String bytesToHex(byte[] bytes) {
-	    StringBuffer result = new StringBuffer();
-	    for (byte b : bytes) 
-	    	result.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
-	    
-	    return result.toString();
+
+	protected static String bytesToHex(byte[] bytes) {
+		StringBuffer result = new StringBuffer();
+		for (byte b : bytes) 
+			result.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
+		
+		return result.toString();
 	}
 	
 	public static boolean adminControl(Login user) {

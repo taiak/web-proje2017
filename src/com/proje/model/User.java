@@ -3,7 +3,6 @@ package com.proje.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-
 	  private static final long serialVersionUID = 981359077056633823L;
 	  private String id = "NaN";
 	  private String name = "NaN";
@@ -11,7 +10,6 @@ public class User implements Serializable {
 	  private String email = "NaN";
 	  private boolean login = false;
 	  private boolean pass = false;
-	  
 	  public User() {
 	  }
 

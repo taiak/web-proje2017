@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.proje.DAO.ProductDAO;
 import com.proje.model.Product;
 
-/**
- * Servlet implementation class AdminProductServlet
- */
 @WebServlet("/AdminProductServlet")
 public class AdminProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
