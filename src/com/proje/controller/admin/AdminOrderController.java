@@ -1,4 +1,4 @@
-package com.main.admin;
+package com.proje.controller.admin;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,27 +10,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.controller.OrderController;
+import com.proje.DAO.OrderDAO;
 import com.proje.model.Order;
 
 /**
  * Servlet implementation class AdminOrderServlet
  */
 @WebServlet("/AdminOrderServlet")
-public class AdminOrderServlet extends HttpServlet {
+public class AdminOrderController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public ArrayList <Order> orders;
 	public HttpServletRequest request;
     public HttpServletResponse response;
     
-	public AdminOrderServlet(HttpServletRequest request, HttpServletResponse response) {
+	public AdminOrderController(HttpServletRequest request, HttpServletResponse response) {
 	    this.request = request;
 	    this.response = response;
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.proje.login.AdminLoginServlet.session != null && com.proje.login.AdminLoginServlet.session.getAttribute("admin") != null) {
-			orders = OrderController.list();
+		if (com.proje.controller.login.AdminLoginController.session != null && com.proje.controller.login.AdminLoginController.session.getAttribute("admin") != null) {
+			orders = OrderDAO.list();
 			request.setAttribute("orders", orders);
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("order.jsp");
 	        dispatcher.forward(request, response);
@@ -44,13 +44,13 @@ public class AdminOrderServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Order:doPost");
 		response.setContentType("text/html");
-		if (com.proje.login.AdminLoginServlet.session != null && (Boolean)com.proje.login.AdminLoginServlet.session.getAttribute("admin") == true) {
+		if (com.proje.controller.login.AdminLoginController.session != null && (Boolean)com.proje.controller.login.AdminLoginController.session.getAttribute("admin") == true) {
 			System.out.println("Order:sessionOK");
 			String toDo = request.getParameter("toDo");
 			if(toDo.equals("delete")) {
 				Order order = new Order();
 				order.setOrderNo((String.valueOf(request.getParameter("no"))));
-				OrderController.delete(order);
+				OrderDAO.delete(order);
 				
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("order");
 			    dispatcher.forward(request, response);

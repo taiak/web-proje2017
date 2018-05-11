@@ -5,11 +5,11 @@
     <welcome-file>home</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>JspRoutes</servlet-name>
-    <servlet-class>com.main.JspRoutes</servlet-class>
+    <servlet-name>JspRoutesController</servlet-name>
+    <servlet-class>com.proje.controller.main.JspRoutesController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>JspRoutes</servlet-name>
+    <servlet-name>JspRoutesController</servlet-name>
     <url-pattern>/home</url-pattern>
     <url-pattern>/login</url-pattern>
     <url-pattern>/products</url-pattern>

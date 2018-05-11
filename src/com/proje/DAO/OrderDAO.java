@@ -1,22 +1,22 @@
-package com.proje.controller;
+package com.proje.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.utilities.query.DatabaseOpener;
-import com.proje.controller.CustomerController;
-import com.proje.controller.ProductController;
+import com.proje.DAO.CustomerDAO;
+import com.proje.DAO.ProductDAO;
 import com.proje.model.Customer;
 import com.proje.model.Order;
 import com.proje.model.Product;
+import com.proje.utilities.DatabaseOpener;
 
-public class OrderController {
+public class OrderDAO {
 	
 	private static final String TableName = "Orders";
 	
-	public OrderController() {
+	public OrderDAO() {
 	}
 	
 	protected static Connection connectionOpen() {
@@ -74,16 +74,16 @@ public class OrderController {
 				o.setOrderNo(rs.getString("order_no"));
 				o.setOrderDate(rs.getString("order_date"));
 				o.setPaymentNo(rs.getString("payment_no"));
-				o.setPaymentName(PaymentController.find(o.getPaymentNo()).getName());
+				o.setPaymentName(PaymentDAO.find(o.getPaymentNo()).getName());
 				o.setProductNo(rs.getString("product_no"));
 
-				p = ProductController.find(o.getProductNo());
+				p = ProductDAO.find(o.getProductNo());
 				o.setProductName(p.getName());
 				o.setProductPrice(p.getPrice());
 				o.setProductPhoto(p.getPhoto());
 
 				o.setCustomerNo(rs.getString("customer_no"));
-				c = CustomerController.find(o.getCustomerNo());
+				c = CustomerDAO.find(o.getCustomerNo());
 				o.setCustomerName(c.getName());
 				o.setCustomerSurname(c.getSurname());
 				o.setCustomerEmail(c.getEmail());

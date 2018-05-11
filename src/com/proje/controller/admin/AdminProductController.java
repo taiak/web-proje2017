@@ -1,4 +1,4 @@
-package com.main.admin;
+package com.proje.controller.admin;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,27 +10,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.controller.ProductController;
+import com.proje.DAO.ProductDAO;
 import com.proje.model.Product;
 
 /**
  * Servlet implementation class AdminProductServlet
  */
 @WebServlet("/AdminProductServlet")
-public class AdminProductServlet extends HttpServlet {
+public class AdminProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public ArrayList <Product> products;
 	public HttpServletRequest request;
     public HttpServletResponse response;
     
-	public AdminProductServlet(HttpServletRequest request, HttpServletResponse response) {
+	public AdminProductController(HttpServletRequest request, HttpServletResponse response) {
 	    this.request = request;
 	    this.response = response;
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.proje.login.AdminLoginServlet.session != null && com.proje.login.AdminLoginServlet.session.getAttribute("admin") != null) {
-			products = ProductController.list();
+		if (com.proje.controller.login.AdminLoginController.session != null && com.proje.controller.login.AdminLoginController.session.getAttribute("admin") != null) {
+			products = ProductDAO.list();
 			request.setAttribute("products", products);
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
 	        dispatcher.forward(request, response);
@@ -44,13 +44,13 @@ public class AdminProductServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Product:doPost");
 		response.setContentType("text/html");
-		if (com.proje.login.AdminLoginServlet.session != null && (Boolean)com.proje.login.AdminLoginServlet.session.getAttribute("admin") == true) {
+		if (com.proje.controller.login.AdminLoginController.session != null && (Boolean)com.proje.controller.login.AdminLoginController.session.getAttribute("admin") == true) {
 			System.out.println("Product:sessionOK");
 			String toDo = request.getParameter("toDo");
 			if(toDo.equals("delete")) {
 				Product product = new Product();
 				product.setNo(String.valueOf(request.getParameter("no")));
-				ProductController.delete(product);
+				ProductDAO.delete(product);
 				
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
@@ -65,21 +65,21 @@ public class AdminProductServlet extends HttpServlet {
 				System.out.println("Product:create");
 				Product product = new Product();
 				product = getAttributes(request, product);
-				ProductController.add(product);
+				ProductDAO.add(product);
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
 			}else if(toDo.equals("edit")) {
 				System.out.println("Product:edit");
-				Product product = ProductController.find(String.valueOf(request.getParameter("no")));
+				Product product = ProductDAO.find(String.valueOf(request.getParameter("no")));
 				request.setAttribute("product", product);
 				request.setAttribute("toDo", "update");
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("productEdit.jsp");
 			    dispatcher.forward(request, response);
 			}else if(toDo.equals("update")) {
 				System.out.println("Product:update");
-				Product product = ProductController.find(String.valueOf(request.getParameter("no")));
+				Product product = ProductDAO.find(String.valueOf(request.getParameter("no")));
 				product = getAttributes(request, product);
-				ProductController.update(product);
+				ProductDAO.update(product);
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
 			}

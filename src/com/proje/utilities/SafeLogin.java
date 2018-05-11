@@ -1,4 +1,4 @@
-package com.proje.login;
+package com.proje.utilities;
 
 import java.security.MessageDigest;
 import java.sql.PreparedStatement;
@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 
 import com.proje.model.Login;
 import com.proje.model.User;
-import com.utilities.query.DatabaseOpener;
 	
 		
 public class SafeLogin {

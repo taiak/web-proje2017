@@ -1,7 +1,6 @@
-package com.proje.login;
+package com.proje.controller.login;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,18 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.proje.controller.OrderController;
 import com.proje.model.Login;
-import com.proje.model.User;
+import com.proje.utilities.SafeLogin;
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/LoginServlet" })
-public class LoginServlet extends HttpServlet {
+@WebServlet("/AdminLoginServlet")
+public class AdminLoginController extends HttpServlet {
 	public static HttpSession session;
 	public HttpServletRequest request;
     public HttpServletResponse response;
+
 	private static final long serialVersionUID = 633170033630746350L;
 	
-	public LoginServlet() {
+	public AdminLoginController(HttpServletRequest request, HttpServletResponse response) {
+	    this.request = request;
+	    this.response = response;
     }
 	
 	@Override
@@ -30,25 +31,22 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		final String success_page   = "home";
-		final String unsuccess_page = "userLogin.jsp";
-		String page = null;
 		
+		final String success_page   = "home";
+		final String unsuccess_page = "adminLogin.jsp";
+		String page = null;
 		try {
-			session = request.getSession();
+	        session = request.getSession();
 	        synchronized(session) {
 	        	Login l = new Login();
-	        	User user = new User();
+
 	        	l.setName((String)request.getParameter("userName"));
 	        	l.setPassword((String)request.getParameter("password"));
 	        	
-	        	user = SafeLogin.userControl(l);
-                if (user.getPass()) {
-    	        	session.setAttribute("user", user);
-    	        	session.setAttribute("user_id", user.getId());
-    	        	session.setAttribute("orderCount", String.valueOf(OrderController.count(Integer.parseInt(user.getId()))));                	
+	        	if (SafeLogin.adminControl(l)) {
+    	        	session.setAttribute("admin", true);             	
                 	page = success_page;
                 }else {
                 	page = unsuccess_page;
@@ -58,9 +56,17 @@ public class LoginServlet extends HttpServlet {
                 
                 dispatcher.forward(request, response);
              }
-        
         } catch (Exception e) {
         	System.out.println(e);
         }
 	}
+
+	public void logout() throws ServletException, IOException {
+		if (session != null )
+			session.invalidate();
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+        dispatcher.forward(request, response);
+	}
 }
+

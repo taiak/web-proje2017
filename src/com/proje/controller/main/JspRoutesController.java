@@ -1,4 +1,4 @@
-package com.main;
+package com.proje.controller.main;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,31 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.main.admin.AdminCustomerServlet;
-import com.main.admin.AdminHomeServlet;
-import com.main.admin.AdminOrderServlet;
-import com.main.admin.AdminProductServlet;
-import com.proje.login.AdminLoginServlet;
+import com.proje.controller.admin.AdminCustomerController;
+import com.proje.controller.admin.AdminHomeController;
+import com.proje.controller.admin.AdminOrderController;
+import com.proje.controller.admin.AdminProductController;
+import com.proje.controller.login.AdminLoginController;
 
 @WebServlet("/JspRoutes")
-public class JspRoutes extends HttpServlet {
+public class JspRoutesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getServletPath();
         request.setCharacterEncoding("UTF-8");
-        HomeServlet           home         = new HomeServlet         (request, response);
-        UserLoginServlet      login        = new UserLoginServlet    (request, response);
-        ProductsServlet       products     = new ProductsServlet     (request, response);
-        OrdersServlet         order        = new OrdersServlet       (request, response);
-        ProfileServlet        profile      = new ProfileServlet      (request, response);
-        ProductShowServlet    product      = new ProductShowServlet  (request, response);
-        AdminHomeServlet      admin        = new AdminHomeServlet    (request, response);
-        AdminLoginServlet     adminLogin   = new AdminLoginServlet   (request, response);
-        AdminProductServlet   adminProduct = new AdminProductServlet (request, response);
-        AdminCustomerServlet  adminCustomer= new AdminCustomerServlet(request, response);
-        AdminOrderServlet     adminOrder   = new AdminOrderServlet   (request, response);
-        CustomerServlet       customer     = new CustomerServlet     (request, response);
+        HomeController           home         = new HomeController         (request, response);
+        UserLoginController      login        = new UserLoginController    (request, response);
+        ProductsController       products     = new ProductsController     (request, response);
+        OrdersController         order        = new OrdersController       (request, response);
+        ProfileController        profile      = new ProfileController      (request, response);
+        ProductShowController    product      = new ProductShowController  (request, response);
+        AdminHomeController      admin        = new AdminHomeController    (request, response);
+        AdminLoginController     adminLogin   = new AdminLoginController   (request, response);
+        AdminProductController   adminProduct = new AdminProductController (request, response);
+        AdminCustomerController  adminCustomer= new AdminCustomerController(request, response);
+        AdminOrderController     adminOrder   = new AdminOrderController   (request, response);
+        CustomerController       customer     = new CustomerController     (request, response);
 		System.out.println(action);
         switch (action) {
 		case "/home":

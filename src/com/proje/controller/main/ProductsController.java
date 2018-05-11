@@ -1,6 +1,7 @@
-package com.main;
+package com.proje.controller.main;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,28 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/UserLoginServlet")
-public class UserLoginServlet extends HttpServlet {
+import com.proje.DAO.ProductDAO;
+import com.proje.model.Product;
+
+@WebServlet("/ProductsServlet")
+public class ProductsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public HttpServletRequest request;
     public HttpServletResponse response;
     
-	public UserLoginServlet(HttpServletRequest request, HttpServletResponse response) {
+	public ProductsController(HttpServletRequest request, HttpServletResponse response) {
 	    this.request = request;
 	    this.response = response;
     }
 
 	public void index() throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("userLogin.jsp");
-        dispatcher.forward(request, response);
-	}
-	
-	public void logout() throws ServletException, IOException {
-		if (com.proje.login.LoginServlet.session != null )
-			com.proje.login.LoginServlet.session.invalidate();
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("home");
+		ArrayList <Product> products = ProductDAO.list();
+		request.setAttribute("products", products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("products.jsp");
         dispatcher.forward(request, response);
 	}
 }

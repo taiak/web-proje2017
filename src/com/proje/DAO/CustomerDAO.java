@@ -1,19 +1,19 @@
-package com.proje.controller;
+package com.proje.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.proje.login.SafeLogin;
 import com.proje.model.Customer;
-import com.utilities.query.DatabaseOpener;
+import com.proje.utilities.DatabaseOpener;
+import com.proje.utilities.SafeLogin;
 
-public class CustomerController {	
+public class CustomerDAO {	
 
 	private static final String TableName = "Customer";
 	
-	public CustomerController() {
+	public CustomerDAO() {
 	}
 	
 	protected static Connection connectionOpen() {

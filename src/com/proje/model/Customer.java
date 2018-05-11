@@ -2,7 +2,7 @@ package com.proje.model;
 
 import java.io.Serializable;
 
-import com.proje.login.SafeLogin;
+import com.proje.utilities.SafeLogin;
 
 public class Customer implements Serializable {
 

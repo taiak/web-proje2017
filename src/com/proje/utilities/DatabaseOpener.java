@@ -1,4 +1,4 @@
-package com.utilities.query;
+package com.proje.utilities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
