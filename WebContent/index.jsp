@@ -20,7 +20,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="product?id=20" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product?id=2" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Paranı İsraf Et
 							</a>
 						</div>
@@ -39,7 +39,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
 							<!-- Button -->
-							<a href="product?id=21" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product?id=5" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								O Da Neymiş :O
 							</a>
 						</div>
