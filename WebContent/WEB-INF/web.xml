@@ -33,5 +33,6 @@
     <url-pattern>/admin/orderDelete</url-pattern>
     <url-pattern>/register</url-pattern>
     <url-pattern>/registerCustomer</url-pattern>
+    <url-pattern>/orderPay</url-pattern>
   </servlet-mapping>
 </web-app>
