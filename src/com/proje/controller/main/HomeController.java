@@ -30,6 +30,7 @@ public class HomeController extends HttpServlet {
 	    if(session == null) {
 	    	myOrders = new ArrayList<Order>();
 		    session = request.getSession();
+		    session.setMaxInactiveInterval(0);
 		    System.out.println("New Attribute");
 			session.setAttribute("myOrders", myOrders);
 			session.setAttribute("orderCount", ((ArrayList<Order>)session.getAttribute("myOrders")).size());

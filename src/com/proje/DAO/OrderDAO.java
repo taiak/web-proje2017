@@ -74,6 +74,7 @@ public class OrderDAO {
 				o.setOrderDate(rs.getString("order_date"));
 				o.setPaymentNo(rs.getString("payment_no"));
 				o.setPaymentName(PaymentDAO.find(o.getPaymentNo()).getName());
+				o.setPaymentComment(PaymentDAO.find(o.getPaymentNo()).getComment());
 				o.setProductNo(rs.getString("product_no"));
 
 				p = ProductDAO.find(o.getProductNo());

@@ -17,6 +17,7 @@ public class Order implements Serializable {
 	private String orderDate       = "Nan";
 	private String paymentNo       = "Nan";
 	private String paymentName     = "Nan";
+	private String paymentComment  = "Nan";
 	
 	public Order() {
 	}
@@ -115,6 +116,14 @@ public class Order implements Serializable {
 
 	public void setProductPhoto(String productPhoto) {
 		this.productPhoto = productPhoto;
+	}
+
+	public String getPaymentComment() {
+		return paymentComment;
+	}
+
+	public void setPaymentComment(String paymentComment) {
+		this.paymentComment = paymentComment;
 	}
 }
 

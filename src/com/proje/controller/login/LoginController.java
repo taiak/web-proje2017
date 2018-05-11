@@ -42,6 +42,8 @@ public class LoginController extends HttpServlet {
 		
 		try {
 			session = request.getSession();
+		    session.setMaxInactiveInterval(0);
+
 	        synchronized(session) {
 	        	Login l = new Login();
 	        	User user = new User();

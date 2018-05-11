@@ -48,7 +48,7 @@
 	      <div class="row">
 	      	<div class="col-12 float-right">
 	      		Ödeme Türü: 
-		      	<select name="payment_no" form="carform">
+		      	<select name="payment_no" form="orderPayForm">
 				  <option value="1">Kapıda Ödeme</option>
 				  <option value="2">Banka Kartı ile 3D Ödeme</option>
 				  <option value="3">Kredi Kartı ile Ödeme</option>

@@ -23,7 +23,7 @@
 				    <td>${order.customerName} ${order.customerSurname}</td>
 					<td>${order.productName}</td>
 					<td>${order.productPrice}</td>
-					<td>${order.paymentName}</td>
+					<td>${order.paymentComment}</td>
 					<td>${order.orderDate}</td>
 				    <td>
 			    		<form action="orderDelete" method="post">

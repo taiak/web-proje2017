@@ -1,7 +1,7 @@
 use PROJE;
 # musteri tablosuna ekleme ornegi
 
-INSERT INTO Customer VALUES(0, 'hidir',   'surname_1',  'email_1');
+INSERT INTO Customer VALUES(0, 'Serhat Celil',   'İLERİ',  'serhatcelilileri@gmail.com');
 INSERT INTO Customer VALUES(0, 'hidir2',  'surname_2',  'email_2');
 INSERT INTO Customer VALUES(0, 'mehmet',  'surname_3',  'email_3');
 INSERT INTO Customer VALUES(0, 'semra',  'surname_4',  'email_4');
@@ -89,31 +89,10 @@ INSERT INTO AdminShadow VALUES(4, 'ec7039c2afc2c8e480c789a8dbde31834d567b5c7f721
 INSERT INTO AdminShadow VALUES(5, 'e2d227b76949b9f9baf167d5a4b45a3319273de60691b408870a758842506876');
 
 # odeme yontemleri
-INSERT INTO Payment VALUES(0, 'nakit',       'comment_1');
-INSERT INTO Payment VALUES(0, 'kredikarti',  'comment_2');
-INSERT INTO Payment VALUES(0, 'banka karti', 'comment_3');
-INSERT INTO Payment VALUES(0, 'bobrek',      'para yetmediyse demekki');
-INSERT INTO Payment VALUES(0, 'das',         'lidyalilardan once yasayanlar icin');
+INSERT INTO Payment VALUES(0, 'kapida',       'Kapıda Ödeme - Nakit');
+INSERT INTO Payment VALUES(0, 'banka',  'Banka Kartı ile 3D Ödeme');
+INSERT INTO Payment VALUES(0, 'kredi', 'Kredi Kartı İle Ödeme');
+INSERT INTO Payment VALUES(0, 'puan',      'Puanlar ile Ödeme');
 
 # 20.times{ puts "INSERT INTO Order VALUES (0, #{rand(1..15)}, #{rand(1..15)}, '#{Time.now.strftime("%d-%m-%Y")}', #{rand(1..5)});" }
 # siparis ekleme
-INSERT INTO Orders VALUES (0, 13,  3, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  7, 14, '08-05-2018', 2);
-INSERT INTO Orders VALUES (0, 10,  3, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  6, 12, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 2);
-INSERT INTO Orders VALUES (0, 11,  6, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 10, 13, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 10,  4, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  4, 10, '08-05-2018', 5);
-INSERT INTO Orders VALUES (0, 13, 15, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  9,  9, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 11, 13, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 14,  5, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 15, 13, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  8,  3, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 15,  8, '08-05-2018', 3);
-INSERT INTO Orders VALUES (0, 11,  7, '08-05-2018', 1);
-INSERT INTO Orders VALUES (0,  1,  5, '08-05-2018', 4);
-INSERT INTO Orders VALUES (0, 14,  8, '08-05-2018', 1);

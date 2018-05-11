@@ -1,6 +1,7 @@
  package com.proje.controller.main;
 
 import java.io.IOException;
+import java.text.Format.Field;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -70,7 +71,6 @@ public class OrdersController extends HttpServlet {
             LocalDate localDate = LocalDate.now();
             order.setOrderDate(String.valueOf(dtf.format(localDate)));
             order.setProductNo(String.valueOf(request.getParameter("product_no")));
-            order.setPaymentNo(String.valueOf(request.getParameter("payment_no")));
             
             // Session'a Ekleme Yap
             if (myOrders.add(order)) {
@@ -99,7 +99,22 @@ public class OrdersController extends HttpServlet {
                 return;
             }else {
             	// Kullanıcı Giriş Yapmış
-            	// TODO: Döngüye sokup orderları veritabanına kaydet
+
+                Order order;
+                Product product;
+                // Her siparişi veritabanına kaydet
+                for (int i = 0; i < myOrders.size(); i++) {
+        			order = myOrders.get(i);
+                	// order_date ve product_no zaten siparişe ekli geliyor
+        			order.setCustomerNo((String) session.getAttribute("user_id"));
+        			order.setPaymentNo(request.getParameter("payment_no"));
+        			OrderDAO.add(order);
+        		}
+                
+                // Sessiondaki siparişleri temizle
+                myOrders = new ArrayList<Order>();
+                HomeController.session.setAttribute("myOrders", myOrders);
+                
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("profile");
 	            dispatcher.forward(request, response);
         	}
