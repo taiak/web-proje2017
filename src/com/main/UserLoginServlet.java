@@ -26,8 +26,8 @@ public class UserLoginServlet extends HttpServlet {
 	}
 	
 	public void logout() throws ServletException, IOException {
-		if (com.login.servlet.LoginServlet.session != null )
-			com.login.servlet.LoginServlet.session.invalidate();
+		if (com.proje.login.LoginServlet.session != null )
+			com.proje.login.LoginServlet.session.invalidate();
 
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("home");

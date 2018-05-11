@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.beans.Product;
-import com.proje.dao.ProductDao;
+import com.proje.controller.ProductController;
+import com.proje.model.Product;
 
 /**
  * Servlet implementation class AdminProductServlet
@@ -29,8 +29,8 @@ public class AdminProductServlet extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.login.servlet.AdminLoginServlet.session != null && com.login.servlet.AdminLoginServlet.session.getAttribute("admin") != null) {
-			products = ProductDao.list();
+		if (com.proje.login.AdminLoginServlet.session != null && com.proje.login.AdminLoginServlet.session.getAttribute("admin") != null) {
+			products = ProductController.list();
 			request.setAttribute("products", products);
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
 	        dispatcher.forward(request, response);
@@ -44,13 +44,13 @@ public class AdminProductServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Product:doPost");
 		response.setContentType("text/html");
-		if (com.login.servlet.AdminLoginServlet.session != null && (Boolean)com.login.servlet.AdminLoginServlet.session.getAttribute("admin") == true) {
+		if (com.proje.login.AdminLoginServlet.session != null && (Boolean)com.proje.login.AdminLoginServlet.session.getAttribute("admin") == true) {
 			System.out.println("Product:sessionOK");
 			String toDo = request.getParameter("toDo");
 			if(toDo.equals("delete")) {
 				Product product = new Product();
 				product.setNo(String.valueOf(request.getParameter("no")));
-				ProductDao.delete(product);
+				ProductController.delete(product);
 				
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
@@ -65,21 +65,21 @@ public class AdminProductServlet extends HttpServlet {
 				System.out.println("Product:create");
 				Product product = new Product();
 				product = getAttributes(request, product);
-				ProductDao.add(product);
+				ProductController.add(product);
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
 			}else if(toDo.equals("edit")) {
 				System.out.println("Product:edit");
-				Product product = ProductDao.find(String.valueOf(request.getParameter("no")));
+				Product product = ProductController.find(String.valueOf(request.getParameter("no")));
 				request.setAttribute("product", product);
 				request.setAttribute("toDo", "update");
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("productEdit.jsp");
 			    dispatcher.forward(request, response);
 			}else if(toDo.equals("update")) {
 				System.out.println("Product:update");
-				Product product = ProductDao.find(String.valueOf(request.getParameter("no")));
+				Product product = ProductController.find(String.valueOf(request.getParameter("no")));
 				product = getAttributes(request, product);
-				ProductDao.update(product);
+				ProductController.update(product);
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("product");
 			    dispatcher.forward(request, response);
 			}

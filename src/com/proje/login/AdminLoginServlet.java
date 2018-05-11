@@ -1,4 +1,4 @@
-package com.login.servlet;
+package com.proje.login;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.proje.beans.Login;
+import com.proje.model.Login;
 
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {

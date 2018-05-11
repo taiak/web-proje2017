@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.beans.Product;
-import com.proje.dao.ProductDao;
+import com.proje.controller.ProductController;
+import com.proje.model.Product;
 
 @WebServlet("/ProductsServlet")
 public class ProductsServlet extends HttpServlet {
@@ -25,7 +25,7 @@ public class ProductsServlet extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		ArrayList <Product> products = ProductDao.list();
+		ArrayList <Product> products = ProductController.list();
 		request.setAttribute("products", products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("products.jsp");
         dispatcher.forward(request, response);

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.proje.beans.Order;
-import com.proje.dao.OrderDao;
+import com.proje.controller.OrderController;
+import com.proje.model.Order;
 
 @WebServlet("/OrdersServlet")
 public class OrdersServlet extends HttpServlet {
@@ -27,8 +27,8 @@ public class OrdersServlet extends HttpServlet {
     }
 
     public void index() throws ServletException, IOException {
-        if (com.login.servlet.LoginServlet.session != null) {
-            ArrayList <Order> orders = OrderDao.getOrderByUserId(Integer.parseInt(String.valueOf(com.login.servlet.LoginServlet.session.getAttribute("user_id"))));
+        if (com.proje.login.LoginServlet.session != null) {
+            ArrayList <Order> orders = OrderController.getOrderByUserId(Integer.parseInt(String.valueOf(com.proje.login.LoginServlet.session.getAttribute("user_id"))));
             request.setAttribute("orders", orders);
             RequestDispatcher dispatcher = request.getRequestDispatcher("orders.jsp");
             dispatcher.forward(request, response);
@@ -41,7 +41,7 @@ public class OrdersServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        HttpSession session = com.login.servlet.LoginServlet.session;
+        HttpSession session = com.proje.login.LoginServlet.session;
         
         if (session == null || session.getAttribute("user") == null) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login");
@@ -60,7 +60,7 @@ public class OrdersServlet extends HttpServlet {
             
             order.setProductNo(String.valueOf(request.getParameter("product_no")));
             order.setPaymentNo(String.valueOf("2")); // TODO: PaymentNo neyse ona göre düzenlenecek
-            OrderDao.add(order);
+            OrderController.add(order);
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
             dispatcher.forward(request, response);
@@ -68,7 +68,7 @@ public class OrdersServlet extends HttpServlet {
         }else if(toDo.equals("delete")) {
             Order order = new Order();
             order.setOrderNo(String.valueOf(request.getParameter("order_no")));
-            OrderDao.delete(order);
+            OrderController.delete(order);
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
             dispatcher.forward(request, response);

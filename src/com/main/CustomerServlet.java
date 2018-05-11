@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.proje.beans.Customer;
-import com.proje.beans.Order;
-import com.proje.dao.CustomerDao;
-import com.proje.dao.OrderDao;
+import com.proje.controller.CustomerController;
+import com.proje.controller.OrderController;
+import com.proje.model.Customer;
+import com.proje.model.Order;
 
 @WebServlet("/CustomerServlet")
 public class CustomerServlet extends HttpServlet {
@@ -33,7 +33,7 @@ public class CustomerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        HttpSession session = com.login.servlet.LoginServlet.session;
+        HttpSession session = com.proje.login.LoginServlet.session;
         
         if (session != null) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("user");
@@ -47,7 +47,7 @@ public class CustomerServlet extends HttpServlet {
             customer.setName(String.valueOf(request.getParameter("name")));
             customer.setSurname(String.valueOf(request.getParameter("surname")));
             customer.setHashedPassword(String.valueOf(request.getParameter("password_plain")));
-            CustomerDao.add(customer);
+            CustomerController.add(customer);
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("login");
             dispatcher.forward(request, response);
@@ -56,7 +56,7 @@ public class CustomerServlet extends HttpServlet {
 
 
     public void index() throws ServletException, IOException {
-        if (com.login.servlet.LoginServlet.session != null && !com.login.servlet.LoginServlet.session.getAttribute("user_id").equals("Nan")) {
+        if (com.proje.login.LoginServlet.session != null && !com.proje.login.LoginServlet.session.getAttribute("user_id").equals("Nan")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login");
             dispatcher.forward(request, response);
         }else {

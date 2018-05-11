@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.beans.User;
+import com.proje.model.User;
 
 @WebServlet("/ProfileServlet")
 public class ProfileServlet extends HttpServlet {
@@ -22,8 +22,8 @@ public class ProfileServlet extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.login.servlet.LoginServlet.session != null) {
-			User user = (User) com.login.servlet.LoginServlet.session.getAttribute("user");
+		if (com.proje.login.LoginServlet.session != null) {
+			User user = (User) com.proje.login.LoginServlet.session.getAttribute("user");
 			request.setAttribute("user", user);
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
 	        dispatcher.forward(request, response);

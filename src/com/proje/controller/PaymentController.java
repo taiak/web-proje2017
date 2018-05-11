@@ -1,14 +1,14 @@
-package com.proje.dao;
+package com.proje.controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.proje.beans.Payment;
+import com.proje.model.Payment;
 import com.utilities.query.DatabaseOpener;
 
-public class PaymentDao {
+public class PaymentController {
 	private static final String TableName = "Payment";
 	
 	protected static Connection connectionOpen() {

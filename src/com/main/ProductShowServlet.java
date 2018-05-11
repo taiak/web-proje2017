@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.beans.Product;
-import com.proje.dao.ProductDao;
+import com.proje.controller.ProductController;
+import com.proje.model.Product;
 
 @WebServlet("/ProductShowServlet")
 public class ProductShowServlet extends HttpServlet {
@@ -26,7 +26,7 @@ public class ProductShowServlet extends HttpServlet {
 	public void show() throws ServletException, IOException {
 		String no = request.getParameter("id");
 		if(no != null) {
-			Product product = ProductDao.find(no);
+			Product product = ProductController.find(no);
 			request.setAttribute("product", product);
 		}
         RequestDispatcher dispatcher = request.getRequestDispatcher("productShow.jsp");

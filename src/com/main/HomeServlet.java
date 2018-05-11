@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.beans.Product;
-import com.proje.dao.ProductDao;
+import com.proje.controller.ProductController;
+import com.proje.model.Product;
 
 
 @WebServlet("/HomeServlet")
@@ -26,7 +26,7 @@ public class HomeServlet extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		products = ProductDao.last(8);
+		products = ProductController.last(8);
 		request.setAttribute("products", products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);

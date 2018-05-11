@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.login.servlet.AdminLoginServlet;
 import com.main.admin.AdminCustomerServlet;
 import com.main.admin.AdminHomeServlet;
 import com.main.admin.AdminOrderServlet;
 import com.main.admin.AdminProductServlet;
+import com.proje.login.AdminLoginServlet;
 
 @WebServlet("/JspRoutes")
 public class JspRoutes extends HttpServlet {

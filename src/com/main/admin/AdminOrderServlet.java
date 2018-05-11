@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.proje.beans.Order;
-import com.proje.dao.OrderDao;
+import com.proje.controller.OrderController;
+import com.proje.model.Order;
 
 /**
  * Servlet implementation class AdminOrderServlet
@@ -29,8 +29,8 @@ public class AdminOrderServlet extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.login.servlet.AdminLoginServlet.session != null && com.login.servlet.AdminLoginServlet.session.getAttribute("admin") != null) {
-			orders = OrderDao.list();
+		if (com.proje.login.AdminLoginServlet.session != null && com.proje.login.AdminLoginServlet.session.getAttribute("admin") != null) {
+			orders = OrderController.list();
 			request.setAttribute("orders", orders);
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("order.jsp");
 	        dispatcher.forward(request, response);
@@ -44,13 +44,13 @@ public class AdminOrderServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Order:doPost");
 		response.setContentType("text/html");
-		if (com.login.servlet.AdminLoginServlet.session != null && (Boolean)com.login.servlet.AdminLoginServlet.session.getAttribute("admin") == true) {
+		if (com.proje.login.AdminLoginServlet.session != null && (Boolean)com.proje.login.AdminLoginServlet.session.getAttribute("admin") == true) {
 			System.out.println("Order:sessionOK");
 			String toDo = request.getParameter("toDo");
 			if(toDo.equals("delete")) {
 				Order order = new Order();
 				order.setOrderNo((String.valueOf(request.getParameter("no"))));
-				OrderDao.delete(order);
+				OrderController.delete(order);
 				
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("order");
 			    dispatcher.forward(request, response);

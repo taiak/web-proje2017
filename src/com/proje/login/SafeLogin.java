@@ -1,11 +1,12 @@
-package com.login.servlet;
+package com.proje.login;
 
 import java.security.MessageDigest;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import com.proje.beans.Login;
-import com.proje.beans.User;
+
+import com.proje.model.Login;
+import com.proje.model.User;
 import com.utilities.query.DatabaseOpener;
 	
 		

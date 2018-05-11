@@ -1,8 +1,8 @@
-package com.proje.beans;
+package com.proje.model;
 
 import java.io.Serializable;
 
-import com.login.servlet.SafeLogin;
+import com.proje.login.SafeLogin;
 
 public class Customer implements Serializable {
 

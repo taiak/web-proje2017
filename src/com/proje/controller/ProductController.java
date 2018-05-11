@@ -1,17 +1,17 @@
-package com.proje.dao;
+package com.proje.controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.proje.beans.Product;
+import com.proje.model.Product;
 import com.utilities.query.DatabaseOpener;
 
-public class ProductDao {	
+public class ProductController {	
 	private static final String TableName = "Product";
 	
-	public ProductDao() {
+	public ProductController() {
 	}
 	
 	protected static Connection connectionOpen() {

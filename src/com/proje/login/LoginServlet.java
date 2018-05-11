@@ -1,4 +1,4 @@
-package com.login.servlet;
+package com.proje.login;
 
 import java.io.IOException;
 
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.proje.beans.Login;
-import com.proje.beans.User;
-import com.proje.dao.OrderDao;
+import com.proje.controller.OrderController;
+import com.proje.model.Login;
+import com.proje.model.User;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                 if (user.getPass()) {
     	        	session.setAttribute("user", user);
     	        	session.setAttribute("user_id", user.getId());
-    	        	session.setAttribute("orderCount", String.valueOf(OrderDao.count(Integer.parseInt(user.getId()))));                	
+    	        	session.setAttribute("orderCount", String.valueOf(OrderController.count(Integer.parseInt(user.getId()))));                	
                 	page = success_page;
                 }else {
                 	page = unsuccess_page;
