@@ -31,7 +31,6 @@ public class ProductDao {
 			where = Where ;
 		
 		String query = "SELECT * FROM " + TableName + where + ";";
-		System.out.println(query);
 		PreparedStatement ps = null;
 		Connection con = null;
 		ResultSet rs = null;
