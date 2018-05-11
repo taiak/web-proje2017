@@ -17,7 +17,7 @@
 				</tr>
 		    </thead>
 		    <tbody>
-		    	<c:forEach var="order" items="${orders}">
+		    	<c:forEach var="order" items="${myOrders}">
 			      <tr>
 			      	<td><a href="product?id=${order.productNo}"><img src="${order.productPhoto}" width="100" height="100"></a></td>
 			        <td><strong>${order.productName}</strong></td>
@@ -51,7 +51,7 @@
 				</select>
 				<p>-</p>
 	      		<form id ="orderPayForm" action="orderPay" method="post">
-		        	<input name="toDo" type="hidden" value="pay">
+		        	<input name="toDo" type="hidden" value="orderPay">
 			        <input name="order_no" type="hidden" value="${order.orderNo}">
 			        <input type="submit" class="btn btn-lg btn-block btn-success" name="login" value="Sipariş Oluştur">
 		    	</form>

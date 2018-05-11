@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-9">
-				<h1 class="display-1">${user.name}</h1>
+				<h1 class="display-1">${user.name} ${user.surname}</h1>
 			</div>
 			<div class="col-3">
 				<img src="https://www.iconspng.com/uploads/abstract-user-icon-3/abstract-user-icon-3.png" height="300px" width="300px"/>

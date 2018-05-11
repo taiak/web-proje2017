@@ -8,14 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.proje.DAO.ProductDAO;
+import com.proje.model.Order;
 import com.proje.model.Product;
 
 
 @WebServlet("/HomeServlet")
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static HttpSession session = null;
+	public ArrayList <Order> myOrders;
 	public ArrayList <Product> products;
 	public HttpServletRequest request;
     public HttpServletResponse response;
@@ -23,6 +27,13 @@ public class HomeController extends HttpServlet {
 	public HomeController(HttpServletRequest request, HttpServletResponse response) {
 	    this.request = request;
 	    this.response = response;
+	    if(session == null) {
+	    	myOrders = new ArrayList<Order>();
+		    session = request.getSession();
+		    System.out.println("New Attribute");
+			session.setAttribute("myOrders", myOrders);
+	    }
+	    System.out.println(session.getAttribute("myOrders"));
     }
 
 	public void index() throws ServletException, IOException {

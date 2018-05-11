@@ -103,6 +103,9 @@ public class JspRoutesController extends HttpServlet {
 		case "/registerCustomer":
 			customer.doPost(request, response);
 			break;
+		case "/orderPay":
+			order.doPost(request, response);
+			break;
 		default:
 			home.index();
         }
