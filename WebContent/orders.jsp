@@ -17,14 +17,19 @@
 				</tr>
 		    </thead>
 		    <tbody>
-		    	<c:forEach var="order" items="${myOrders}">
+		    	<c:forEach var="order" items="${myOrders}" varStatus="loop">
 			      <tr>
-			      	<td><a href="product?id=${order.productNo}"><img src="${order.productPhoto}" width="100" height="100"></a></td>
-			        <td><strong>${order.productName}</strong></td>
-			        <td><strong>${order.productPrice} TL</strong></td>
+			      	<td>
+			      		<a href="product?id=${order.productNo}">
+			      			<img src="${products.get(loop.index).photo}" width="100" height="100">
+			      		</a>
+			      	</td>
+			        <td><strong>${products.get(loop.index).name}</strong></td>
+			        <td><strong>${products.get(loop.index).price} TL</strong></td>
 			        <td>
 			        <form action="orderDelete" method="post">
 			        	<input name="toDo" type="hidden" value="delete">
+			        	<input name="order_index" type="hidden" value="${loop.index}">
 				        <input name="order_no" type="hidden" value="${order.orderNo}">
 				        <input type="submit" class="btn btn-danger" name="login" value="Sil">
 			    	</form>
@@ -37,7 +42,7 @@
 		      
 	      <div class="row">
 	      	<div class="col-9"><h1>Sepet Toplamı:</h1></div>
-	      	<div class="col-3"><h1><strong>2335.0 TL</strong></h1></div>
+	      	<div class="col-3"><h1><strong>${productPriceSum} TL</strong></h1></div>
 	      </div>
 	      <p>-</p>
 	      <div class="row">

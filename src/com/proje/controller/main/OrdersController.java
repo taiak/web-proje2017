@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.proje.DAO.OrderDAO;
+import com.proje.DAO.ProductDAO;
 import com.proje.model.Order;
+import com.proje.model.Product;
 
 @WebServlet("/OrdersServlet")
 public class OrdersController extends HttpServlet {
@@ -30,7 +32,23 @@ public class OrdersController extends HttpServlet {
         ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
         System.out.println(myOrders);
 
+        ArrayList <Product> products = new ArrayList<Product>();
+        Order order;
+        Product product;
+        float productPriceSum = 0;
+        
+        for (int i = 0; i < myOrders.size(); i++) {
+			order = myOrders.get(i);
+			product = ProductDAO.find(order.getProductNo());
+			productPriceSum += Float.parseFloat(product.getPrice());
+			products.add(product);
+		}
+
+        request.setAttribute("productPriceSum", productPriceSum);
+        request.setAttribute("products", products);
         request.setAttribute("myOrders", myOrders);
+		HomeController.session.setAttribute("orderCount", myOrders.size());
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("orders.jsp");
         dispatcher.forward(request, response);
 

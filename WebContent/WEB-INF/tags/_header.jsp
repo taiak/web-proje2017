@@ -12,7 +12,7 @@
 
     <div class="wrap_header">
       <!-- Logo -->
-      <a href="index.jsp" class="logo">
+      <a href="home" class="logo">
         <img src="images/icons/logo.png" alt="IMG-LOGO">
       </a>
 
@@ -41,9 +41,7 @@
 
       <!-- Header Icon -->
       <div class="header-icons">
-      
-		
-		<c:if test="${sessionScope.user != null}">
+
 	        <div class="header-wrapicon2">
 		        <a href="orders">
 		          <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
@@ -52,10 +50,13 @@
 		          </span>
 		         </a>
 	        </div>
-	      	<span class="linedivide1"></span>
+	      	<span class="linedivide1"></span>      
+		
+		<c:if test="${sessionScope.user != null}">
+
 	
 	        <a href="profile" class="header-wrapicon1 dis-block">
-	        	<img src="images/icons/icon-header-01.png" class="header-icon1" alt="VAR">HOŞGELDİNİZ ${sessionScope.user.name}
+	        	<img src="images/icons/icon-header-01.png" class="header-icon1" alt="VAR">Hoşgeldiniz ${sessionScope.user.name} ${sessionScope.user.surname}
 	        </a>&nbsp;&nbsp;
 	        <a href="logout" class="btn btn-danger">
 	        	Çıkış Yap

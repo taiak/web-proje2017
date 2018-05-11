@@ -32,6 +32,7 @@ public class HomeController extends HttpServlet {
 		    session = request.getSession();
 		    System.out.println("New Attribute");
 			session.setAttribute("myOrders", myOrders);
+			session.setAttribute("orderCount", ((ArrayList<Order>)session.getAttribute("myOrders")).size());
 	    }
 	    System.out.println(session.getAttribute("myOrders"));
     }
@@ -39,6 +40,7 @@ public class HomeController extends HttpServlet {
 	public void index() throws ServletException, IOException {
 		products = ProductDAO.last(8);
 		request.setAttribute("products", products);
+		session.setAttribute("orderCount", ((ArrayList<Order>)session.getAttribute("myOrders")).size());
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
 	}
