@@ -41,27 +41,26 @@ INSERT INTO CustomerShadow VALUES(14, 'e78b85ec36b1a26f0a08b2aa84814c1a23f2102ef
 INSERT INTO CustomerShadow VALUES(15, 'c9cd11537b30c2927618c2e6fdee76b907a033759a8907a40dc30e1f4b55c289' );
 
 # product ekle
-INSERT INTO Product VALUES(0, 'kulaklik', 18  , 12.5, '/yol/yol2' ,"kul hakki saklamaya yarayan aparat" );
-INSERT INTO Product VALUES(0, 'at kafasi', 103 , 30.5, '/yol/yol2' ,"bu aciklama  product_2 icin" );
-INSERT INTO Product VALUES(0, 'urun_3', 464 , 50.5, '/yol/yol2' ,"bu aciklama  urun_3 icin" );
-INSERT INTO Product VALUES(0, 'urun_4', 413 , 85.5, '/yol/yol2' ,"bu aciklama  urun_4 icin" );
-INSERT INTO Product VALUES(0, 'urun_5', 308 , 12.5, '/yol/yol2' ,"bu aciklama  urun_5 icin" );
-INSERT INTO Product VALUES(0, 'urun_6', 329 , 12.5, '/yol/yol2' ,"bu aciklama  urun_6 icin" );
-INSERT INTO Product VALUES(0, 'urun_7', 367 , 12.5, '/yol/yol2' ,"bu aciklama  urun_7 icin" );
-INSERT INTO Product VALUES(0, 'urun_8', 283 , 12.5, '/yol/yol2' ,"bu aciklama  urun_8 icin" );
-INSERT INTO Product VALUES(0, 'urun_9', 204 , 78.5, '/yol/yol2' ,"bu aciklama  urun_9 icin" );
-INSERT INTO Product VALUES(0, 'urun_10', 359, 12.5, '/yol/yol2' ,"bu aciklama  urun_10 icin");
-INSERT INTO Product VALUES(0, 'urun_11', 161, 12.5, '/yol/yol2' ,"bu aciklama  urun_11 icin");
-INSERT INTO Product VALUES(0, 'urun_12', 6  , 12.5, '/yol/yol2' ,"bu aciklama  urun_12 icin");
-INSERT INTO Product VALUES(0, 'urun_13', 263, 12.5, '/yol/yol2' ,"bu aciklama  urun_13 icin");
-INSERT INTO Product VALUES(0, 'urun_14', 442, 12.5, '/yol/yol2' ,"bu aciklama  urun_14 icin");
-INSERT INTO Product VALUES(0, 'urun_15', 115, 12.5, '/yol/yol2' ,"bu aciklama  urun_15 icin");
-INSERT INTO Product VALUES(0, 'urun_16', 254, 12.5, '/yol/yol2' ,"bu aciklama  urun_16 icin");
-INSERT INTO Product VALUES(0, 'urun_17', 95 , 12.5, '/yol/yol2' ,"bu aciklama  urun_17 icin");
-INSERT INTO Product VALUES(0, 'urun_18', 433, 12.5, '/yol/yol2' ,"bu aciklama  urun_18 icin");
-INSERT INTO Product VALUES(0, 'urun_19', 23 , 12.5, '/yol/yol2' ,"bu aciklama  urun_19 icin");
-INSERT INTO Product VALUES(0, 'urun_20', 490, 12.5, '/yol/yol2' ,"bu aciklama  urun_20 icin");
-INSERT INTO Product VALUES(0, 'urun_21', 205, 12.5, '/yol/yol2' ,"bu aciklama product_21 icin");
+INSERT INTO Product VALUES(0, 'Apple Iphone 7 Plus',               10 , 3250, 'images/product/apple_iphone7.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'At Kafası',                        100 ,   30, 'images/product/at_kafasi.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Elektrikli Küre',                   20 ,   40, 'images/product/elektrikli_kure.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Apple Iphone X',                   100 , 5200, 'images/product/iphonex.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Kamera Kapatma Şeysi',             850 ,    5, 'images/product/kamera_kapatma_seysi.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'MSI GE62 Gaming Laptop',            20 , 5300, 'images/product/msi_ge62.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Philips Kulaklık',                 300 ,   75, 'images/product/philips_kulaklik.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Sony Playstation 4',               200 ,  450, 'images/product/playstation.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Samsung Galaxy Note 8',            204 , 3400, 'images/product/samsung_galaxy_note8.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Samsung TV',                       359 , 3500, 'images/product/samsung_tv.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Spigen Araç İçi Telefon Tutacağı', 500 ,   59, 'images/product/spigen_arac_tutacagi.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Vestel TV',                         30 , 2500, 'images/product/vestel_tv.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Xiaomi Mi Band 2',                 263 ,   99, 'images/product/xiaomi_bileklik.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Xiaomi Mi 3',                      442 , 2100, 'images/product/xiaomi_mi3.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Xiaomi Mi 6',                      115 , 2250, 'images/product/xiaomi_mi6.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Xiaomi Mi Mix 2',                  254 , 2150, 'images/product/xiaomi_mi_mix.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Go Pro Hero 5',                     95 , 1500, 'images/product/gopro_hero5.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Kamp Sandalyesi',                  433 ,   80, 'images/product/kamp_sandalyesi.jpg' ,"");
+INSERT INTO Product VALUES(0, 'GTA V - PS 4',                      23 ,   95, 'images/product/gta5.jpg' ,"");
+INSERT INTO Product VALUES(0, 'FIFA 18 - PS 4',                   490 ,   75, 'images/product/fifa18.jpg' ,"");
 
 # admin tablosuna ekleme ornegi
 # require 'digest'
