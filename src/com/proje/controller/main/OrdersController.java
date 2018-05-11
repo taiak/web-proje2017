@@ -27,13 +27,15 @@ public class OrdersController extends HttpServlet {
     }
 
     public void index() throws ServletException, IOException {
-        ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
-        System.out.println(myOrders);
-
-        request.setAttribute("myOrders", myOrders);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("orders.jsp");
-        dispatcher.forward(request, response);
-
+        if (com.proje.controller.login.LoginController.session != null) {
+            ArrayList <Order> orders = OrderDAO.getOrderByUserId(Integer.parseInt(String.valueOf(com.proje.controller.login.LoginController.session.getAttribute("user_id"))));
+            request.setAttribute("orders", orders);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("orders.jsp");
+            dispatcher.forward(request, response);
+        }else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+            dispatcher.forward(request, response);
+        }
     }
     
     @Override
@@ -41,52 +43,34 @@ public class OrdersController extends HttpServlet {
         response.setContentType("text/html");
         HttpSession session = com.proje.controller.login.LoginController.session;
         
-        ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
-
+        if (session == null || session.getAttribute("user") == null) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+            dispatcher.forward(request, response);
+            return;
+        }
             
         String toDo = request.getParameter("toDo");
         if(toDo.equals("add")) {
-        	// Geçici Order Nesnesini Oluştur
-            Order order = new Order();
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate localDate = LocalDate.now();
+                    
+            Order order = new Order();
+            order.setCustomerNo(String.valueOf(session.getAttribute("user_id")));
             order.setOrderDate(String.valueOf(dtf.format(localDate)));
-            order.setProductNo(String.valueOf(request.getParameter("product_no")));
-            order.setPaymentNo(String.valueOf(request.getParameter("payment_no")));
             
-            // Session'a Ekleme Yap
-            if (myOrders.add(order)) {
-                System.out.println("Başarılı " + myOrders);
-            }else {
-                System.out.println("BaşarıSIZ! " + myOrders);            	
-            }
-            HomeController.session.setAttribute("myOrders", myOrders);
-            System.out.println("Session myOrders: " + HomeController.session.getAttribute("myOrders"));
-            // Yönlendirme Yap
+            order.setProductNo(String.valueOf(request.getParameter("product_no")));
+            order.setPaymentNo(String.valueOf("2")); // TODO: PaymentNo neyse ona göre düzenlenecek
+            OrderDAO.add(order);
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
             dispatcher.forward(request, response);
             
         }else if(toDo.equals("delete")) {
-            int order_index = Integer.parseInt(request.getParameter("order_index"));
-            myOrders.remove(order_index);
-            HomeController.session.setAttribute("myOrders", myOrders);
-
+            Order order = new Order();
+            order.setOrderNo(String.valueOf(request.getParameter("order_no")));
+            OrderDAO.delete(order);
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher("orders");
-            dispatcher.forward(request, response);
-        }else if(toDo.equals("orderPay")) {
-        	if (session == null || session.getAttribute("user") == null) {
-        		// Kullanıcı Giriş Yapmamış
-                RequestDispatcher dispatcher = request.getRequestDispatcher("login");
-                dispatcher.forward(request, response);
-                return;
-            }else {
-            	// Kullanıcı Giriş Yapmış
-            	// TODO: Döngüye sokup orderları veritabanına kaydet
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("profile");
-	            dispatcher.forward(request, response);
-        	}
-        }else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("home");
             dispatcher.forward(request, response);
         }
     }
