@@ -1,9 +1,6 @@
  package com.proje.controller.main;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.proje.DAO.CustomerDAO;
-import com.proje.DAO.OrderDAO;
 import com.proje.model.Customer;
-import com.proje.model.Order;
 
 @WebServlet("/CustomerServlet")
 public class CustomerController extends HttpServlet {

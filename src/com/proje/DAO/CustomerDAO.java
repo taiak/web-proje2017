@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import com.proje.model.Customer;
 import com.proje.utilities.DatabaseOpener;
-import com.proje.utilities.SafeLogin;
 
 public class CustomerDAO {	
 
