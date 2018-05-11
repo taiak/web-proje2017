@@ -39,7 +39,8 @@ public class ProductsController extends HttpServlet {
         response.setContentType("text/html");
         String productNo = request.getParameter("searchNo");
         Product product = ProductDAO.find(productNo);
-        String return_str = "<img src=\"" + product.getPhoto() + "\"> " + product.getName() + " - " + product.getPrice() + " TL";
-        response.getWriter().write(return_str);
+        String unformatted = "<div class=\"col-md-3\"> <div class=\"card\"> <img class=\"card-img-top\" src=\"%s\" alt=\"%s\" width=\"250\" height=\"300\"> <div class=\"card-body bg-light\"> <h5 class=\"card-title\">%s</h5> <center> <p class=\"card-text\"><strong><font color=\"red\">%s TL</font></strong></p> <a href=\"product?id=%s\" class=\"btn btn-primary\">Urunu Incele</a> <form action=\"orderAdd\" method=\"post\"> <input name=\"toDo\" type=\"hidden\" value=\"add\"> <input name=\"product_no\" type=\"hidden\" value=\"%s\"><input type=\"submit\" name=\"login\" class=\"btn btn-warning\" value=\"Sepete Ekle\"> </form> </center> </div> </div> </div>";
+        String formatted = String.format(unformatted, product.getPhoto(), product.getName(), product.getName(), product.getPrice(), product.getNo(), product.getNo() );
+        response.getWriter().write(formatted);
     }
 }
