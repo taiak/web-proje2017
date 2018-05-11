@@ -13,7 +13,7 @@ import com.proje.controller.admin.AdminOrderController;
 import com.proje.controller.admin.AdminProductController;
 import com.proje.controller.login.AdminLoginController;
 
-@WebServlet("/JspRoutes")
+@WebServlet("/JspRoutesController")
 public class JspRoutesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
