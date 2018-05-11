@@ -4,6 +4,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <z:layout title="Anasayfa">
 	<h1>Ürün Yönetim Paneli</h1>
+	<form action="editProduct" method="post">
+    	<input name="toDo" type="hidden" value="new">
+     <input type="submit" class="btn btn-lg btn-block btn-success" value="Yeni Ürün Ekle">
+	</form>
 	<table class="table table-hover table-striped">
    		<thead>
 			<tr>

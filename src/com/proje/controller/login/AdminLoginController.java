@@ -63,7 +63,7 @@ public class AdminLoginController extends HttpServlet {
 
 	public void logout() throws ServletException, IOException {
 		if (session != null )
-			session.invalidate();
+			com.proje.controller.login.LoginController.session.setAttribute("admin", false);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("login");
         dispatcher.forward(request, response);

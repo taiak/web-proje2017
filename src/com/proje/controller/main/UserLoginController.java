@@ -27,7 +27,9 @@ public class UserLoginController extends HttpServlet {
 	
 	public void logout() throws ServletException, IOException {
 		if (com.proje.controller.login.LoginController.session != null )
-			com.proje.controller.login.LoginController.session.invalidate();
+			com.proje.controller.login.LoginController.session.removeAttribute("user");
+			com.proje.controller.login.LoginController.session.removeAttribute("user_id");
+
 
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("home");
