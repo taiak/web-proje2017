@@ -42,16 +42,16 @@ INSERT INTO CustomerShadow VALUES(15, 'c9cd11537b30c2927618c2e6fdee76b907a033759
 
 # product ekle
 INSERT INTO Product VALUES(0, 'Apple Iphone 7 Plus',               10 , 3250, 'images/product/apple_iphone7.jpg' ,"" );
-INSERT INTO Product VALUES(0, 'At Kafası',                        100 ,   30, 'images/product/at_kafasi.jpg' ,"" );
-INSERT INTO Product VALUES(0, 'Elektrikli Küre',                   20 ,   40, 'images/product/elektrikli_kure.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'At Kafasi',                        100 ,   30, 'images/product/at_kafasi.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Elektrikli Kure',                   20 ,   40, 'images/product/elektrikli_kure.jpg' ,"" );
 INSERT INTO Product VALUES(0, 'Apple Iphone X',                   100 , 5200, 'images/product/iphonex.jpg' ,"" );
-INSERT INTO Product VALUES(0, 'Kamera Kapatma Şeysi',             850 ,    5, 'images/product/kamera_kapatma_seysi.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Kamera Kapatma Seysi',             850 ,    5, 'images/product/kamera_kapatma_seysi.jpg' ,"" );
 INSERT INTO Product VALUES(0, 'MSI GE62 Gaming Laptop',            20 , 5300, 'images/product/msi_ge62.jpg' ,"" );
-INSERT INTO Product VALUES(0, 'Philips Kulaklık',                 300 ,   75, 'images/product/philips_kulaklik.jpg' ,"" );
+INSERT INTO Product VALUES(0, 'Philips Kulaklik',                 300 ,   75, 'images/product/philips_kulaklik.jpg' ,"" );
 INSERT INTO Product VALUES(0, 'Sony Playstation 4',               200 ,  450, 'images/product/playstation.jpg' ,"" );
 INSERT INTO Product VALUES(0, 'Samsung Galaxy Note 8',            204 , 3400, 'images/product/samsung_galaxy_note8.jpg' ,"" );
 INSERT INTO Product VALUES(0, 'Samsung TV',                       359 , 3500, 'images/product/samsung_tv.jpg' ,"");
-INSERT INTO Product VALUES(0, 'Spigen Araç İçi Telefon Tutacağı', 500 ,   59, 'images/product/spigen_arac_tutacagi.jpg' ,"");
+INSERT INTO Product VALUES(0, 'Spigen Arac Ici Telefon Tutacagi', 500 ,   59, 'images/product/spigen_arac_tutacagi.jpg' ,"");
 INSERT INTO Product VALUES(0, 'Vestel TV',                         30 , 2500, 'images/product/vestel_tv.jpg' ,"");
 INSERT INTO Product VALUES(0, 'Xiaomi Mi Band 2',                 263 ,   99, 'images/product/xiaomi_bileklik.jpg' ,"");
 INSERT INTO Product VALUES(0, 'Xiaomi Mi 3',                      442 , 2100, 'images/product/xiaomi_mi3.jpg' ,"");
