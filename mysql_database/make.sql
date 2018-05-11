@@ -8,6 +8,7 @@ source ./procedures/adminControl.sql
 USE PROJE;
 source ./triggers/delete_from_customer.sql
 source ./triggers/delete_from_admin.sql
+source ./triggers/delete_from_payment.sql
+source ./triggers/delete_from_product.sql
 
-
-source ./make_user/make_user.sql
+source ./create_user/create_user.sql
