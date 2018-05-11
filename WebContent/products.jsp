@@ -22,8 +22,16 @@
 						  <img class="card-img-top" src="${product.photo}" alt="${product.name}"  width="250" height="300">
 						  <div class="card-body">
 						    <h5 class="card-title">${product.name}</h5>
-						    <p class="card-text">${product.stock} adet</p>
-						    <a href="product?id=<c:out value='${product.no}' />" class="btn btn-primary">İncele</a>
+						    <center>
+							    <p class="card-text"><strong><font color="red">${product.price} TL</font></strong></p>
+							    <a href="product?id=<c:out value='${product.no}' />" class="btn btn-primary">İncele</a>
+							    <form action="orderAdd" method="post">
+						        	<input name="toDo" type="hidden" value="add">
+							        <input name="product_no" type="hidden" value="<c:out value='${product.no}' />">
+							        <input name="payment_no" type="hidden" value="2">
+							        <input type="submit" name="login" class="btn btn-warning" value="Sepete Ekle">
+			    				</form>
+		    				</center>
 						  </div>
 						</div>
 					</div>

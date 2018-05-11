@@ -58,7 +58,7 @@
 					  <img class="card-img-top" src="${product.photo}" alt="${product.name}" width="250" height="300">
 					  <div class="card-body">
 					    <h5 class="card-title">${product.name}</h5>
-					    <p class="card-text">${product.stock} adet</p>
+					    <p class="card-text">${product.price} TL</p>
 					    <center>
 				    		<a href="product?id=<c:out value='${product.no}' />" class="btn btn-danger">İncele</a>
 				    		<form action="orderAdd" method="post">
