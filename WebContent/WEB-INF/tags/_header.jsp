@@ -45,7 +45,7 @@
 	        <div class="header-wrapicon2">
 		        <a href="orders">
 		          <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-		          <span class="header-icons-noti">
+		          <span id="sepettekiUrunSayisi" class="header-icons-noti">
 		          		${sessionScope.orderCount}
 		          </span>
 		         </a>

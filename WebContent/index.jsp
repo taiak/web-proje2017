@@ -50,6 +50,8 @@
 	</section>
 
 
+
+
 	<div class="container">
 		<div class="row">
 		 	<c:forEach var="product" items="${products}">
@@ -73,6 +75,41 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+
+
+<script type="text/javascript">
+function ajaxMetodu() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {    // IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+     } else {    // IE6, IE5
+         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     xmlhttp.onreadystatechange = function() {
+         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+             document.getElementById("searchNo").innerHTML = xmlhttp.responseText;
+         }
+     }
+     var no = $('#searchNo').val();
+     $.ajax({
+         url:'findProduct',
+         data:{searchNo: no},
+         type:'get',
+         success: function(data){
+             $("#findProduct").html(data);
+         }
+     });
+ }
+</script>
+
+	<div class="jumbotron">
+	<center>
+		<h2>Ürün Numarasıyla Ara</h2>
+		<p id="findProduct"></p>
+		<input id="searchNo" name="searchNo" type="text">
+		<input type="submit"  value="Ürün Ara" onClick="ajaxMetodu()">
+	</center>
 	</div>
 
 </z:layout>

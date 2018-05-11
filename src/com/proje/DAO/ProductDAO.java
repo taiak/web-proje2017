@@ -69,6 +69,7 @@ public class ProductDAO {
 	};
 	
 	public static Product find(String no){
+		System.out.println(no);
 		String where = " WHERE no = '" + no + "'";
 		return list(where).get(0);
 	};
