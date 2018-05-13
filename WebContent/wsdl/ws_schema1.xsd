@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.ws.com/" elementFormDefault="unqualified" targetNamespace="http://ws.ws.com/" version="1.0">
+<xs:element name="count" type="tns:count"/>
+<xs:element name="countResponse" type="tns:countResponse"/>
+<xs:element name="productCount" type="tns:productCount"/>
+<xs:element name="productCountResponse" type="tns:productCountResponse"/>
+<xs:element name="productName" type="tns:productName"/>
+<xs:element name="productNameResponse" type="tns:productNameResponse"/>
+<xs:complexType name="count">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="countResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="productName">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="productNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="productCount">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="productCountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
