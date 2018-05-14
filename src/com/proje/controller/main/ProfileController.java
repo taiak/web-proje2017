@@ -28,32 +28,33 @@ public class ProfileController extends HttpServlet {
     }
 
 	public void index() throws ServletException, IOException {
-		if (com.proje.controller.login.LoginController.session != null) {
-			User user = (User) com.proje.controller.login.LoginController.session.getAttribute("user");			
-			ArrayList<Order> userOrders = OrderDAO.getOrderByUserId(Integer.parseInt(user.getId()));
-	        ArrayList <Product> products = new ArrayList<Product>();
-
-			Order order;
-			Product product;
-	        float allCompletedOrdersPriceSum = 0;
-	        
-	        for (int i = 0; i < userOrders.size(); i++) {
-				order = userOrders.get(i);
-				product = ProductDAO.find(order.getProductNo());
-				allCompletedOrdersPriceSum += Float.parseFloat(product.getPrice());
-				products.add(product);
-			}
-	        
-			request.setAttribute("user", user);
-			request.setAttribute("userOrders", userOrders);
-			request.setAttribute("products", products);
-			request.setAttribute("allCompletedOrdersPriceSum", allCompletedOrdersPriceSum);
-
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
-	        dispatcher.forward(request, response);
-		}else {
+		if (com.proje.controller.login.LoginController.session == null) {
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("login");
 	        dispatcher.forward(request, response);
+	        return;
 		}
+			
+		User user = (User) com.proje.controller.login.LoginController.session.getAttribute("user");			
+		ArrayList<Order> userOrders = OrderDAO.getOrderByUserId(Integer.parseInt(user.getId()));
+	    ArrayList <Product> products = new ArrayList<Product>();
+	        
+		Order order;
+		Product product;
+	    float allCompletedOrdersPriceSum = 0;
+	        
+	    for (int i = 0; i < userOrders.size(); i++) {
+			order = userOrders.get(i);
+			product = ProductDAO.find(order.getProductNo());
+			allCompletedOrdersPriceSum += Float.parseFloat(product.getPrice());
+			products.add(product);
+		}
+	        
+	    request.setAttribute("user", user);
+	    request.setAttribute("userOrders", userOrders);
+	    request.setAttribute("products", products);
+	    request.setAttribute("allCompletedOrdersPriceSum", allCompletedOrdersPriceSum);
+			
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
+	    dispatcher.forward(request, response);
 	}
 }

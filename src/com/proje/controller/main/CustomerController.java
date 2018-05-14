@@ -23,8 +23,6 @@ public class CustomerController extends HttpServlet {
         this.response = response;
     }
     
-    
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");

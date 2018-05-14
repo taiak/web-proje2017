@@ -6,9 +6,9 @@ import java.sql.DriverManager;
 public class DatabaseOpener {
 	private static String dbUsername = "projeci";
 	private static String dbPassword = "nahsanabaklava.0";
-	private static String dbName = "PROJE";
-	private static String dbUrl = "jdbc:mysql://localhost:3306/";
-	private static String driver = "com.mysql.jdbc.Driver";
+	private static String dbName     = "PROJE";
+	private static String dbUrl      = "jdbc:mysql://localhost:3306/";
+	private static String driver     = "com.mysql.jdbc.Driver";
 	
 	public static Connection open() {
 		return open(dbUsername, dbPassword, dbName, dbUrl);

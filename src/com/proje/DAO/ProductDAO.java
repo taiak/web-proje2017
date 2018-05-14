@@ -1,29 +1,16 @@
 package com.proje.DAO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.proje.model.Product;
-import com.proje.utilities.DatabaseOpener;
 
-public class ProductDAO {
+public class ProductDAO extends DAO {
 	
 	private static final String TableName = "Product";
 	
 	public ProductDAO() {
 	}
-	
-	protected static Connection connectionOpen() {
-		return DatabaseOpener.open();
-	}
-
-	protected static void connectionClose(ResultSet rs, PreparedStatement ps, Connection con) {
-	    try { rs.close();  } catch (Exception e) { /* ignored */ }
-	    try { ps.close();  } catch (Exception e) { /* ignored */ }
-	    try { con.close(); } catch (Exception e) { /* ignored */ }
-	}	
 	
 	public static ArrayList <Product> list(String Where) {
 		ArrayList <Product> l = new ArrayList <Product>();
@@ -32,13 +19,10 @@ public class ProductDAO {
 			where = Where ;
 		
 		String query = "SELECT * FROM " + TableName + where + ";";
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
 
 		try {
 			con = connectionOpen();	
-			ps = (PreparedStatement	) con.prepareStatement(query);
+			ps = (PreparedStatement) con.prepareStatement(query);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -75,69 +59,25 @@ public class ProductDAO {
 	};
 	
 	public static boolean delete(Product p) {
-		boolean statu = false;
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
 		String where = "no = " + p.getNo();
 		String query = "DELETE FROM " + TableName + " WHERE " + where + " ;";
-		try {
-			con = connectionOpen();
-			ps = (PreparedStatement) con.prepareStatement(query);
-			ps.executeUpdate();
-			statu = true;
-		} catch (Exception e){
-			System.out.println(e);
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		return statu;
+		return execute(query,"Delete");
 	};
 	
 	public static boolean update(Product p) {
-		boolean statu = false;
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
 		String where = "no = '" + p.getNo() + "' ";
-		System.out.println(where);
 		String set = "name = '" + p.getName() + "', stock = '" + 
 					p.getStock() + "', price = '" + p.getPrice() + "', photo = '" +
 					p.getPhoto() + "', comment = '" + p.getComment() + "'";
 		String query = "UPDATE " + TableName + " SET " + set + " WHERE " + where + ";";
-		System.out.println(query);
-		try {
-			con = connectionOpen();
-			ps = (PreparedStatement) con.prepareStatement(query);
-			ps.executeUpdate();
-			statu = true;
-		} catch (Exception e){
-			System.out.println("DB: Update error!" + e);			
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		return statu;
+		return execute(query, "Update");
 	};
 	
 	public static boolean add(Product p) {
-		boolean statu = false;
-		PreparedStatement ps = null;
-		Connection con = null;
-		ResultSet rs = null;
 		String values = "(0, '" + p.getName() + "', '" + p.getStock() + "', '" +
 					p.getPrice() + "', '" + p.getPhoto() + "', '" +
-					p.getComment() + "');";
-		String query = "INSERT INTO " + TableName + " VALUES " + values;
-		try {
-			con = connectionOpen();
-			ps = (PreparedStatement) con.prepareStatement(query);
-			ps.executeUpdate();
-			statu = true;
-		} catch (Exception e) {
-			System.out.println("DB: Add error!");			
-		} finally {
-			connectionClose(rs, ps, con);
-		}
-		return statu;
+					p.getComment() + "')";
+		String query = "INSERT INTO " + TableName + " VALUES " + values + ";";
+		return execute(query, "add");
 	};
 }

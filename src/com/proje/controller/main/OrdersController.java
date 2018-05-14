@@ -100,7 +100,6 @@ public class OrdersController extends HttpServlet {
                 return;
             }else {
             	// Kullanıcı Giriş Yapmış
-
                 Order order;
                 // Her siparişi veritabanına kaydet
                 for (int i = 0; i < myOrders.size(); i++) {
