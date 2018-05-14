@@ -1,7 +1,6 @@
  package com.proje.controller.main;
 
 import java.io.IOException;
-import java.text.Format.Field;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -30,7 +29,8 @@ public class OrdersController extends HttpServlet {
     }
 
     public void index() throws ServletException, IOException {
-        ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
+        @SuppressWarnings("unchecked")
+		ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
         System.out.println(myOrders);
 
         ArrayList <Product> products = new ArrayList<Product>();
@@ -60,7 +60,8 @@ public class OrdersController extends HttpServlet {
         response.setContentType("text/html");
         HttpSession session = com.proje.controller.login.LoginController.session;
         
-        ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
+        @SuppressWarnings("unchecked")
+		ArrayList <Order> myOrders = (ArrayList<Order>) HomeController.session.getAttribute("myOrders");
 
             
         String toDo = request.getParameter("toDo");
@@ -101,7 +102,6 @@ public class OrdersController extends HttpServlet {
             	// Kullanıcı Giriş Yapmış
 
                 Order order;
-                Product product;
                 // Her siparişi veritabanına kaydet
                 for (int i = 0; i < myOrders.size(); i++) {
         			order = myOrders.get(i);

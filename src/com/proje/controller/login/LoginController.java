@@ -1,7 +1,6 @@
 package com.proje.controller.login;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.proje.DAO.OrderDAO;
-import com.proje.controller.main.HomeController;
 import com.proje.model.Login;
-import com.proje.model.Order;
 import com.proje.model.User;
 import com.proje.utilities.SafeLogin;
 

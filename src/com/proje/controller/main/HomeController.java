@@ -24,6 +24,7 @@ public class HomeController extends HttpServlet {
 	public HttpServletRequest request;
     public HttpServletResponse response;
     
+	@SuppressWarnings("unchecked")
 	public HomeController(HttpServletRequest request, HttpServletResponse response) {
 	    this.request = request;
 	    this.response = response;
@@ -38,6 +39,7 @@ public class HomeController extends HttpServlet {
 	    System.out.println(session.getAttribute("myOrders"));
     }
 
+	@SuppressWarnings("unchecked")
 	public void index() throws ServletException, IOException {
 		products = ProductDAO.last(8);
 		request.setAttribute("products", products);
