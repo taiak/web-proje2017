@@ -35,7 +35,7 @@
 		      	</div>
 			</div>
 			<div class="col-3">
-				<img src="https://www.iconspng.com/uploads/abstract-user-icon-3/abstract-user-icon-3.png" height="300px" width="300px"/>
+				<img src="images/avatar.png" height="300px" width="300px"/>
 				<h2>E-Posta: ${user.email}</h2>
 				<h3>Üyelik Numarası: ${user.id}</h3>			
 			</div>
